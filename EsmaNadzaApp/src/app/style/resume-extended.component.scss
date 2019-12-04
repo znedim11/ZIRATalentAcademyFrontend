@@ -1,0 +1,195 @@
+.resumeextend {
+  padding-top: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.extended {
+  padding-bottom: 15px;
+}
+
+.details{
+  font-size: 20px;
+  padding-top: 10px;
+  text-align: justify;
+}
+
+.l{
+  padding-left: 20px;
+}
+.shortD{
+  font-size: 18px;
+  font-weight: bold;
+  
+}
+.titleextended {
+  display: flex;
+  align-items: center;
+}
+.caption {
+  color: $maintextcolor;
+  word-wrap: break-word;
+  display: flex;
+  text-align: center;
+  font-size: 32px;
+}
+.positive {
+  display: flex;
+  justify-content: center;
+  .images {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+
+  }
+  img {
+    width: 491px;
+    height: 337px;
+    margin-top: 25px;
+  }
+  .navigationI {
+    margin-top: 200px;
+    justify-content: space-between;
+
+    a {
+      color: $maintextcolor;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+.expand {
+  width: 100%;
+}
+.wrapper2resumeextended {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.contreadmore {
+  flex-direction: column;
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid $maintextcolor;
+}
+
+.options {
+  
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.l{
+  padding-left: 20px;
+}
+
+.next,
+.previous {
+  color: $maintextcolor;
+  text-decoration: underline;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.negative{
+  display: none;
+}
+
+@media only screen and (max-width: 840px) {
+  .holderextend {
+    flex-direction: column;
+    align-items: center;
+  }
+  .positive {
+    display: flex;
+    justify-content: center;
+    .images {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    img {
+      width: 400px;
+      height: 258px;
+      margin-top: 25px;
+    }
+    .navigationI {
+      margin-top: 145px;
+      justify-content: space-between;
+  
+      a {
+        color:$maintextcolor;
+        font-size: 25px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+  .resumeextend{
+    width:100%;
+    .caption{ 
+      padding-left: 15px;
+    }
+    .details{ 
+      padding-left: 15px;
+      padding-right: 20px;
+  }
+}
+}
+@media only screen and (max-width: 675px) {
+  .holderextend {
+    flex-direction: column;
+    align-items: center;
+  }
+  .positive {
+    display: flex;
+    justify-content: center;
+    .images {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    img {
+      width: 332px;
+      height: 235px;
+      margin-top: 15px;
+    }
+    .navigationI {
+      margin-top: 130px;
+      justify-content: space-between;
+  
+      a {
+        color: $maintextcolor;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+  .resumeextend{
+    width:100%;
+    .caption{ 
+      padding-left: 15px;
+    }
+    .details{ 
+      padding-left: 15px;
+      padding-right: 20px;
+a:hover{
+  color: $footerbackground;
+}
+    }
+  }
+}
+@media only screen and (max-width: 860px) {
+  .holder {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .extended{
+    display: flex;
+  justify-content: center;
+  }
+}

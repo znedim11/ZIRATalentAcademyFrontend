@@ -1,0 +1,34 @@
+<body class="page " *ngIf="resume">
+  <div class="main" >
+    <h1 class="maintitle">{{ maintitle | translate }}</h1>
+    <button  (click)="export2PDF()" class="export">{{ buttonLabel | translate }}</button>
+    <div class="cont" *ngFor="let item of resume">
+      <div class="wrapper1">
+        <div class="title">
+          <h1 *ngIf="lang" [ngClass]="{
+            changefontsection: lang == 'de' || lang=='en' ,
+            section: lang=='bs'
+
+          }">{{ item.title | translate }}</h1>
+        </div>
+      </div>
+      <div class="wrapper2">
+        <div class="textresume" *ngFor="let child of item.children">
+          <h2 class="subtitle">{{ child.name }}</h2>
+          <p>{{ child.subject }}</p>
+          <p>{{ child.shortDescription }}</p>
+          <div
+            routerLink="details"
+            (click)="selected(child);"
+            class="readmore"
+          >
+            {{ readmoreTitle | translate }}>>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div></div>
+  </div>
+</body>
+<router-outlet></router-outlet>

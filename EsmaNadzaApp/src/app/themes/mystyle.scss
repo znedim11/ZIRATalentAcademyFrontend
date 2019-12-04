@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Vollkorn&display=swap');
+ //Za user stranicu
+   
+
+    //tekst
+    $namefont: 43px;
+    $subtitlefont: 24px;
+    $paragraphfont: 12px;
+    $textcolor1: black;
+    $textcolor2: white; 
+    $textcolor3: rgb(232,53, 86);
+    $textcolor4: #61D0D4;
+    $textcolor5: rgb(232,53, 86);
+    $textstyle: 'Vollkorn', serif;
+
+    //slika
+    $border-radius: 100%;
+    $shadow1: black;
+    $shadow2: white;
+    $picture-size: 50%;
+    
+    //Za CV stranicu
+
+    $footerbackground: rgb(232,53, 86);
+    $mainbackground: rgb(234, 229, 229); 
+    $maintextcolor: rgb( 77, 77, 77);
+    $footertextcolor: white;
+
+    //lista
+    $activecolor: #61D0D4;
+
+    //da glavni blok bude centriran
+
+    $mainposition: relative;
+    $maindisplay: block;
+    $left: auto;
+    $right: auto;
+
+
+
+

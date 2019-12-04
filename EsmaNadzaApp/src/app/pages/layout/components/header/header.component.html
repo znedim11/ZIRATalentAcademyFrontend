@@ -1,0 +1,55 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="nekidiv" >
+  <div class="pomocni" ></div>
+<div class="head" >
+        
+    <div *ngIf="user" class="mainInformation">
+   <h1 class="ime" ngInit="export(user)">{{user.firstname}} {{user.lastname}}</h1>
+   <h2 >{{user.jobPosition}}</h2>
+</div>
+<div class="meni" [ngClass] = "{active: show}" >
+    <ul>
+      <li
+      (click)="show=false"
+        *ngFor="let item of meni"
+        [routerLink]="[item.url]"
+        (click)="select(item)"
+        [ngClass]="{ 
+          active: selected == item
+         }"
+      >
+        {{ item.title | translate }}
+      </li>
+     <select #l (change)="setLang(l.value)"class="menilang" placeholder="">
+        <option value="" selected disabled hidden>{{choose | translate}}</option>
+      <option (click)="show=false"
+      *ngFor="let type of langopt" [value] = "type.value" class="check">{{type.translate | translate}}</option>
+    </select>
+    <select #s (change)="gettheme(s.value)"class="menilang" placeholder="">
+      <option value="" selected disabled hidden>{{chooset | translate}}</option>
+      <option  (click)="show=false" *ngFor="let theme of themes" [value] = "theme.value" class="check">{{theme.translate | translate}}</option>
+    </select> 
+  
+    </ul>
+   
+  
+  </div>
+
+  <i class="fas fa-bars fa-2x " (click)="show = !show" ></i>
+</div>
+<div class="holderdropdowns"  >
+  <div class="dropdowns">
+  <select #l (change)="setLang(l.value)"class="langmeni" placeholder="">
+    <option value="" selected disabled hidden>{{choose | translate}}</option>
+  <option *ngFor="let type of langopt" [value] = "type.value" class="check">{{type.translate | translate}}</option>
+</select>
+<select #s (change)="gettheme(s.value)"class="langmeni" placeholder="">
+  <option value="" selected disabled hidden>{{chooset | translate}}</option>
+  <option *ngFor="let theme of themes" [value] = "theme.value" class="check">{{theme.translate | translate}}</option>
+</select> 
+</div>  
+</div>
+</div>
+
+
+

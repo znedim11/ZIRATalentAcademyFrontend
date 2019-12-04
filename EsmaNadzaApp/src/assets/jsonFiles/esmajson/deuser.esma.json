@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "code": "esma",
+  "firstname": "Esma",
+  "lastname": "Herenda",
+  "imgUrl": "/assets/esmaslike/esma2.jpg",
+  "email": "ems.herenda@gmail.com",
+  "phoneNumber": "062/095-994",
+  "address": {
+    "street": "Oslobodilaca Sarajeva",
+    "hausNumber": 7
+  },
+  "place": "Dobrinja",
+  "municipality": "Novi Grad Sarajevo",
+  "town": "Sarajevo",
+  "ytLink": "",
+  "igLink": "https://www.instagram.com/esmaherenda/?hl=en",
+  "fbLink": "https://www.facebook.com/daiyuchenai",
+  "linkedLink": "https://ba.linkedin.com/in/esma-herenda-9ab819184",
+  "jobPosition": "JUNIOR DEVELOPER",
+   "myDescription": "Neki opis o meni na njemačkom"
+}

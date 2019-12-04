@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+.header {
+  flex: 1 1 100px;
+  //border-bottom: 2px solid $footerbackground;
+  box-shadow: 0 -5px 10px $maintextcolor;
+  z-index: 2;
+}
+.body {
+  overflow-y: auto;
+  flex: 1 1 100%;
+}
+.footer {
+  display: flex;
+  flex: 1 0 150px;
+  background-color: $footerbackground;
+  position: relative;
+  box-shadow: 0 -1px 5px $maintextcolor;
+}
+
+@media only screen and (max-width: 1089px) {
+  .footer {
+    flex: 1 0 250px;
+  }
+}
