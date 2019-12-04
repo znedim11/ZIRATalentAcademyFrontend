@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "code": "nadza",
+  "firstname": "Nadza",
+  "lastname": "Buhic",
+  "imgUrl": "/assets/nadzaslike/nadza2.jpg.jpg",
+  "email": "buhic_nadza@hotmail.com",
+  "phoneNumber": "062/696-767",
+  "address": {
+    "street": "Bregovi",
+    "hausNumber": 61
+  },
+  "place": "Doglodi",
+  "municipality": "Ilidža",
+  "town": "Sarajevo",
+  "ytLink": "youtubeN",
+  "igLink": "",
+  "fbLink": "",
+  "linkedLink": "linkedinN",
+  "jobPosition": "junior developer nadzy",
+  "myDescription": "Neki opis o meni na engleskom"
+}

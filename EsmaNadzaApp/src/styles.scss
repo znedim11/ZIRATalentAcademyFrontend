@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+.default{
+    @import "./src/app/themes/mystyle.scss";
+     @import "./src/app/style/start.component.scss";
+     @import "./src/app/style/layout.component.scss";
+     @import "./src/app/style/header.component.scss";
+     @import "./src/app/style/footer.component.scss";
+     @import "./src/app/style/home.component.scss";
+     @import "./src/app/style/resume.component.scss";
+     @import "./src/app/style/project.component.scss";
+     @import "./src/app/style/contact.component.scss";
+     @import "./src/app/style/project-extended.component.scss";
+     @import "./src/app/style/resume-extended.component.scss";
+     color: $maintextcolor;
+     background-color: $mainbackground;
+}
+ .dark{
+     @import "./src/app/themes/dark.theme.scss";
+     @import "./src/app/style/start.component.scss";
+     @import "./src/app/style/layout.component.scss";
+     @import "./src/app/style/header.component.scss";
+     @import "./src/app/style/footer.component.scss";
+     @import "./src/app/style/home.component.scss";
+     @import "./src/app/style/resume.component.scss";
+     @import "./src/app/style/project.component.scss";
+     @import "./src/app/style/contact.component.scss";
+     @import "./src/app/style/project-extended.component.scss";
+     @import "./src/app/style/resume-extended.component.scss";
+     color: $maintextcolor;
+     background-color: $mainbackground;
+}
+ .light{
+     @import "./src/app/themes/light.theme.scss";
+     @import "./src/app/style/start.component.scss";
+     @import "./src/app/style/layout.component.scss";
+     @import "./src/app/style/header.component.scss";
+     @import "./src/app/style/footer.component.scss";
+     @import "./src/app/style/home.component.scss";
+     @import "./src/app/style/resume.component.scss";
+     @import "./src/app/style/project.component.scss";
+     @import "./src/app/style/contact.component.scss";
+     @import "./src/app/style/project-extended.component.scss";
+     @import "./src/app/style/resume-extended.component.scss";
+     color: $maintextcolor;
+     background-color: $mainbackground;
+}
+ *{
+     box-sizing: border-box;
+     padding : 0;
+     margin: 0;
+     margin-block-start: 0;
+     margin-block-end: 0;
+     margin-inline-start: 0px;
+     margin-inline-end: 0px;
+     font-family: "Vollkorn", serif;
+}
+ body, html{
+     width: 100%;
+     height: 100%;
+    /*inicijalno se dodaju padding i margine pa ih treba uvijek namjestati*/
+}
+ .page{
+     position: relative;
+     padding-top: 1%;
+     margin-left: auto;
+     margin-right: auto;
+     display: flex;
+     height: 100%;
+     width: 60%;
+}
+ .maintitle{
+     font-size: 80px;
+}
+ .nametitle{
+     font-size: 43px;
+}
+ 

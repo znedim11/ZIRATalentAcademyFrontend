@@ -1,0 +1,14 @@
+[
+  {
+    "name": "6x6 crossbar with priority arbitration",
+    "shortDescription": "Komutatacioni krugovi",
+    "description": "Koriteći programski jezik za opis hardvera VHDL i Altera Quartus cilj projekta je bilo napraviti 6x6 crossbar komutator sa prioritetnom arbitracijom. Drugim riječima, bilo je potrebno napraviti simulaciju sklopa koji ima šest ulaza i šest izlaza, gdje na svaki ulaz dolazi 32-bitna ćelija. Prva tri bita ulaznih signala označavaju prioritete odgovarajućih ulaza, shodno tome, ukoliko su prva tri bita ulaznog signala 001 preusmjeravaju se na prvi izlaz jer je 001 u binarnom zapisu zapravo broj jedan, 010 se preusmjerava na drugi izlaz i analogno sve to 111 što predstavlja presumjerenje na šesti, tj. Posljednji izlaz. Ukoliko su početni biti 111 ili 000 ti se odbacuju, dok se u slučaju da dva ulazna signala imaju ista tri početna ulazna bita uzima onaj koji dolazi sa ulaza koji je prije po redu. Simulacija takvog sklopa se reazovala pomoću 6x1 muxa, 6x6 crossbara i sklopa pod nazivom selector koji vrši provjeru gdje koji signal treba poslati",
+    "images": [""]
+  },
+  {
+    "name": "Simulacija umrežavanja",
+    "shortDescription": "Komunikacijski protokoli i mreže",
+    "description": "puni opis",
+    "images": [""]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "title": "EDUCATION",
+    "children": [
+      {
+        "name": "Faculty of Electrical Engineering, University of Sarajevo",
+        "subject": "",
+        "shortDescription": "2016-2019, Telecommunication",
+        "description": "Full descripton what I've done ",
+        "images": []
+      },
+      {
+        "name": "Third gymnasium, Sarajevo",
+        "subject": "",
+        "shortDescription": "2012-2016",
+        "description": "I attended the Third gymnasium in Sarajevo as a student of the language department. This gave me the opportunity to increase my knowledge of the english and german language, where I also learned some french too.",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "WORK",
+    "children": [
+      {
+        "name": "Zira",
+        "subject": "Junior developer",
+        "shortDescription": "2019.-",
+        "description": "puni opis",
+        "images": []
+      },
+      {
+        "name": "Investment marketing sales",
+        "subject": "Call-agent",
+        "shortDescription": "5.8.2019-30.9.2019",
+        "description": "In order to get some work experience and to improve my communication skills and abilities, I've decided to use my free time and to work as a call-agent. The company coorporates with a german electronic industriy and therefor people who knew german were needed to work as call-agents. Because of my good german knowledge I've got  the job. ",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "SKILLS",
+    "children": [
+      {
+        "name": "Hard skills",
+        "subject": "",
+        "shortDescription": "kratak opis",
+        "description": "puni opis",
+        "images": [],
+        "skills": ["VHDL", "Matlab", "C", "C++"]
+      },
+      {
+        "name": "Soft skills",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": ["Time management", "Organisation", "Presentation skills"]
+      }
+    ]
+  },
+  {
+    "title": "LANGUAGES",
+    "children": [
+      {
+        "name": "Languages",
+        "subject": "junior developer nadzy",
+        "shortDescription": "kratak opis",
+        "description": "puni opis",
+        "images": [],
+        "skills": ["Bosnian/Serbian/Croatian", "German (C1)", "English"]
+      }
+    ]
+  },
+  {
+    "title": "HOBBIES",
+    "children": [
+      {
+        "name": "Painting",
+        "subject": "hobby",
+        "shortDescription": "kratak opis hobby",
+        "description": "puni opis hobby",
+        "images": [],
+        "skills": []
+      },
+
+      {
+        "name": "Writing stories",
+        "subject": "hobby",
+        "shortDescription": "kratak opis hobby",
+        "description": "puni opis hobby",
+        "images": [],
+        "skills": []
+      },
+      {
+        "name": "Reading",
+        "subject": "hobby",
+        "shortDescription": "kratak opis hobby",
+        "description": "puni opis hobby",
+        "images": [],
+        "skills": []
+      }
+    ]
+  }
+]

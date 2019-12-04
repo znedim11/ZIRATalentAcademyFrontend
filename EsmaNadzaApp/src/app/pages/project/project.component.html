@@ -1,0 +1,30 @@
+<div class="page pr">
+  <div class="projects">
+    <h1 class="maintitle">{{ maintitle | translate}}</h1>
+    <div class=" project" *ngFor="let project of projects">
+      <div class="holder">
+        <div class="mainPr">
+          <img src="{{ project.mainImage }}" />
+        </div>
+      </div>
+      <div class="text">
+        <div class="up">
+          <div class="proj">
+            <div class="sectionname">{{ project.name }}</div>
+          </div>
+        </div>
+        <div>
+          <div class="down">
+            <div>{{ project.shortDescription }}</div>
+
+            <div>
+              <a routerLink="readmore" (click)="selected(project)"
+                >{{ readmoreTitle | translate }}>></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+[
+  {
+    "title": "EDUCATION",
+    "children": [
+      {
+        "name": "Elektrotehnicki fakultet, Sarajevo",
+        "subject": "",
+        "shortDescription": "2016-2019, Racunarstvo i informatika",
+        "description": "U skladu sa interesima koje sam u srednjoj školi pokazala za matematiku, fiziku i informatiku, svoje školovanje sam nastavila na Elektrotehničkom fakultetu u Sarajevu. Tokom tri zahtjevne godine, stekla sam znanje o različitim programskih jezicima, poboljšala vještine rada sa ljudima, te razvila i  učestvovala u razvoju raznih projekata. ",
+        "images": []
+      },
+      {
+        "name": "Gimnazija Dobrinja",
+        "subject": "",
+        "shortDescription": "2012-2016, Matematicko-informaticki smjer",
+        "description": "Nakon završetka osnovne škole, odlučila sam svoje školovanje nastaviti u Gimnaziji Dobrinja. Tokom četiri godine pohađanja ove škole, učestvovala sam na takmičenjima iz oblasti matematike i fizike, te bila aktivna u raznim vannastavnim aktivnostima. Maturirala sam sa najvišim prosjekom, kao ponos generacije Gimnazije Dobrinja.",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "WORK",
+    "children": [
+      {
+        "name": "ZIRA",
+        "subject": "Junior developer",
+        "shortDescription": "Oktobar 2019 - Trenutno",
+        "description": "Trenuntno radim kao junior developer u firmi ZIRA, što je ujedno i moje prvo radno iskustvo. ZIRA mi je pružila izvanrednu priliku da proširim svoja znanja i steknem nova prijateljstva tokom rada na raznim projektima.",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "SKILLS",
+    "children": [
+      {
+        "name": "Tehnicke vještine",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": [
+          "C",
+          "C++",
+          "C#",
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Node.js",
+          "ASP.NET",
+          "SQL",
+          "Blender 3D Modeling",
+          "Microsoft Office"
+        ]
+      },
+      {
+        "name": "Socijalne vjestine",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": [
+          "Aktivno slušanje",
+          "Ustrajanost",
+          "Timski rad",
+          "Fleksibilnost",
+          "Ekstrovertnost",
+          "Emocionalna inteligencija",
+          "Komunikativnost",
+          "Kreativnost"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "LANGUAGES",
+    "children": [
+      {
+        "name": "Jezici",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": ["Bosanski", "Engleski"]
+      }
+    ]
+  },
+  {
+    "title": "HOBBIES",
+    "children": [
+      {
+        "name": "Pisanje",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Odrastajući kao veselo dijete sa raznolikom maštom, uvijek bih smišljala razne priče i bajke, te ih u svojoj mašti proživljavala. Vremenom sam odlučila zapisati svoje misli i ideje, te tako otkrila jos jednu strast i interesovanje koje je zaokupiralo moju pažnju. Neki od mojih radova su i objavljeni sto mi je bio dodatni podsticaj da njegujem i radim na razvijanju svojih vještina pisanja.",
+        "images": [],
+        "skills": []
+      },
+      {
+        "name": "Citanje",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Od prvih prvih pročitanih knjiga, počela sam uživati u pričama koje svaka knjiga krije u sebi. Volim čitati razne žanrove, a neke od najdražih knjiga su mi   “40 pravila ljubavi“ i“Alhemičar“.",
+        "images": ["assets/esmaslike/books/TheAlchemistCover-5456318ceb53461b9bb6081ed8b99252.jpg","assets/esmaslike/books/WIM_QUOTES_the_alchemist_paulo_coelho.png","assets/esmaslike/books/91sDeQgpL3L.jpg","assets/esmaslike/books/131a1ac2e57afd76f435114665610662.jpg"],
+        "skills": []
+      },
+      {
+        "name": "Odbojka",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Prije nego što sam otkrila ljubav prema programiranju, odbojka je bila glavni fokus mojih interesovanja. Provela sam 8 godina posvećenog treniranja, učestvovala na raznim takmičenjima i turnirima, na kojim je moj tim ostvario izvanredne rezultate. Pored zajedničkog uspjeha koji smo ostvarili, ostvarila sam i induvidualni uspjeh osvojivši nagradu za najboljeg srednjeg blokera na Međunarodnom turniru održanom u Ljubljani, 2013. godine.",
+        "images": ["assets/esmaslike/odbojka/998388_503537643045661_129933875_n.jpg","assets/esmaslike/odbojka/10907091_897521386933461_1562563485_o.jpg","assets/esmaslike/odbojka/10509638_688196667913090_8881117907419714146_n.jpg"],
+        "skills": []
+      },
+      {
+        "name": "Psihologija",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Psihologija je za mene oduvijek bila fascinantna nauka, obzirom da su u današnjem društvu mentalne bolesti česta pojava, koja često prođe neopaženo. Anksioznost i depresija su samo jedne od kompleksnih  metalnih bolesti koje je teško primjetiti i pravilno dijagnosticirati, što čini zamršeni ljudski um jednim od mojih glavnih interesovanja.",
+        "images": [],
+        "skills": []
+      },
+      {
+        "name": "Putovanja",
+        "subject": "",
+        "shortDescription": "",
+        "description":"Putovnja su vid umjetnosti koju želim maksimalno iskusiti. Obzirom na moj avanturistički duh,  posjete raznim gradovima su oduvijek bile na mojoj listi želja. Posjetila sam razne zemlje Evrope, kao što su Hrvatska, Francuska, Italija, Slovenija, Turska itd.",
+        "images": ["assets/esmaslike/travelling/Screenshot_2.jpg","assets/esmaslike/travelling/71771500_973321926349616_2192173744787554304_n.jpg","assets/esmaslike/travelling/20190808_154040.jpg","assets/esmaslike/travelling/Screenshot_1.jpg"],
+        "skills": []
+      }
+    ]
+  }
+]

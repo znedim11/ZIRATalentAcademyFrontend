@@ -1,0 +1,93 @@
+.personcontainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  align-items: stretch;
+}
+
+.odd,
+.notodd {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+.odd {
+  background-image: url("/assets/esmaslike/esmabackground.jpg");
+}
+
+.notodd {
+  background-image: url("/assets/nadzaslike/nadzabackground.jpg");
+}
+
+.personwrapper {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 0 30px #4f5b6e;
+}
+
+.boxshadow1 {
+  box-shadow: 0 0 30px #4f5b6e;
+}
+
+.boxshadow2 {
+  box-shadow: 0 0 30px #6ea5b8;
+}
+
+.person {
+  display: flex;
+  border-radius: $border-radius;
+  justify-content: center;
+}
+
+.secondpersonwrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  outline: none;
+}
+
+.imestart {
+  padding-top: 10px;
+}
+
+.imestart,
+.profilePicstart {
+  cursor: pointer;
+}
+
+.profilePicstart {
+  float: left;
+  width: 385px;
+  height: 380px;
+  border-radius: 50%;
+  background-color: pink;
+  overflow: hidden;
+  img {
+    width: 100%;
+    object-fit: cover;
+    outline: none;
+  }
+}
+
+.profilePicstart :hover {
+  transform: scale(1.1);
+}
+
+.imestart :hover {
+  color: gray;
+}
+
+.namediv1 {
+  color: #4f5b6e;
+}
+
+.namediv2 {
+  color: white;
+}

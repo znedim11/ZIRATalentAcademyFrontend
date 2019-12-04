@@ -1,0 +1,31 @@
+[
+  {
+    "name": "C# Aplikacija",
+    "shortDescription": "",
+    "description": "Ovaj projekat predstavlja aplikaciju koja služi za olakšanu evidenciju pacijenata, reguliše duge redove čekanja, kao i uvid u zdravstvenu historiju pacijenta. Sve ovo čini sistem zdravstva mnogo organizovanijim, a pacijentima se pružaju bolje usluge liječenja. Prilikom razvoja projekta korišten je C#.",
+    "mainImage": "https://static.techspot.com/images2/news/bigimage/2019/09/2019-09-16-image-24.jpg",
+    "images": []
+  },
+
+  {
+    "name": "Web Aplikacija",
+    "shortDescription": "",
+    "description": "Svi znamo koliko zna biti naporno voditi evidenciju o studentima, projektima, prisustvu, zadaćama i svemu što spada u informacioni sistem jednog fakulteta. Ovaj projekat olakšava upravljanje evidencijom, omogućuje bolji pregled studenata i njihovog rada tokom akademske godine.Prilikom razvoja projekta korišten je Html, CSS, javaScrpt, node.js",
+    "mainImage": "https://rexzetsolutions.com/wp-content/uploads/2019/03/webapplication.png",
+    "images": []
+  },
+  {
+    "name": "ASP.NET",
+    "shortDescription": "",
+    "description": "U ovom projektu razvijali smo rješenje za online distribuciju autodijelova. Sistem ima namjenu da olakša poslovanje trgovine autodijelovima prilikom maloprodaje, veleprodaje, nabavke proizvoda kao i evidenciju o artiklima u skladištu i pružanja usluga servisa. Prilikom razvoja projekta korišten je C#, Html, CSS i ASP.NET.",
+    "mainImage": "https://cdn4.iconfinder.com/data/icons/logos-3/504/ASP.Net-512.png",
+    "images": ["assets/esmaslike/asp.net/IMG-bb980fe8edef78957124f2dd6b96bd73-V.jpg","assets/esmaslike/asp.net/IMG-84147aad862315363342a289254142b6-V.jpg","assets/esmaslike/asp.net/IMG-54b1a68d3be32f35097be26705f434ba-V.jpg","assets/esmaslike/asp.net/IMG-852b6df8ea712579d7e92f9455ba2e05-V.jpg","assets/esmaslike/asp.net/IMG-5d482b5bb07c7b59daee19794ceb6437-V.jpg"]
+  },
+  {
+    "name": "Blender",
+    "shortDescription": "",
+    "description": "Za potrebe igrice koju smo razvijali u Unity-u, svaki član tima morao je dzajnirati prostoriju  koja je naknadno korištena kao jedna od prostorija u igrici. Radi realistične predstave prostorije, dizajn smo kreirali koristeći blender",
+    "mainImage": "assets/esmaslike/blender/kisspng-blender-3d-computer-graphics-rendering-autodesk-ma-blender-5ac04380a2f8f1.0796909215225496326675.png",
+    "images": ["assets/esmaslike/blender/74214405_688282508362720_7129532749425147904_n.png"]
+  }
+]

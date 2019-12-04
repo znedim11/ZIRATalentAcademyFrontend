@@ -1,0 +1,112 @@
+[
+  {
+    "title": "EDUCATION",
+    "children": [
+      {
+        "name": "Elektrotehnicki fakultet Univerziteta u Sarajevu",
+        "subject": "",
+        "shortDescription": "2016-2019, Telecommunication",
+        "description": "Bachelor inženjer elektrotehnike na odjseku za telekomuniacije sam od 17. jula 2019. godine. Iako sam u gimnaziji bila učenica jezičkog smjera, interesovanje prema matematici i današnjoj tehnologiji je rezultiralo upisom na Elektrotehnički fakultet. Tokom studija sam pokazala sistematično i organiziranost u radi i rješavanju postavljenih zadataka, te zahvaljujući njegovom sistemu, studenti su uvijek bili upućeni u aktuelna dešavanja što se tiče tehnologije u svijetu. ",
+        "images": []
+      },
+      {
+        "name": "Treca gimnazija, Sarajevo",
+        "subject": "",
+        "shortDescription": "2012-2016",
+        "description": "Koa učenice jezičkog smjera DSD programa u trećoj gimnaziji, imala sam priliku pohađati ispit njemačkog jezika priznate organizacije bla bla bla, prema čemu imam C1 nivo poznavanja njemačkog jezika. Na ovaj način sam unaprijedila svoje znanje što se tiče njemačkog, a i engleskog jezika, te sam dobila priliku i naučiti nešto francuskog. ",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "WORK",
+    "children": [
+      {
+        "name": "Zira",
+        "subject": "Junior developer",
+        "shortDescription": "2019.-",
+        "description": "Interesovanje prema programiranju i današnjoj tehnologiji je neizbježno dovelo da se prijavim za poziciju developera. Smatram da sve moje osobine mogu doći do izražaja na ovakovj poziciji, od kreativnosti, detaljnog analiziranju, pa do problemskog razmišljanja i organizacije što je jako korisno u ovoj sferi. Jedno jako lijepo iskustvo na ovom polju koje traje još uvijek.",
+        "images": []
+      },
+      {
+        "name": "Investment marketing sales",
+        "subject": "Call-agent",
+        "shortDescription": "5.8.2019-30.9.2019",
+        "description": "U cilju da što prije zaronim u poslovnim svijet i da skupim što više iskustva na raznim sferama koji nam nudi poslovni svijet, te u nadi da ću poboljišati svoje komunikacijske sposobnosti i moći primijeniti njemački jezik, prijavila sam se za poziciju call-agenta u IMSu koja radi za njemačku elektroprivredu EON. Shodno tome sam uspjela razbiti strah o telefoniranju i shodno tome sam poboljšala svoj njemački jezik. Bilo je to divno iskustvo za prvi posao.",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "SKILLS",
+    "children": [
+      {
+        "name": "Hard skills",
+        "subject": "",
+        "shortDescription": "kratak opis",
+        "description": "puni opis",
+        "images": [],
+        "skills": ["VHDL", "Matlab", "C", "C++", "Ms Office", "Html", "CSS", "PCAAD- Antenna Design Associates", "Ansoft HFSS", "Quartus"]
+      },
+      {
+        "name": "Soft skills",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": ["Time management", "Organisation", "Presentation skills", "Nonverbal communication", "Body language", "Presentation", "Writing skills", "Adaptability", "Creativity", "Desire to learn", "Patience", "Teamwork"]
+      }
+    ]
+  },
+  {
+    "title": "LANGUAGES",
+    "children": [
+      {
+        "name": "Languages",
+        "subject": "junior developer nadzy",
+        "shortDescription": "kratak opis",
+        "description": "puni opis",
+        "images": [],
+        "skills": ["Bosnian/Serbian/Croatian", "German (C1)", "English"]
+      }
+    ]
+  },
+  {
+    "title": "HOBBIES",
+    "children": [
+      {
+        "name": "Painting",
+        "subject": "hobby",
+        "shortDescription": "kratak opis hobby",
+        "description": "puni opis hobby",
+        "images": [],
+        "skills": []
+      },
+
+      {
+        "name": "Writing stories",
+        "subject": "hobby",
+        "shortDescription": "kratak opis hobby",
+        "description": "puni opis hobby",
+        "images": [],
+        "skills": []
+      },
+      {
+        "name": "Reading",
+        "subject": "hobby",
+        "shortDescription": "kratak opis hobby",
+        "description": "puni opis hobby",
+        "images": [],
+        "skills": []
+      },
+      {
+        "name": "Drawing",
+        "subject": "hobby",
+        "shortDescription": "kratak opis hobby",
+        "description": "puni opis hobby",
+        "images": [],
+        "skills": []
+      }
+    ]
+  }
+]

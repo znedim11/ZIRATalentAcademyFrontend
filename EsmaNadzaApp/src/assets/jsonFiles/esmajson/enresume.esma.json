@@ -1,0 +1,133 @@
+[
+  {
+    "title": "EDUCATION",
+    "children": [
+      {
+        "name": "Faculty of Electrical Engineering, University of Sarajevo",
+        "subject": "",
+        "shortDescription": "2016-2019, Computer Science and Informatics",
+        "description": "Following my high school graduation, in compliance with the interest I showed for math, physics and information technology, I pursued a degree at Faculty of Electrical Engineering, University of Sarajevo. Through a rigorous three years of studies, I acquired knowledge in multiple programming languages, refined my soft and hard skills, took part and participated in developing different projects and applications.",
+        "images": []
+      },
+      {
+        "name": "Gymnasium Dobrinja",
+        "subject": "",
+        "shortDescription": "2012-2016, Matematics and Informatics",
+        "description": "After I graduated  my primary school, I decided to continue my education at Gymnasium Dobrinja. Through four years I managed to achieve great results, I participated in math and physic competitions and was active in different extracurricural activities. I graduated highschool at the top of my class, earning the highest GPA.",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "WORK",
+    "children": [
+      {
+        "name": "ZIRA",
+        "subject": "Junior developer",
+        "shortDescription": "Oct 2019 - Present",
+        "description": "Currently, I am employed as a developer at ZIRA. This is quite exciting as it is my first professional experience in my line of work. ZIRA has given me the opportunity to broaden my knowledge and establish life long bonds with the bright individuals I have had the pleasure of meeting/collaborating with as we use our teamwork skills to tackle intricate projects. ",
+        "images": []
+      }
+    ]
+  },
+  {
+    "title": "SKILLS",
+    "children": [
+      {
+        "name": "Hard skills",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": [
+          "C",
+          "C++",
+          "C#",
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Node.js",
+          "ASP.NET",
+          "SQL",
+          "Blender 3D Modeling",
+          "Microsoft Office"
+        ]
+      },
+      {
+        "name": "Soft skills",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": [
+          "Active listening",
+          "Perseverance",
+          "Teamwork",
+          "Flexibility",
+          "Extroversion",
+          "Emotional Intelligence",
+          "Written and Oral communication",
+          "Creativity and Problem solving"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "LANGUAGES",
+    "children": [
+      {
+        "name": "Languages",
+        "subject": "",
+        "shortDescription": "",
+        "description": "",
+        "images": [],
+        "skills": ["Bosnian", "English"]
+      }
+    ]
+  },
+  {
+    "title": "HOBBIES",
+    "children": [
+      {
+        "name": "Writing",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Growing up with an imagination as vivid as mine, one can only assume the stories and dreams I would come up with. I have spent a majority of my childhood day dreaming, but this is due to the opinion that I possess a creative mind unlike any other. Through time as I became an avid writer, I would note these ideas onto paper and watched firsthand as mere thoughts grew to beautiful constructs and ideas.",
+        "images": [],
+        "skills": []
+      },
+      {
+        "name": "Reading",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Since the time when I had first learned to read, books were an obsession second to none. There are many genres of literature that catch my eye but my favorites have to be “The forty rules of love” and “The Alchemist”.",
+        "images": ["assets/esmaslike/books/TheAlchemistCover-5456318ceb53461b9bb6081ed8b99252.jpg","assets/esmaslike/books/WIM_QUOTES_the_alchemist_paulo_coelho.png","assets/esmaslike/books/91sDeQgpL3L.jpg","assets/esmaslike/books/131a1ac2e57afd76f435114665610662.jpg"],
+        "skills": []
+      },
+      {
+        "name": "Volleyball",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Before I discovered my love for coding, I was heavily versed in the sport of volleyball. I spent 8 years religiously training for tournaments and competitions where I exemplified excellent results. Aside from the success we experienced as a team, I managed to showcase my individual talent by winning an award for best mid-blocker at the 2013 International Volleyball Tournament held in Ljubljana.",
+        "images": ["assets/esmaslike/odbojka/998388_503537643045661_129933875_n.jpg","assets/esmaslike/odbojka/10907091_897521386933461_1562563485_o.jpg","assets/esmaslike/odbojka/10509638_688196667913090_8881117907419714146_n.jpg"],
+        "skills": []
+      },
+      {
+        "name": "Psychology",
+        "subject": "",
+        "shortDescription": "",
+        "description": "Psychology was always a very fascinating field to me because of friend groups I constantly surround myself in. Many of my fellow peers suffer from mental illnesses that mostly go unnoticed. Disorders such as anxiety and depression are complex, often times difficult to diagnose and identify, which makes the human brain an intricate and peculiar organ that captures my interest the most.",
+        "images": [],
+        "skills": []
+      },
+      {
+        "name": "Travelling",
+        "subject": "",
+        "shortDescription": "",
+        "description":"Travelling is a sort of art that I have a deep desire in knowing. Being an individual full of adventure and relentless energy, visiting different places and cultures naturally attracts the kind of personality I possess. I have visited quite a lot of countries in Europe such as Croatia, France, Italy, Slovenia, and Turkey to name a few.",
+        "images": ["assets/esmaslike/travelling/Screenshot_2.jpg","assets/esmaslike/travelling/71771500_973321926349616_2192173744787554304_n.jpg","assets/esmaslike/travelling/20190808_154040.jpg","assets/esmaslike/travelling/Screenshot_1.jpg"],
+        "skills": []
+      }
+    ]
+  }
+]
