@@ -1,0 +1,30 @@
+{
+	"payload": {
+		"label": "HUB",
+		"type": "MODULE",
+		"children": [
+			{
+				"code": "HUB_RELEASES_STATIC",
+				"label": "Releases",
+				"url": "release",
+				"icon": "fa icon",
+				"attributes": {},
+				"description": "Releases"
+			},
+			{
+				"code": "HUB_WIKI_STATIC",
+				"label": "Wiki",
+				"icon": "fa icon",
+				"attributes": {},
+				"children": [
+					{
+						"code": "HUB_GAMES_STATIC",
+						"label": "Games",
+						"url": "game/search",
+						"attributes": {}
+					}
+				]
+			}
+		]
+	}
+}

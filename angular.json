@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "EsmaNadzaApp": {
+    "app-name": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,20 +17,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/EsmaNadzaApp",
+            "outputPath": "dist/app-name",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-              },
               "src/styles.scss"
             ],
             "scripts": []
@@ -48,7 +45,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -70,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "EsmaNadzaApp:build"
+            "browserTarget": "app-name:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "EsmaNadzaApp:build:production"
+              "browserTarget": "app-name:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "EsmaNadzaApp:build"
+            "browserTarget": "app-name:build"
           }
         },
         "test": {
@@ -96,9 +92,6 @@
               "src/assets"
             ],
             "styles": [
-              {
-                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-              },
               "src/styles.scss"
             ],
             "scripts": []
@@ -121,16 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "EsmaNadzaApp:serve"
+            "devServerTarget": "app-name:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "EsmaNadzaApp:serve:production"
+              "devServerTarget": "app-name:serve:production"
             }
           }
         }
       }
-    }
-  },
-  "defaultProject": "EsmaNadzaApp"
+    }},
+  "defaultProject": "app-name"
 }
