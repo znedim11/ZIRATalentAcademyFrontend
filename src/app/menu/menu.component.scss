@@ -1,0 +1,52 @@
+:host {
+    width: 240px;
+}
+
+body {
+    padding:0;
+    margin:0;
+}
+
+#toolbarMenu {
+    cursor: pointer;
+}
+
+#sidenav {
+    display: inline-block;
+}
+
+.menu-open{
+    width: 240px;
+}
+
+.menu-close{
+    width: 40px;
+}
+
+.mat-list-base {
+    padding-top: 0 !important;
+}
+
+::ng-deep .mat-list-item-content {
+    padding: 0 !important;
+}    
+
+#sidenav .menu-item {
+    width: 100%;
+    border-radius: 0;
+    text-align: left;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+#sidenav .menu-item:hover {
+    background-color: #eee;
+}
+
+#sidenav .menu-item mat-icon {
+    margin-left: 12px;
+    margin-right: 13px;
+}
+

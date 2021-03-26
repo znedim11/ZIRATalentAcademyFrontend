@@ -1,0 +1,24 @@
+
+<div id="sidenav" [class.menu-open]="isMenuOpened" [class.menu-close]="!isMenuOpened">
+  <mat-list-item>
+    <button class="menu-item" (click)="toggleSidenav()" mat-flat-button>
+      <mat-icon id="toolbarMenu">
+        subject
+      </mat-icon>
+      ZIRA HUB
+    </button>
+  </mat-list-item>
+
+  <mat-list id="menus">
+    <ng-container *ngFor="let menuItem of menuList">
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button>
+          <mat-icon>
+            {{menuItem.icon}}
+          </mat-icon>
+          {{menuItem.label}}
+        </button>
+      </mat-list-item>
+    </ng-container>
+  </mat-list>
+</div>   
