@@ -7,16 +7,5 @@ import data from './../../assets/config/menu.json'
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  isMenuOpened = true
   menuList = data.payload.children
-
-  toggleSidenav() {
-    if(this.isMenuOpened){
-      this.isMenuOpened = false
-    }else{
-      this.isMenuOpened = true
-    }
-
-    console.log(this.isMenuOpened)
-  }
 }

@@ -5,11 +5,13 @@ import { MaterialModule } from './material.module'
 
 import { MenuComponent } from './menu/menu.component'
 import { AppComponent } from './app.component';
+import { MenuItemComponent } from './menu/menu-item/menu-item.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,
