@@ -24,6 +24,12 @@
 						"attributes": {}
 					},
 					{
+						"code": "HUB_FRANCHISES_STATIC",
+						"label": "Franchises",
+						"url": "franchise",
+						"attributes": {}
+					},
+					{
 						"code": "HUB_PLATFORMS_STATIC",
 						"label": "Platforms",
 						"url": "platform/search",

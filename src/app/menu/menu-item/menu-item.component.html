@@ -1,6 +1,6 @@
 <mat-list-item 
   (click)="onItemClicked()">
-    <div class="menu-item" mat-flat-button>
+    <div class="menu-item" [routerLink]="data.url" mat-flat-button>
       <div>
         <mat-icon id="toolbarMenu">
           {{data.icon}}
@@ -9,7 +9,6 @@
         <ng-container *ngFor="let index of [].constructor(depth)">
           &nbsp;
         </ng-container>
-
         {{data.label}}
       </div>
       

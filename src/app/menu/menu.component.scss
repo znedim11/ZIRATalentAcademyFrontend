@@ -11,6 +11,8 @@ body {
 
 #sidenav {
     position: fixed;
+    left: 0;
+    top: 0;
     width: 64px;
     transition: 1s;
     background-image: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8)),url('./../../assets/images/back.png');
@@ -29,6 +31,3 @@ body {
 ::ng-deep .mat-list-item-content {
     padding: 0 !important;
 }    
-
-
-
