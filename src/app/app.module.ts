@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component'
 import { AgGridModule } from 'ag-grid-angular'
 import { FranchisesListComponent } from './franchise/franchises-list/franchises-list.component'
 import { FranchiseFormComponent } from './franchise/franchise-form/franchise-form.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FranchiseService } from './franchise/shared/franchise.service'
 
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import { FranchiseFormComponent } from './franchise/franchise-form/franchise-for
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [FranchiseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FranchiseService } from '../shared/franchise.service';
 
 @Component({
   selector: 'franchises-list',
   templateUrl: './franchises-list.component.html',
   styleUrls: ['./franchises-list.component.scss']
 })
-export class FranchisesListComponent {
+export class FranchisesListComponent implements OnInit {
 
     private gridApi;
-
-    onGridReady(params) {
-        this.gridApi = params.api;
-        this.sizeToFit();
-    }
-
-    sizeToFit(){
-        this.gridApi.sizeColumnsToFit();
-    }
+    rowData;
 
     defaultColDef = { 
         resizable: true,
@@ -33,8 +26,20 @@ export class FranchisesListComponent {
         { headerName:"Aliases", field:"aliases" }
     ]
 
-    rowData = [
-        {name:"Super Mario", created: "22-01-2021", createdBy:"emsta", firstAppearance:"01-02-1981 (Donkey Kong)", outlineText:"It's a me!", games:"Donkey Kong,SMB,...", aliases:"Mario,SMB"},
-        {name:"Metroid", created: "22-01-2021", createdBy:"emsta", firstAppearance:"01-06-1984 (Metroid)", outlineText:"Samus Aran shoots thigs", games:"Metroid,Metroid 2,...", aliases:"Metroidvania"},
-    ]
+    constructor(private franchiseService: FranchiseService){
+
+    }
+
+    ngOnInit(){
+        this.rowData = this.franchiseService.getFranchises();
+    }
+
+    onGridReady(params) {
+        this.gridApi = params.api;
+        this.sizeToFit();
+    }
+
+    sizeToFit(){
+        this.gridApi.sizeColumnsToFit();
+    }    
 }

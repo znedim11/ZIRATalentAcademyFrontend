@@ -4,6 +4,15 @@
 @import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 
+.ag-theme-alpine {
+    border: 1px solid #95a9d1;
+    border-radius: 5px;
+
+    .ag-header-cell {
+        color: #1a3469
+    }
+}
+
 html {
     height: 100%;
 }
