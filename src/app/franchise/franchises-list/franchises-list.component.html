@@ -6,7 +6,7 @@
         style="width: 90%; height: 300px"
         class="ag-theme-alpine"
         [defaultColDef]="defaultColDef"
-        [rowData]="rowData"
+        [rowData]="rowData | async"
         [columnDefs]="columnDefs"
         (gridReady)="onGridReady($event)">
     </ag-grid-angular>

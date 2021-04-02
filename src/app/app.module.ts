@@ -14,6 +14,7 @@ import { FranchisesListComponent } from './franchise/franchises-list/franchises-
 import { FranchiseFormComponent } from './franchise/franchise-form/franchise-form.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FranchiseService } from './franchise/shared/franchise.service'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FranchiseService } from './franchise/shared/franchise.service'
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    HttpClientModule
   ],
   providers: [FranchiseService],
   bootstrap: [AppComponent]

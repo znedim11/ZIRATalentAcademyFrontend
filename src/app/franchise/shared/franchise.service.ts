@@ -1,17 +1,39 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core'
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators'
+
+    
+let FRANCHISES;
 
 @Injectable()
 export class FranchiseService {
+
+    constructor(private httpClient: HttpClient){
+
+    }
+
     getFranchises() {
+
+        this.httpClient.get('http://localhost:8000/vigor/franchise/find')
+            .pipe()
+            .subscribe(
+                result => {
+                    FRANCHISES = result["payload"];
+                }
+            );
+
         return FRANCHISES;
     }
 
     addOrEditFranchise(franchise){
         console.log(franchise);
     }
-}
 
-const FRANCHISES = [
-    {name:"Super Mario", created: "22-01-2021", createdBy:"emsta", firstAppearance:"01-02-1981 (Donkey Kong)", outlineText:"It's a me!", games:"Donkey Kong,SMB,...", aliases:"Mario,SMB"},
-    {name:"Metroid", created: "22-01-2021", createdBy:"emsta", firstAppearance:"01-06-1984 (Metroid)", outlineText:"Samus Aran shoots thigs", games:"Metroid,Metroid 2,...", aliases:"Metroidvania"},
-]
+    private handleError(operation='operation', result?: any){
+        return (error: any): Observable<any> => {
+            console.log(error);
+            return of(result)
+        }
+    }
+}

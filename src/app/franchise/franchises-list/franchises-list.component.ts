@@ -32,6 +32,7 @@ export class FranchisesListComponent implements OnInit {
 
     ngOnInit(){
         this.rowData = this.franchiseService.getFranchises();
+        console.log(this.rowData);
     }
 
     onGridReady(params) {
