@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "prod": "ng build --aot --prod",
     "start-local": "ng serve --host localhost --port 4200 --public-host http://localhost:4200/"
   },
   "private": true,
