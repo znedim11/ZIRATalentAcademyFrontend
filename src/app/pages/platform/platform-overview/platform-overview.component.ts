@@ -5,11 +5,13 @@ import { DateFormatterService } from '../../shared/date-formatter.service';
 import { RestApiService } from '../../shared/rest-api.service';
 import { PlatformApi } from '../shared/platform-api.constant';
 import { Platform } from '../shared/platform.model';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'platform-overview',
   templateUrl: './platform-overview.component.html',
-  styleUrls: ['./platform-overview.component.scss']
+  styleUrls: ['./platform-overview.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PlatformOverviewComponent implements OnInit {
 

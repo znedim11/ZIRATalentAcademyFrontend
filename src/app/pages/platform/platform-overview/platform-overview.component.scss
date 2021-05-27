@@ -32,6 +32,30 @@ section {
   
       .info {
         width: 65%;
+
+        table { 
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: grey;
+          color:black;
+          border: 1px;
+        }
+
+        h1, h3, h5 {
+          color: #1a3469;
+        }
+        p{
+          text-align: justify;
+        }
+        ul {
+          list-style-type: square;
+        }
       }
   
       .details {
@@ -48,10 +72,7 @@ section {
       }
     }
 
-    table {
-      border: 1;
-      border-color: #1a3469;
-    }
+    
   }
   .btn-zira{
     margin-left:2% ;
