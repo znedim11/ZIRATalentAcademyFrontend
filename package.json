@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4200 --base-href /vgr/",
+    "start": "ng serve --host localhost --port 4200 --public-host http://localhost:4200/",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,6 +25,7 @@
     "@angular/router": "~10.0.6",
     "ag-grid-angular": "^25.1.0",
     "ag-grid-community": "^25.1.0",
+    "ngx-toastr": "^12.1.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "rxjs": "~6.5.5",
