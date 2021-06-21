@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import data from './../../assets/config/menu.json'
+
+import data from './../../../assets/config/menu.json';
 
 @Component({
   selector: 'menu',

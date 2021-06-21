@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router'
-import { FranchiseComponent } from './franchise/franchise.component'
-import { HomeComponent } from './home/home.component'
-import { ConceptOverviewComponent } from './concept/concept-overwiev.component'
+import { ConceptOverviewComponent } from './pages/concept/concept-overwiev.component'
+import { FranchiseComponent } from './pages/franchise/franchise.component'
+import { HomeComponent } from './pages/home/home.component'
 
 export const appRoutes : Routes = [
     { path: 'concept/:id', component: ConceptOverviewComponent },
     { path: 'franchise', component: FranchiseComponent },
     { path: 'home', component: HomeComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full'}
+    { path: '', redirectTo: '/home', pathMatch: 'full' }
 ]
