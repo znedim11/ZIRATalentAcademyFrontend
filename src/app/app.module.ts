@@ -15,6 +15,7 @@ import { FranchiseFormComponent } from './franchise/franchise-form/franchise-for
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FranchiseService } from './franchise/shared/franchise.service'
 import { HttpClientModule } from '@angular/common/http'
+import { ConceptOverviewComponent } from './concept/concept-overwiev.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http'
     FranchiseComponent,
     HomeComponent,
     FranchisesListComponent,
-    FranchiseFormComponent
+    FranchiseFormComponent,
+    ConceptOverviewComponent
   ],
   imports: [
     BrowserModule,
