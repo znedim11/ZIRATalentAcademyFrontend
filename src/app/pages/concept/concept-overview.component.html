@@ -7,16 +7,19 @@
             <span style="color: #1a3469">&#9679;
             </span>
             <span>Date</span>
-            <p>{{concept.outline}}</p>
+            <p *ngIf="concept.outline">{{concept.outline}}</p>
+            <p *ngIf="!concept.outline">No available outline</p>
         </div>
     </div>
     <div class="bottom">
         <div class="info">
-            <p>{{concept.information}}</p>
+            <p *ngIf="concept.information">{{concept.information}}</p>
+            <p *ngIf="!concept.information">No available information</p>
         </div>
         <div class="details">
             <h5>Aliases</h5>
-            <p>{{concept.aliases}}</p>
+            <p *ngIf="concept.aliases">{{concept.aliases}}</p>
+            <p *ngIf="!concept.aliases">No available aliases</p>
             <div class="connections">
                 <mat-tab-group mat-align-tabs="center">
                     <mat-tab label="Games">
