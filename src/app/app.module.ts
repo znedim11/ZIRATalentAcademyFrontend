@@ -1,13 +1,15 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
+import { ConceptGridComponent } from './pages/concept/concept-grid/concept-grid.component';
 import { ConceptOverviewComponent } from './pages/concept/concept-overwiev.component';
 import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
 import { FranchiseComponent } from './pages/franchise/franchise.component';
@@ -16,7 +18,9 @@ import { FranchiseService } from './pages/franchise/shared/franchise.service';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { appRoutes } from './routes';
     HomeComponent,
     FranchisesListComponent,
     FranchiseFormComponent,
-    ConceptOverviewComponent
+    ConceptOverviewComponent,
+    ConceptGridComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,12 @@ import { appRoutes } from './routes';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AgGridModule.withComponents([]),
-    HttpClientModule
+    ToastrModule.forRoot(),
+    HttpClientModule,
+    AgGridModule.withComponents([]),
+    MatTabsModule
   ],
-  providers: [FranchiseService],
+  providers: [FranchiseService, RestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
