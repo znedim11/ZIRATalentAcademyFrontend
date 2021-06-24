@@ -45,11 +45,16 @@ section {
         width: 42%;
         display: flex;
         flex-direction: column;
-  
+        
+        
+
         p {
           border-bottom: 1px solid #1a3469;
           text-align: center;
         }
       }
     }
+  }
+  .center-text{
+    text-align: center;
   }

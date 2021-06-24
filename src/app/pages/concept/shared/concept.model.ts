@@ -4,4 +4,5 @@ export class Concept {
     information: string;
     outline: string;
     imageUrl: string;
+    numberOfGames: string;
 }

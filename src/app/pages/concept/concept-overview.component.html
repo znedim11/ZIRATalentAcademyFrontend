@@ -3,8 +3,7 @@
         <img alt="Concept image" src=""/>
         <div class="top-info">
             <h1>{{concept.name}}</h1>
-            <span>Number of games
-            </span>
+            <span>{{concept.numberOfGames}} Games </span>
             <span style="color: #1a3469">&#9679;
             </span>
             <span>Date</span>
@@ -19,23 +18,23 @@
             <h5>Aliases</h5>
             <p>{{concept.aliases}}</p>
             <div class="connections">
-                    <mat-tab-group mat-align-tabs="center">
-                        <mat-tab label="Games">
-                            <concept-grid [rows]="games" [columns]="columnDefsGames"></concept-grid>
-                        </mat-tab>
-                        <mat-tab label="Persons">
-                            <concept-grid [rows]="persons" [columns]="columnDefsPersons"></concept-grid>
-                        </mat-tab>
-                        <mat-tab label="Objects">
-                            <concept-grid [columns]="columnDefsObjects"></concept-grid>
-                        </mat-tab>
-                        <mat-tab label="Characters">
-                            <concept-grid [columns]="columnDefsCharacters"></concept-grid>
-                        </mat-tab>
-                        <mat-tab label="Location">
-                            <concept-grid [columns]="columnDefsLocations"></concept-grid>
-                        </mat-tab>
-                    </mat-tab-group>
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab label="Games">
+                        <concept-grid [rows]="games" [columns]="columnDefsGames"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Persons">
+                        <concept-grid [rows]="persons" [columns]="columnDefsPersons"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Objects">
+                        <concept-grid [rows]="objects" [columns]="columnDefsObjects"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Characters">
+                        <concept-grid [rows]="characters" [columns]="columnDefsCharacters"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Location">
+                        <concept-grid [rows]="locations" [columns]="columnDefsLocations"></concept-grid>
+                    </mat-tab>
+                </mat-tab-group>
             </div>
         </div>
     </div>
