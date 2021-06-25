@@ -15,14 +15,13 @@ import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchi
 import { FranchiseComponent } from './pages/franchise/franchise.component';
 import { FranchisesListComponent } from './pages/franchise/franchises-list/franchises-list.component';
 import { FranchiseService } from './pages/franchise/shared/franchise.service';
+import { GameGridComponent } from './pages/game/game-grid/game-grid.component';
+import { GameOverviewComponent } from './pages/game/game-overview.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
-import { GameOverviewComponent } from './pages/game/game-overview.component';
-import { GameGridComponent } from './pages/game/game-grid/game-grid.component';
-
 
 @NgModule({
   declarations: [
