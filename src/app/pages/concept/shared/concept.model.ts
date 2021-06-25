@@ -1,4 +1,5 @@
 export class Concept {
+    id: number;
     name: string;
     aliases:string;
     information: string;

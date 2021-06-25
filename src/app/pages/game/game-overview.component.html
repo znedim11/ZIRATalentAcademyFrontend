@@ -1,0 +1,61 @@
+<section>
+    <div class="top">
+        <img alt="Game image" src=""/>
+        <div class="top-info">
+            <h1>{{game.fullName}}</h1>
+            <span>{{game.numberOfReleases}} Releases </span>
+            <span style="color: #1a3469">&#9679;
+            </span>
+            <span>Date</span>
+            <p><em>Valjda skraćenice za platforme?</em></p>
+            <p *ngIf="game.outline">{{game.outline}}</p>
+            <p *ngIf="!game.outline">No available outline</p>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="info">
+            <p *ngIf="game.information">{{game.information}}</p>
+            <p *ngIf="!game.information">No available information</p>
+        </div>
+        <div class="details">
+            <h5>Game details</h5>
+            <p><em>Ne znam sta ovdje treba</em></p>
+
+            <h5>Name</h5>
+            <p>{{game.fullName}}</p>
+
+            <h5>First release date</h5>
+            <p><em>Još nije urađeno</em></p>
+
+            <h5>Platform</h5>
+            <p><em>Valjda platforma iz releasea</em></p>
+
+            <h5>Developer</h5>
+            <p><em>Valjda osobe iz linkMap</em></p>
+
+            <h5>Publisher</h5>
+            <p><em>Valjda kompanija</em></p>
+
+            <div class="connections">
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab label="Concepts">
+                        <game-grid [rows]="concepts" [columns]="columnDefsConcepts"></game-grid>
+                    </mat-tab>
+                    <mat-tab label="Persons">
+                        <game-grid [rows]="persons" [columns]="columnDefsPersons"></game-grid>
+                    </mat-tab>
+                    <mat-tab label="Objects">
+                        <game-grid [rows]="objects" [columns]="columnDefsObjects"></game-grid>
+                    </mat-tab>
+                    <mat-tab label="Characters">
+                        <game-grid [rows]="characters" [columns]="columnDefsCharacters"></game-grid>
+                    </mat-tab>
+                    <mat-tab label="Location">
+                        <game-grid [rows]="locations" [columns]="columnDefsLocations"></game-grid>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</section>
+

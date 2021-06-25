@@ -10,7 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { ConceptGridComponent } from './pages/concept/concept-grid/concept-grid.component';
-import { ConceptOverviewComponent } from './pages/concept/concept-overwiev.component';
+import { ConceptOverviewComponent } from './pages/concept/concept-overview.component';
 import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
 import { FranchiseComponent } from './pages/franchise/franchise.component';
 import { FranchisesListComponent } from './pages/franchise/franchises-list/franchises-list.component';
@@ -20,6 +20,8 @@ import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
+import { GameOverviewComponent } from './pages/game/game-overview.component';
+import { GameGridComponent } from './pages/game/game-grid/game-grid.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { appRoutes } from './routes';
     FranchisesListComponent,
     FranchiseFormComponent,
     ConceptOverviewComponent,
-    ConceptGridComponent
+    ConceptGridComponent,
+    GameOverviewComponent,
+    GameGridComponent
   ],
   imports: [
     BrowserModule,

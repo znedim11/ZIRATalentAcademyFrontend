@@ -1,4 +1,5 @@
 export class Character{
+    id: number;
     aliases: string;
     dob: string;
     dod: string;
