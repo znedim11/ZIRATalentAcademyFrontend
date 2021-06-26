@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Character } from '../character/shared/character.model';
-import { Game } from '../game/shared/game.model';
-import { Object } from '../object/shared/object.model';
-import { Person } from '../person/shared/person.model';
-import { RestApiService } from '../shared/rest-api.service';
-import { ConceptApi } from './shared/concept-api.constant';
-import { Concept } from './shared/concept.model';
+import { Character } from '../../character/shared/character.model';
+import { Game } from '../../game/shared/game.model';
+import { Person } from '../../person/shared/person.model';
+import { Object } from '../../object/shared/object.model';
+import { Concept } from '../shared/concept.model';
+import { RestApiService } from '../../shared/rest-api.service';
+import { ConceptApi } from '../shared/concept-api.constant';
 
 @Component({
     selector: 'concept-overview',

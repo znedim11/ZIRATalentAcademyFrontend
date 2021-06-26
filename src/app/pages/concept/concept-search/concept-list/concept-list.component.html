@@ -1,0 +1,8 @@
+<div class="concept-list-header">
+    <p>Concepts</p>
+    <button type="button" class="btn-zira">New concept</button>
+  </div>
+  <hr/>
+  <div class="concept-list">
+    <concept-list-element *ngFor="let concept of conceptList" [concept] = "concept" class="concept-list-element"></concept-list-element>
+  </div>

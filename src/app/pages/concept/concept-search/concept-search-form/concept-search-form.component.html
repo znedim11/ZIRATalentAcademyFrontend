@@ -1,0 +1,37 @@
+<div class="form">
+    <p>Search Concepts:</p>
+    <form #conceptSearchForm="ngForm" (ngSubmit)="search()">
+      <div class="formRow" >
+        <label for="name" >Name:</label>
+        <input [(ngModel)]="searchObject.name" name="name" id="name" type="text" placeholder="Concept name">
+      </div>
+      
+      <div class="formRow">
+        <label for="games">Games:</label>
+        <select [(ngModel)]="searchObject.games" id="games" name="games" multiple>
+          <option value="any">Any</option>
+          <option *ngFor="let game of gameSelect" [value]="game.id">{{game.name}}</option>
+        </select>
+      </div>
+
+      <div class="formRow">
+        <label for="characters">Characters:</label>
+        <select [(ngModel)]="searchObject.characters" id="characters" name="characters" multiple>
+          <option value="any">Any</option>
+          <option *ngFor="let character of characterSelect" [value]="character.id">{{character.name}}</option>
+        </select>
+      </div>
+
+      <div class="formRow">
+        <label for="sortBy">Sort by:</label>
+        <select [(ngModel)]="searchObject.sortBy" id="sortBy" name="sortBy">
+          <option value="any">Any</option>
+          <option *ngFor="let sort of sortSelect">{{sort}}</option>
+        </select>
+      </div>
+
+      <div class="formRow">
+        <button type="submit" class="btn-zira">Search</button>
+      </div>
+    </form>
+  </div>

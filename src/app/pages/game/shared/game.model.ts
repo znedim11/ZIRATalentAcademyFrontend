@@ -6,5 +6,6 @@ export class Game {
     genre: string;
     information: string;
     outline: string;
+    imageUrl: string;
     numberOfReleases: number;
 }
