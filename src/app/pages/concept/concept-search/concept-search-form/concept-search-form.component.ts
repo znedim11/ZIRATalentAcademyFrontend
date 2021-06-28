@@ -42,7 +42,6 @@ export class ConceptSearchFormComponent implements OnInit {
   }
 
   search(){
-    console.log(this.searchObject);
     this.searchEmitter.emit({...this.searchObject});
   }
 }

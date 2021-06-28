@@ -1,4 +1,4 @@
 <div class="concept-search-container">
-    <concept-list class="concept-list"></concept-list>
+    <concept-list [searchObject]="searchObject" class="concept-list"></concept-list>
     <concept-search-form (searchEmitter)="submit($event)" class="concept-search-form"></concept-search-form>
   </div>

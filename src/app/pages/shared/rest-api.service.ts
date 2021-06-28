@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import { ConnectedOverlayPositionChange } from '@angular/cdk/overlay';
 
 @Injectable()
 export class RestApiService {
@@ -15,8 +16,9 @@ export class RestApiService {
   }
 
   public get(...request): Observable<any> {
-    const [ path ] = request;
-    return this.http.get(path,this.httpOptions)
+    const [ path, options ] = request;
+    let wrappedOptions = {...options, ...this.httpOptions};
+    return this.http.get(path, wrappedOptions)
       .pipe(catchError( err => {
         this.toastr.error(err.error.message || err.message, 'Get error');
         return throwError(err);
@@ -24,13 +26,16 @@ export class RestApiService {
   }
 
   public post(...request): Observable<any> {
-    const [ path, body ] = request;
+    const [ path, body, options] = request;
     const wrappedBody = {
       entity: {
         ...body
       }
     }
-    return this.http.post(path,wrappedBody,this.httpOptions)
+
+    let wrappedOptions = {...options, ...this.httpOptions};
+
+    return this.http.post(path,wrappedBody,wrappedOptions)
       .pipe(catchError( err => {
         this.toastr.error(err.error.message || err.message, 'Post error');
         return throwError(err);
@@ -38,13 +43,16 @@ export class RestApiService {
   }
 
   public put(...request): Observable<any> {
-    const [ path, body ] = request;
+    const [ path, body, options ] = request;
     const wrappedBody = {
       entity: {
         ...body
       }
     }
-    return this.http.put(path,wrappedBody,this.httpOptions)
+
+    let wrappedOptions = {...options, ...this.httpOptions};
+
+    return this.http.put(path,wrappedBody,wrappedOptions)
       .pipe(catchError( err => {
         this.toastr.error(err.error.message || err.message, 'Put error');
         return throwError(err);
@@ -52,12 +60,16 @@ export class RestApiService {
   }
 
   public delete(...request): Observable<any> {
-    const [ path ] = request;
-    return this.http.delete(path,this.httpOptions)
+    const [ path, options ] = request;
+
+    let wrappedOptions = {...options, ...this.httpOptions};
+
+    return this.http.delete(path,wrappedOptions)
       .pipe(catchError( err => {
         this.toastr.error(err.error.message || err.message, 'Delete error');
         return throwError(err);
       }));
-  }
+
+}
 
 }

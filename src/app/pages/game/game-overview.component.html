@@ -6,8 +6,8 @@
             <span>{{game.numberOfReleases}} Releases </span>
             <span style="color: #1a3469">&#9679;
             </span>
-            <span>Date</span>
-            <p><em>Valjda skraćenice za platforme?</em></p>
+            <span>{{game.firstReleaseDate | date}}</span>
+            <p><span *ngFor="let abbr of game.platformAbbrevations">{{abbr}} </span></p>
             <p *ngIf="game.outline">{{game.outline}}</p>
             <p *ngIf="!game.outline">No available outline</p>
         </div>
@@ -18,23 +18,22 @@
             <p *ngIf="!game.information">No available information</p>
         </div>
         <div class="details">
-            <h5>Game details</h5>
-            <p><em>Ne znam sta ovdje treba</em></p>
+            <h3>Game details</h3>
 
             <h5>Name</h5>
             <p>{{game.fullName}}</p>
 
             <h5>First release date</h5>
-            <p><em>Još nije urađeno</em></p>
+            <p><em>{{game.firstReleaseDate | date}}</em></p>
 
             <h5>Platform</h5>
-            <p><em>Valjda platforma iz releasea</em></p>
+            <p><span *ngFor="let name of game.platformNames">{{name}} </span></p>
 
             <h5>Developer</h5>
-            <p><em>Valjda osobe iz linkMap</em></p>
+            <p>{{game.developer}}</p>
 
             <h5>Publisher</h5>
-            <p><em>Valjda kompanija</em></p>
+            <p><em>{{game.publisher}}</em></p>
 
             <div class="connections">
                 <mat-tab-group mat-align-tabs="center">

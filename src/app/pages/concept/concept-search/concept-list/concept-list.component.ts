@@ -34,14 +34,15 @@ export class ConceptListComponent implements OnInit, OnChanges {
       params = searchObject.sortBy ? params.set('sortBy', searchObject.sortBy) : params;
 
       if (searchObject.games) {
-        for (const gId in searchObject.games) {
-          params = params.append("gameIds", gId);
+        for (let i = 0; i < searchObject.games.length; i++) {
+          params = params.append("gameIds", searchObject.games[i]);
         }
       }
 
       if (searchObject.characters) {
-        for (const cId in searchObject.characters) {
-          params = params.append("characterIds", cId);
+        for (let i = 0; i < searchObject.characters.length; i++) {
+          params = params.append("characterIds", searchObject.characters[i]);
+          
         }
       }
 

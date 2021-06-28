@@ -15,7 +15,6 @@ export class ConceptSearchComponent implements OnInit {
   }
 
   submit(searchObject) {
-    console.log(searchObject);
     this.searchObject = searchObject;
 
     if (searchObject.name === '')
@@ -26,7 +25,5 @@ export class ConceptSearchComponent implements OnInit {
       this.searchObject.games = null;
     if (searchObject.characters.length <= 0 || this.searchObject.characters.indexOf('any') > -1)
       this.searchObject.characters = null;
-
-      console.log(this.searchObject);
   }
 }

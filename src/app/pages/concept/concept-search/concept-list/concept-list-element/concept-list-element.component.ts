@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { GameApi } from 'src/app/pages/game/shared/game-api.constant';
-import { ConceptApi } from '../../../shared/concept-api.constant';
 import { Concept } from '../../../shared/concept.model';
 
 @Component({
@@ -14,7 +12,7 @@ export class ConceptListElementComponent {
 
   constructor(private router: Router) { }
 
-  onClick() {
+  handleClick() {
     this.router.navigateByUrl("/concept/" + this.concept.id + "/overview");
   }
 

@@ -49,7 +49,7 @@ export class GameOverviewComponent implements OnInit {
   getData() {
       const id = +this.route.snapshot.paramMap.get('id');
 
-      this.api.get(GameApi.GET_GAME_BY_ID.replace('#', id.toString()))
+      this.api.get(GameApi.GET_GAME_OVERVIEW.replace('#', id.toString()))
           .subscribe(game => {
               if (game)
                   this.game = game["payload"];
@@ -90,6 +90,8 @@ export class GameOverviewComponent implements OnInit {
               if (locations)
                   this.locations = locations["payload"];
           });
+
+          
   }
 
   createLink(params) {
