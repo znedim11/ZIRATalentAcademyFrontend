@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
+import { CharacterModule } from './pages/character/character.module';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -17,6 +18,9 @@ import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { appRoutes } from './routes';
 
+import { RestApiService } from './pages/shared/rest-api.service';
+import {ToastrModule} from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,7 @@ import { appRoutes } from './routes';
     FranchiseFormComponent
   ],
   imports: [
+    CharacterModule,
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -36,9 +41,13 @@ import { appRoutes } from './routes';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AgGridModule.withComponents([]),
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
-  providers: [FranchiseService],
+  providers: [
+    RestApiService,
+    FranchiseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
