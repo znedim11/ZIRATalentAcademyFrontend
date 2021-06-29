@@ -3,11 +3,16 @@
         <img alt="Game image" src=""/>
         <div class="top-info">
             <h1>{{game.fullName}}</h1>
-            <span>{{game.numberOfReleases}} Releases </span>
-            <span style="color: #1a3469">&#9679;
-            </span>
-            <span>{{game.firstReleaseDate | date}}</span>
-            <p><span *ngFor="let abbr of game.platformAbbrevations">{{abbr}} </span></p>
+            <div *ngIf="game.firstReleaseDate">
+                <span>{{game.numberOfReleases}}
+                    Releases
+                </span>
+                <span style="color: #1a3469">&#9679;
+                </span>
+                <span>{{game.firstReleaseDate | date: "dd/MM/yyyy"}}</span>
+            </div>
+            <span *ngIf="!game.firstReleaseDate">Soon to be released</span>
+            <p><span *ngFor="let abbr of game.platformAbbreviations">{{abbr}} </span></p>
             <p *ngIf="game.outline">{{game.outline}}</p>
             <p *ngIf="!game.outline">No available outline</p>
         </div>
@@ -23,17 +28,19 @@
             <h5>Name</h5>
             <p>{{game.fullName}}</p>
 
-            <h5>First release date</h5>
-            <p><em>{{game.firstReleaseDate | date}}</em></p>
+            <div *ngIf="game.firstReleaseDate">
+                <h5>First release date</h5>
+                <p>{{game.firstReleaseDate | date: "dd/MM/yyyy"}}</p>
 
-            <h5>Platform</h5>
-            <p><span *ngFor="let name of game.platformNames">{{name}} </span></p>
+                <h5>Platform</h5>
+                <p>{{game.platformName}}</p>
 
-            <h5>Developer</h5>
-            <p>{{game.developer}}</p>
+                <h5>Developer</h5>
+                <p>{{game.developer}}</p>
 
-            <h5>Publisher</h5>
-            <p><em>{{game.publisher}}</em></p>
+                <h5>Publisher</h5>
+                <p>{{game.publisher}}</p>
+            </div>
 
             <div class="connections">
                 <mat-tab-group mat-align-tabs="center">
@@ -57,4 +64,3 @@
         </div>
     </div>
 </section>
-

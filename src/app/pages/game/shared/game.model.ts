@@ -6,8 +6,8 @@ export class Game {
     outline: string;
     imageUrl: string;
     numberOfReleases: number;
-    platformAbbrevations: string[];
-    platformNames: string[];
+    platformAbbreviations: String[];
+    platformName: string;
     developer: string;
     publisher: string;
     firstReleaseDate: string;

@@ -6,7 +6,7 @@
             <span>{{concept.numberOfGames}} Games </span>
             <span style="color: #1a3469">&#9679;
             </span>
-            <span>Date</span>
+            <span>{{concept.releaseDate | date: "dd/MM/yyyy"}}</span>
             <p *ngIf="concept.outline">{{concept.outline}}</p>
             <p *ngIf="!concept.outline">No available outline</p>
         </div>
