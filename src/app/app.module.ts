@@ -6,6 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
+
+import { CharacterModule } from './pages/character/character.module';
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -32,6 +34,7 @@ import { appRoutes } from './routes';
     FranchiseFormComponent
   ],
   imports: [
+    CharacterModule,
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -47,7 +50,10 @@ import { appRoutes } from './routes';
     ConceptModule,
     GameModule
   ],
-  providers: [FranchiseService, RestApiService],
+  providers: [
+    FranchiseService, 
+    RestApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

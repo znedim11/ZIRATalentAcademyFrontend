@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 320px;
+    height: 270px;
+    border: 1px solid #1a3469;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 1px 1px;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  .character-cover {
+    margin-right: 10px;
+    width: 150px;
+    height: 200px;
+    border: 2px solid #1a3469;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,10 @@
+<div (dblclick)="showCharacter(character.id)" class="container">
+    <img *ngIf="character.imageUrl != null" [src]="character.imageUrl" class="character-cover" alt="Can't load cover" width="150" height="200">
+    <img *ngIf="character.imageUrl == null" src="https://i.imgur.com/SFaq3O1.png" class="character-cover" alt="Can't load cover" width="150" height="200">
+    <div  class="character-details">
+      <h3>{{character.name}}</h3>
+      <h5><i>{{character.outlineText}}</i></h5>
+      <p>Number of appearances: {{character.numberOfAppearances}}</p>
+    </div>
+</div>
+  

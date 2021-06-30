@@ -1,0 +1,9 @@
+<div class="character-list-header">
+    <p>Characters</p>
+    <button type="button" class="btn-zira">New character</button>
+</div>
+<hr/>
+
+<div class="character-list">
+    <character-item *ngFor="let character of characterList" [character]="character"></character-item>
+</div>

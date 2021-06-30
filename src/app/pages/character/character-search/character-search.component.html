@@ -1,0 +1,4 @@
+<div class="character-search-container">
+    <character-list [searchQuery]="searchQuery" class="character-list"></character-list>
+    <character-search-form (searchCharactersEmitter)="searchSubmitted($event)" class="character-search-form"></character-search-form>
+</div>
