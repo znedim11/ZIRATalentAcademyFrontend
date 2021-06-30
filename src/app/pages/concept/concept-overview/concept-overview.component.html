@@ -1,0 +1,44 @@
+<section>
+    <div class="top">
+        <img alt="Concept image" src=""/>
+        <div class="top-info">
+            <h1>{{concept.name}}</h1>
+            <span>{{concept.numberOfGames}} Games </span>
+            <span style="color: #1a3469">&#9679;
+            </span>
+            <span>{{concept.releaseDate | date: "dd/MM/yyyy"}}</span>
+            <p *ngIf="concept.outline">{{concept.outline}}</p>
+            <p *ngIf="!concept.outline">No available outline</p>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="info">
+            <p *ngIf="concept.information">{{concept.information}}</p>
+            <p *ngIf="!concept.information">No available information</p>
+        </div>
+        <div class="details">
+            <h5>Aliases</h5>
+            <p *ngIf="concept.aliases">{{concept.aliases}}</p>
+            <p *ngIf="!concept.aliases">No available aliases</p>
+            <div class="connections">
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab label="Games">
+                        <concept-grid [rows]="games" [columns]="columnDefsGames"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Persons">
+                        <concept-grid [rows]="persons" [columns]="columnDefsPersons"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Objects">
+                        <concept-grid [rows]="objects" [columns]="columnDefsObjects"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Characters">
+                        <concept-grid [rows]="characters" [columns]="columnDefsCharacters"></concept-grid>
+                    </mat-tab>
+                    <mat-tab label="Location">
+                        <concept-grid [rows]="locations" [columns]="columnDefsLocations"></concept-grid>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</section>

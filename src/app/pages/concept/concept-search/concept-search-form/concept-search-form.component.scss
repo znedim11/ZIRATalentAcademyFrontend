@@ -1,0 +1,36 @@
+.form {
+    padding: 10px 20px;
+    color: #1a3469;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    .formRow {
+        display: flex;
+        margin: 15px 0;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        label {
+            width: 35%;
+        }
+        input,
+        select {
+            height: 30px;
+            width: 60%;
+        }
+
+        select[multiple] {
+            height: 100%;
+        }
+    }
+}
+
+.btn-zira {
+    margin-left: auto;
+    width: 25%;
+    background-color: #1a3469;
+    color: white;
+    border: none;
+}
