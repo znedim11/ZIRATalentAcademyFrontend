@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { RestApiService } from 'src/app/pages/shared/rest-api.service';
 import { ConceptApi } from '../../shared/concept-api.constant';
 
@@ -41,7 +42,12 @@ export class ConceptSearchFormComponent implements OnInit {
       });
   }
 
-  search(){
-    this.searchEmitter.emit({...this.searchObject});
+  search() {
+    this.searchEmitter.emit({ ...this.searchObject });
+  }
+
+  cancel() {
+    this.ngOnInit()
+    this.search();
   }
 }

@@ -2,7 +2,11 @@
     <div class="top">
         <img alt="Concept image" src=""/>
         <div class="top-info">
-            <h1>{{concept.name}}</h1>
+            <div style="display: flex;">
+                <h1>{{concept.name}}</h1>
+                <button style="position: absolute; right:2%;" type="button" class="btn-zira" (click)="editConcept()">Edit concept</button>
+                <button style="position: absolute; right:12%;" type="button" class="btn-zira" (click)="deleteConcept()">Delete concept</button>
+            </div>
             <span>{{concept.numberOfGames}} Games </span>
             <span style="color: #1a3469">&#9679;
             </span>
@@ -13,7 +17,7 @@
     </div>
     <div class="bottom">
         <div class="info">
-            <p *ngIf="concept.information">{{concept.information}}</p>
+            <p *ngIf="concept.information" [innerHTML] = "concept.information"></p>
             <p *ngIf="!concept.information">No available information</p>
         </div>
         <div class="details">

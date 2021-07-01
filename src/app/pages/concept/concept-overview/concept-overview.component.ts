@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Character } from '../../character/shared/character.model';
 import { Game } from '../../game/shared/game.model';
-import { Person } from '../../person/shared/person.model';
 import { Object } from '../../object/shared/object.model';
-import { Concept } from '../shared/concept.model';
+import { Person } from '../../person/shared/person.model';
 import { RestApiService } from '../../shared/rest-api.service';
 import { ConceptApi } from '../shared/concept-api.constant';
-import { ToastrService } from 'ngx-toastr';
+import { Concept } from '../shared/concept.model';
 
 @Component({
     selector: 'concept-overview',
@@ -104,7 +104,7 @@ export class ConceptOverviewComponent implements OnInit {
                         });
                 }
             },
-            error => { this.router.navigateByUrl('/concept/search'); }
+                error => { this.router.navigateByUrl('/concept/search'); }
 
             )
     }
@@ -116,5 +116,18 @@ export class ConceptOverviewComponent implements OnInit {
             this.router.navigateByUrl('/' + params.colDef.headerName.toLowerCase() + '/' + params.data.id + '/information');
         });
         return span;
+    }
+
+    editConcept() {
+        this.router.navigateByUrl(`/concept/${this.concept.id}/edit`);
+    }
+
+    deleteConcept() {
+        if (confirm(`Are you sure to delete concept ${this.concept.name}?`)) {
+            this.api.delete(ConceptApi.DELETE_CONCEPT.replace('#', this.concept.id.toString())).subscribe(() => {
+                this.toastr.success("Concept deleted successfully!");
+                this.router.navigateByUrl('/concept/search');
+            })
+        }
     }
 }

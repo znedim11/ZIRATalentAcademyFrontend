@@ -1,5 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { RestApiService } from 'src/app/pages/shared/rest-api.service';
 import { ConceptApi } from '../../shared/concept-api.constant';
 import { Concept } from '../../shared/concept.model';
@@ -14,7 +15,7 @@ export class ConceptListComponent implements OnInit, OnChanges {
 
   conceptList: Concept[] = [];
 
-  constructor(private api: RestApiService) { }
+  constructor(private api: RestApiService, private router:Router) { }
   
   ngOnInit(): void {
     this.api.get(ConceptApi.SEARCH_CONCEPTS)
@@ -52,5 +53,9 @@ export class ConceptListComponent implements OnInit, OnChanges {
           this.conceptList = concepts['payload'];
         });
     }
+  }
+
+  handleClick(){
+    this.router.navigateByUrl('/add-concept')
   }
 }

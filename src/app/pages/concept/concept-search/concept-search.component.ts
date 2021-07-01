@@ -21,9 +21,9 @@ export class ConceptSearchComponent implements OnInit {
       this.searchObject.name = null;
     if (this.searchObject.sortBy === 'any')
       this.searchObject.sortBy = null;
-    if (searchObject.games.length <= 0 || this.searchObject.games.indexOf('any') > -1)
+    if (searchObject.games && (searchObject.games.length <= 0 || this.searchObject.games.indexOf('any') > -1))
       this.searchObject.games = null;
-    if (searchObject.characters.length <= 0 || this.searchObject.characters.indexOf('any') > -1)
+    if (searchObject.characters && (searchObject.characters.length <= 0 || this.searchObject.characters.indexOf('any') > -1))
       this.searchObject.characters = null;
   }
 }

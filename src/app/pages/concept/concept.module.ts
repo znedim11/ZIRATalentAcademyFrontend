@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatTabsModule } from '@angular/material/tabs';
-import { AgGridModule } from 'ag-grid-angular';
+import { QuillModule } from 'ngx-quill';
+import { SharedModule } from '../shared/shared.module';
+import { ConceptAddEditFormComponent } from './concept-add-edit-form/concept-add-edit-form.component';
 import { ConceptGridComponent } from './concept-grid/concept-grid.component';
 import { ConceptOverviewComponent } from './concept-overview/concept-overview.component';
 import { ConceptListElementComponent } from './concept-search/concept-list/concept-list-element/concept-list-element.component';
@@ -12,10 +12,8 @@ import { ConceptSearchComponent } from './concept-search/concept-search.componen
 
 @NgModule({
     imports: [
-        AgGridModule.withComponents([]),
-        MatTabsModule,
-        FormsModule,
-        ReactiveFormsModule,
+        SharedModule,
+        QuillModule.forRoot()
     ],
     exports: [],
     declarations: [
@@ -25,7 +23,8 @@ import { ConceptSearchComponent } from './concept-search/concept-search.componen
         ConceptSearchComponent,
         ConceptSearchFormComponent,
         ConceptListComponent,
-        ConceptListElementComponent
+        ConceptListElementComponent,
+        ConceptAddEditFormComponent
     ],
     providers: [],
 })
