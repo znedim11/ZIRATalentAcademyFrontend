@@ -30,6 +30,11 @@ margin-top: 1%;
         margin-bottom: 5px;
         color: #1a3469;
       }
+
+      .required::after {
+        content: "*";
+        color: red;
+      }
   
       input, textarea {
         margin-bottom: 10px;
@@ -39,8 +44,7 @@ margin-top: 1%;
         width: 100%;
         min-height: 100px;
       }
-  
-  
+
       .save {
         background-color: #00AB66;
         color: white;

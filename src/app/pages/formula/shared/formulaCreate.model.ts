@@ -8,6 +8,6 @@ export class FormulaCreate{
     constructor() {
         this.name = null;
         this.formula = null;
-        
+        this.grades = [];
     }
 }

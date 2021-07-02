@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestApiService } from '../../shared/rest-api.service';
+import { FormulaApi } from '../shared/formula-api.constant';
 import { Formula } from '../shared/formula.model';
 import { FormulaCreate } from '../shared/formulaCreate.model';
+import { Grade } from '../shared/grade.model';
 
 @Component({
   selector: 'app-formula-add-edit-form',
@@ -12,7 +16,7 @@ export class FormulaAddEditFormComponent implements OnInit {
   isEdit = false;
   id: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.formula = new FormulaCreate();
@@ -21,27 +25,33 @@ export class FormulaAddEditFormComponent implements OnInit {
 
     if (this.id != 0) {
       this.isEdit = true;
-      this.api.get(ConceptApi.GET_CONCEPT_BY_ID.replace('#', this.id.toString())).subscribe((response) => {
+      this.api.get(FormulaApi.GET_FORMULA_BY_ID.replace('#', this.id.toString())).subscribe((response) => {
         if (response) {
-          var helper: Concept = response['payload'];
+          var helper: Formula = response['payload'];
 
-          this.concept.name = helper.name;
-          this.concept.aliases = helper.aliases;
-          this.concept.information = helper.information;
-          this.concept.outline = helper.outline;
-          this.concept.imageCreateRequest = new ImageRequest();
+          this.formula.name = helper.name;
+          this.formula.formula = helper.formula;
 
-          if (helper.imageUrl) {
-            this.concept.imageCreateRequest.imageName = helper.imageUrl;
+          if (helper.grades) {
+            this.formula.grades = helper.grades;
           }
         }
-      }, (error) => {
-        this.router.navigateByUrl('/concept/search');
+      }, () => {
+        this.router.navigateByUrl(`/concept/${this.id}/overview`);
       })
     }
   }
 
   addGrade() {
-    this.formula.grades.push();
+    this.formula.grades.push(new Grade());
+  }
+
+  removeGrade(grade) {
+    console.log("function");
+    this.formula.grades = this.formula.grades.filter(g => g != grade);
+  }
+
+  save(){
+    console.log("Save");
   }
 }
