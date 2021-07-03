@@ -1,25 +1,18 @@
 <section>
     <h3>Add/Edit Formula</h3>
-    <form #formulaForm="ngForm" (ngSubmit)="save()" novalidate>
+    <form #formulaform="ngForm" (ngSubmit)="save()">
         <div class="row">
             <label for="name" class="required">Name:
             </label>
-            <input [(ngModel)]="formula.name" type="text" id="name" name="name"
-                    required />
-                
+            <input [(ngModel)]="formula.name" type="text" id="name" name="name" placeholder="Formula name"/>
+
         </div>
-        <div *ngIf="formulaForm.controls.name?.invalid && (formulaForm.controls.name?.touched)" class="row alert alert-danger">
-          Name is required
-      </div>
         <div class="row">
             <label for="formula" class="required">Formula definition:
             </label>
-            <textarea [(ngModel)]="formula.formula" id="formula" name="formula" required></textarea>
-            
+            <textarea [(ngModel)]="formula.formula" id="formula" name="formula" placeholder="Formula definition"></textarea>
+
         </div>
-        <div *ngIf="formulaForm.controls.formula?.invalid && (formulaForm.controls.formula?.touched)" class="row alert alert-danger">
-          Definition is required
-      </div>
         <div class="bottom">
             <div class="bottom-left">
                 <label>Grades Definition:
@@ -32,15 +25,15 @@
             <div class="bottom-right">
                 <fieldset>
                     <legend>Final Grade Preview</legend>
-                    <h4></h4>
-                    <h1></h1>
+                    <h4>{{valueFormula}}</h4>
+                    <h1>{{value}}</h1>
                 </fieldset>
                 <div class="buttons">
                     <div>
-                        <button class="info" type="button">Validate</button>
+                        <button (click)="validate()" class="info" type="button">Validate</button>
                     </div>
                     <div class="form-buttons">
-                        <button [disabled]="formulaForm.invalid" type="submit">Save</button>
+                        <button (click)="save()" type="submit">Save</button>
                         <button class="cancel" type="reset">Cancel</button>
                     </div>
                 </div>
