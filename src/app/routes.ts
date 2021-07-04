@@ -5,9 +5,11 @@ import { ConceptSearchComponent } from './pages/concept/concept-search/concept-s
 import { FranchiseComponent } from './pages/franchise/franchise.component'
 import { GameOverviewComponent } from './pages/game/game-overview.component'
 import { HomeComponent } from './pages/home/home.component'
+import { CharacterOverviewComponent } from './pages/character/character-overview/character-overview.component';
 import { CharacterSearchComponent } from './pages/character/character-search/character-search.component'
 
 export const appRoutes: Routes = [
+    { path: 'character/:id/overview', component: CharacterOverviewComponent },
     { path: 'character/search', component: CharacterSearchComponent },
     { path: 'concept/:id/overview', component: ConceptOverviewComponent },
     { path: 'concept/search', component: ConceptSearchComponent },

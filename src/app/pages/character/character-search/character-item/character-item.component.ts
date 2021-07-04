@@ -14,6 +14,20 @@ export class CharacterItemComponent {
   }
 
   showCharacter(characterId){
-    this.router.navigate(['/character/'+characterId]);
+    this.router.navigate(['/character/'+ characterId + '/overview']);
+  }
+
+  CheckTextLength(text : String, length): Boolean{
+    if(text){
+      return text.length <= length;
+    }
+    return true;
+  }
+
+  CorrectTextLength(text : String, length): String{
+    if(text){
+      return text.substr(0, length-3) + '...';
+    }
+    return text;
   }
 }
