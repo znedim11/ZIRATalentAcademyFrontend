@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,11 +7,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-
-import { CharacterModule } from './pages/character/character.module';
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
+import { CharacterModule } from './pages/character/character.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
 import { FranchiseComponent } from './pages/franchise/franchise.component';
@@ -23,6 +23,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { appRoutes } from './routes';
     FranchiseComponent,
     HomeComponent,
     FranchisesListComponent,
-    FranchiseFormComponent
+    FranchiseFormComponent,
   ],
   imports: [
     CharacterModule,

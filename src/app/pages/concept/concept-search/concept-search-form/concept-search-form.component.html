@@ -25,12 +25,13 @@
       <div class="formRow">
         <label for="sortBy">Sort by:</label>
         <select [(ngModel)]="searchObject.sortBy" id="sortBy" name="sortBy">
-          <option value="any">Any</option>
+          <option value="any" selected>Any</option>
           <option *ngFor="let sort of sortSelect">{{sort}}</option>
         </select>
       </div>
 
       <div class="formRow">
+        <button type="reset" (click)="cancel()" class="btn-zira clear">Clear</button>
         <button type="submit" class="btn-zira">Search</button>
       </div>
     </form>
