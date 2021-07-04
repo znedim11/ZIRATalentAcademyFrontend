@@ -15,7 +15,6 @@ export class FormulaGradeElementComponent implements OnInit {
   }
 
   remove() {
-    console.log("button");
     this.removeGrade.emit(this.grade);
   }
 }

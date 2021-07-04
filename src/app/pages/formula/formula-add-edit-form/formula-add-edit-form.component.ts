@@ -14,6 +14,7 @@ import { Grade } from '../shared/grade.model';
 })
 export class FormulaAddEditFormComponent implements OnInit {
   formula: FormulaCreate;
+  grades: Grade[] = [];
   isEdit = false;
   id: number;
   valid: boolean = false;
@@ -38,7 +39,7 @@ export class FormulaAddEditFormComponent implements OnInit {
           this.formula.formula = helper.formula;
 
           if (helper.grades) {
-            this.formula.grades = helper.grades;
+            this.grades = helper.grades;
           }
         }
       }, () => {
@@ -48,42 +49,55 @@ export class FormulaAddEditFormComponent implements OnInit {
   }
 
   addGrade() {
-    this.formula.grades.push(new Grade());
+    this.grades.push(new Grade());
   }
 
   removeGrade(grade) {
-    console.log("function");
-    this.formula.grades = this.formula.grades.filter(g => g != grade);
+    this.grades = this.grades.filter(g => g != grade);
   }
 
   save() {
     this.validate();
-
     if (this.valid) {
-      var gradeType: string[] = this.formula.grades.map(g => g.type);
+      this.formula.grades = this.grades.map(g => g.type);
 
-      //API - BACKEND URADITI
+      if (this.isEdit) {
+        console.log(this.formula);
+        this.api.put(FormulaApi.EDIT_FORMULA.replace('#', this.id.toString()), this.formula).subscribe(() => {
+          this.toastr.success("Formula edited!");
+          this.router.navigateByUrl(`/formula/${this.id}/overview`);
+        })
+      }
+      else {
+        this.api.post(FormulaApi.CREATE_FORMULA.replace('#', this.id.toString()), this.formula).subscribe((response) => {
+          if (response && response['payload']) {
+            this.toastr.success("Formula created!");
+            this.router.navigateByUrl('/formula/search');
+          }
+        })
+      }
     }
+
+
   }
 
   validate() {
     this.valueFormula = null;
     this.value = null;
 
-    let emptyStringRegex = new RegExp("/\s/g", "ig");
-
-    if (this.formula.formula === null || this.formula.formula === '' || !this.formula.formula.replace(emptyStringRegex, '').length) {
-      this.toastr.warning("Formula is required!");
-      this.valid = false;
-    }
-
-    if (this.formula.name === null || this.formula.name === '' || !this.formula.name.replace(emptyStringRegex, '').length) {
+    if (this.formula.name === null || this.formula.name === '' || !this.formula.name?.trim().length) {
       this.toastr.warning("Name is required!");
       this.valid = false;
     }
 
-    for (let grade of this.formula.grades) {
-      if (grade.type === null || grade.type === '' || !grade.type.replace(emptyStringRegex, '').length || grade.grade === null) {
+    if (this.formula.formula === null || this.formula.formula === '' || !this.formula.formula?.trim().length) {
+      this.toastr.warning("Formula is required!");
+      this.valid = false;
+      return;
+    }
+
+    for (let grade of this.grades) {
+      if (grade.type === null || grade.type === '' || !grade.type?.trim().length  || grade.grade === null) {
         this.toastr.warning("Every grade is required to have type and value!");
         this.valid = false;
         return;
@@ -92,13 +106,13 @@ export class FormulaAddEditFormComponent implements OnInit {
 
     let formula = this.formula.formula;
 
-    if (formula.toLowerCase().indexOf('TOTAL_GRADE'.toLowerCase()) > -1) {
+    if (formula?.toLowerCase().indexOf('TOTAL_GRADE'.toLowerCase()) > -1) {
       this.toastr.warning("Grade type can not be TOTAL_GRADE!");
       this.valid = false;
       return;
     }
 
-    for (let grade of this.formula.grades) {
+    for (let grade of this.grades) {
       let gradeRegex = new RegExp(grade.type, "ig");
       if (gradeRegex.test(formula)) {
         formula = formula.replace(gradeRegex, grade.grade.toString());
@@ -111,20 +125,28 @@ export class FormulaAddEditFormComponent implements OnInit {
     }
 
     let letterRegex = new RegExp("[a-zA-Z]");
-    if (letterRegex.test(formula)) {
+    if (formula != null && letterRegex.test(formula)) {
       this.toastr.warning("All grade types used in formula have to be provided!");
       this.valid = false;
       return;
     }
 
-    if (!this.checkParentheses(formula)) {
+    if (formula != null && !this.checkParentheses(formula)) {
       this.toastr.warning("Missing parentheses!");
       this.valid = false;
       return;
     }
 
-    if (!isFinite(Function(`"use strict";return (${formula})`)())) {
-      this.toastr.warning('Final grade is not a number.');
+    try {
+      if (!isFinite(Function(`"use strict";return (${formula})`)())) {
+        this.toastr.warning("Final grade is not a number!");
+        this.valid = false;
+        this.value = null;
+        this.valueFormula = null;
+        return;
+      }
+    } catch (err) {
+      this.toastr.warning("Formula is not valid!");
       this.valid = false;
       this.value = null;
       this.valueFormula = null;
@@ -135,6 +157,8 @@ export class FormulaAddEditFormComponent implements OnInit {
     this.value = Function(`"use strict";return (${formula})`)();
     this.valid = true;
   }
+
+
 
   checkParentheses(str) {
     const array = [];

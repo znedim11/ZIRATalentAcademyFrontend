@@ -3,7 +3,7 @@ import { Grade } from "./grade.model";
 export class FormulaCreate{
     name:String;
     formula:string;
-    grades:Grade[]
+    grades: string[]
 
     constructor() {
         this.name = null;

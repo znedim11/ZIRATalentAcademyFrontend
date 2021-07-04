@@ -18,7 +18,7 @@
                 <label>Grades Definition:
                 </label>
                 <div class="grades">
-                    <formula-grade-element *ngFor="let grade of formula.grades" (removeGrade)="removeGrade($event)" [grade]="grade"></formula-grade-element>
+                    <formula-grade-element *ngFor="let grade of grades" (removeGrade)="removeGrade($event)" [grade]="grade"></formula-grade-element>
                     <mat-icon (click)="addGrade()">add_circle</mat-icon>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <button (click)="validate()" class="info" type="button">Validate</button>
                     </div>
                     <div class="form-buttons">
-                        <button (click)="save()" type="submit">Save</button>
+                        <button type="submit">Save</button>
                         <button class="cancel" type="reset">Cancel</button>
                     </div>
                 </div>
