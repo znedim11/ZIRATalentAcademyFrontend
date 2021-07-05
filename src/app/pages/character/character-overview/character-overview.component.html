@@ -1,0 +1,30 @@
+<section *ngIf="character">
+    <div class="top">
+      <img *ngIf="character.imageUrl != null" [src]="character.imageUrl" class="character-cover" alt="Can't load cover">
+      <img *ngIf="character.imageUrl == null" src="https://i.imgur.com/SFaq3O1.png" class="cover" alt="Can't load cover">
+      <div class="top-info">
+        <h1>{{character.fullName}}</h1>
+        <span>{{numOfGames}} Games </span> <span style="color: #1a3469">&#9679; </span> <span>{{character.dob}}</span>
+        <p>{{character.outlineText}}</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="info cover" [innerHTML]="character.information"></div>
+      <div class="details">
+        <p class="heading">Character Details</p>
+        <p class="item">Name: </p>
+        <p>{{character.fullName}}</p>
+        <p class="item">Real Name: </p>
+        <p *ngIf="character.realName; else noRealName">{{character.realName}}</p>
+        <ng-template #noRealName>
+          <p>/</p>
+        </ng-template>
+        <p class="item">Gender: </p>
+        <p>{{character.gender}}</p>
+        <p class="item">DOB: </p>
+        <p>{{character.dob}}</p>
+        <character-game-grid style="width: 100%; height: 250px !important;" [characterGames]="characterGames"></character-game-grid>
+      </div>
+    </div>
+  
+  </section>  

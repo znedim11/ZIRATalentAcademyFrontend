@@ -1,13 +1,16 @@
 import { Routes } from '@angular/router'
-import { CharacterSearchComponent } from './pages/character/character-search/character-search.component'
 import { ConceptAddEditFormComponent } from './pages/concept/concept-add-edit-form/concept-add-edit-form.component'
 import { ConceptOverviewComponent } from './pages/concept/concept-overview/concept-overview.component'
 import { ConceptSearchComponent } from './pages/concept/concept-search/concept-search.component'
 import { FranchiseComponent } from './pages/franchise/franchise.component'
 import { GameOverviewComponent } from './pages/game/game-overview.component'
 import { HomeComponent } from './pages/home/home.component'
+import { CharacterOverviewComponent } from './pages/character/character-overview/character-overview.component';
+import { CharacterSearchComponent } from './pages/character/character-search/character-search.component'
+
 
 export const appRoutes: Routes = [
+    { path: 'character/:id/overview', component: CharacterOverviewComponent },
     { path: 'character/search', component: CharacterSearchComponent },
     { path: 'concept/:id/overview', component: ConceptOverviewComponent },
     { path: 'add-concept', component: ConceptAddEditFormComponent },
