@@ -27,14 +27,12 @@ export class CharacterSearchFormComponent implements OnInit {
       "Equal",
       "After"
     ];
-    this.searchQuery.dobCondition = "Before";
 
     this.sortOptions = [
       "Most appearances",
       "Last edit",
       "Alphabetical order"
     ];
-    this.searchQuery.sortBy = "Alphabetical order";
   }
 
   ngOnInit() {
