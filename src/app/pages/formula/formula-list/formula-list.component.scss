@@ -1,0 +1,20 @@
+.formula-list-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin-bottom: 0;
+      padding-left: 10px;
+    }
+  }
+  .formula-list-element{
+    padding-left: 20px;
+  }
+  .formula-list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  hr {
+    border-top: 2px solid #1a3469;
+  }

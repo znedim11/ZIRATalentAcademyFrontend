@@ -8,6 +8,7 @@ import { GameOverviewComponent } from './pages/game/game-overview.component'
 import { HomeComponent } from './pages/home/home.component'
 import { CharacterOverviewComponent } from './pages/character/character-overview/character-overview.component';
 import { CharacterSearchComponent } from './pages/character/character-search/character-search.component'
+import { FormulaListComponent } from './pages/formula/formula-list/formula-list.component'
 
 
 export const appRoutes: Routes = [
@@ -20,6 +21,7 @@ export const appRoutes: Routes = [
     { path: 'game/:id/information', component: GameOverviewComponent },
     { path: 'add-formula', component: FormulaAddEditFormComponent },
     { path: 'formula/:id/edit', component: FormulaAddEditFormComponent },
+    {path: 'reviewFormulas/preview', component: FormulaListComponent}, 
     { path: 'franchise', component: FranchiseComponent },
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
