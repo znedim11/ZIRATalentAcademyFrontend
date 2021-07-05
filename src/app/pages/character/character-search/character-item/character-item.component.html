@@ -1,10 +1,24 @@
 <div (dblclick)="showCharacter(character.id)" class="container">
-    <img *ngIf="character.imageUrl != null" [src]="character.imageUrl" class="character-cover" alt="Can't load cover" width="150" height="200">
-    <img *ngIf="character.imageUrl == null" src="https://i.imgur.com/SFaq3O1.png" class="character-cover" alt="Can't load cover" width="150" height="200">
-    <div  class="character-details">
-      <h3>{{character.name}}</h3>
-      <h5><i>{{character.outlineText}}</i></h5>
-      <p>Number of appearances: {{character.numberOfAppearances}}</p>
+  <div>
+    <img *ngIf="character.imageUrl != null" [src]="character.imageUrl" alt="Can't load cover" class="character-image" width="150" height="200">
+    <img *ngIf="character.imageUrl == null" src="https://i.imgur.com/SFaq3O1.png" alt="Can't load cover" class="character-image" width="150" height="200">
+  </div>
+
+  <div  class="character-info">
+    <div>
+      <h3 *ngIf="CheckTextLength(character.name, 12); else longName">{{character.name}}</h3>
+      <ng-template #longName>
+        <h3>{{CorrectTextLength(character.name, 12)}}</h3>
+      </ng-template>
     </div>
+
+    <div style="height: 70px; overflow: hidden;">
+      <p *ngIf="CheckTextLength(character.outlineText, 50); else longInfo">{{character.outlineText}}</p>
+      <ng-template #longInfo>
+        <p>{{CorrectTextLength(character.outlineText, 50)}}</p>
+      </ng-template>
+    </div>
+    <div style="margin-top: 10px;"><p>Number of appearances: {{character.numberOfAppearances}}</p></div>
+  </div>
 </div>
   

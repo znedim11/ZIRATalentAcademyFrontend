@@ -80,11 +80,16 @@ $vgr-theme: mat-light-theme((
 
 
 .ag-theme-alpine {
-    border: 1px solid #95a9d1;
+    border: 2px solid #1a3469;
     border-radius: 5px;
 
     .ag-header-cell {
-        color: #1a3469
+        color: #1a3469;
+        border-right: 2px solid #1a3469;
+    }
+
+    .ag-header-cell:last-of-type{
+      border-right: none;
     }
 }
 

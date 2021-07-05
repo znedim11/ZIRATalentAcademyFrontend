@@ -3,7 +3,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 @Component({
   selector: 'character-search-form',
   templateUrl: './character-search-form.component.html',
-  styleUrls: ['./character-search-form.component.scss']
+  styleUrls: ['./character-search-form.component.scss'],
 })
 export class CharacterSearchFormComponent implements OnInit {
 
@@ -19,18 +19,22 @@ export class CharacterSearchFormComponent implements OnInit {
 
   bornOptions;
   sortOptions;
+  curDate = new Date();
 
   constructor(){    
     this.bornOptions = [
       "Before",
       "Equal",
       "After"
-    ]
+    ];
+    this.searchQuery.dobCondition = "Before";
+
     this.sortOptions = [
       "Most appearances",
       "Last edit",
       "Alphabetical order"
-    ]
+    ];
+    this.searchQuery.sortBy = "Alphabetical order";
   }
 
   ngOnInit() {
