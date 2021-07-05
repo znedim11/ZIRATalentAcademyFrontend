@@ -125,7 +125,7 @@ export class FormulaAddEditFormComponent implements OnInit {
       let gradeRegex = new RegExp(`${grade.type}\\b`, "ig");
 
       
-      if (gradeRegex.exec(formula).length > 0) {
+      if (gradeRegex.exec(formula)?.length > 0) {
         formula = formula.replace(gradeRegex, grade.grade.toString());
       }
       else {
