@@ -16,6 +16,7 @@ export const appRoutes: Routes = [
     { path: 'concept/search', component: ConceptSearchComponent },
     { path: 'game/:id/information', component: GameOverviewComponent },
     { path: 'add-formula', component: FormulaAddEditFormComponent },
+    { path: 'formula/:id/edit', component: FormulaAddEditFormComponent },
     { path: 'franchise', component: FranchiseComponent },
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }

@@ -4,5 +4,5 @@ export class Formula{
     id:number;
     name:String;
     formula:string;
-    grades:Grade[]
+    grades:string[];
 }

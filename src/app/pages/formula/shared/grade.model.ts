@@ -2,8 +2,13 @@ export class Grade {
     type: string;
     grade: number;
 
-    constructor() {
+    constructor(...args: any[]) {
+        if(args.length == 0){
         this.type = null;
-        this.grade = null;
+        this.grade = null;}
+        else if(args.length == 1){
+            this.type = args[0];
+            this.grade = null;
+        }
     }
 }
