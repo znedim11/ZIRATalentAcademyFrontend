@@ -23,7 +23,7 @@
   
       <div class="formRow">
         <label for="dobCondition">Born:</label>
-        <select [(ngModel)]="searchQuery.dobCondition" id="dobCondition" name="dobCondition">
+        <select [(ngModel)]="searchQuery.dobCondition" id="dobCondition" name="dobCondition" [disabled] = "searchQuery.dob == null">
           <option *ngFor="let born of bornOptions" [value]="born">{{born}}</option>
         </select>
       </div>
