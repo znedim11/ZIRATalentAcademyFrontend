@@ -1,0 +1,43 @@
+<section>
+    <h3>Add/Edit Formula</h3>
+    <form #formulaform="ngForm" (ngSubmit)="save()">
+        <div class="row">
+            <label for="name" class="required">Name:
+            </label>
+            <input [(ngModel)]="formula.name" type="text" id="name" name="name" placeholder="Formula name"/>
+
+        </div>
+        <div class="row">
+            <label for="formula" class="required">Formula definition:
+            </label>
+            <textarea [(ngModel)]="formula.formula" id="formula" name="formula" placeholder="Formula definition"></textarea>
+
+        </div>
+        <div class="bottom">
+            <div class="bottom-left">
+                <label>Grades Definition:
+                </label>
+                <div class="grades">
+                    <formula-grade-element *ngFor="let grade of grades" (removeGrade)="removeGrade($event)" [grade]="grade"></formula-grade-element>
+                    <mat-icon (click)="addGrade()">add_circle</mat-icon>
+                </div>
+            </div>
+            <div class="bottom-right">
+                <fieldset>
+                    <legend>Final Grade Preview</legend>
+                    <h4>{{valueFormula}}</h4>
+                    <h1>{{value}}</h1>
+                </fieldset>
+                <div class="buttons">
+                    <div>
+                        <button (click)="validate()" class="info" type="button">Validate</button>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit">Save</button>
+                        <button class="cancel" type="reset">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

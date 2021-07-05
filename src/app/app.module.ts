@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +11,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { CharacterModule } from './pages/character/character.module';
 import { ConceptModule } from './pages/concept/concept.module';
+import { FormulaModule } from './pages/formula/formula.module';
 import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
 import { FranchiseComponent } from './pages/franchise/franchise.component';
 import { FranchisesListComponent } from './pages/franchise/franchises-list/franchises-list.component';
@@ -23,7 +23,6 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,7 @@ import { appRoutes } from './routes';
     FranchiseComponent,
     HomeComponent,
     FranchisesListComponent,
-    FranchiseFormComponent,
+    FranchiseFormComponent
   ],
   imports: [
     CharacterModule,
@@ -49,7 +48,8 @@ import { appRoutes } from './routes';
     AgGridModule.withComponents([]),
     MatTabsModule,
     ConceptModule,
-    GameModule
+    GameModule,
+    FormulaModule
   ],
   providers: [
     FranchiseService, 

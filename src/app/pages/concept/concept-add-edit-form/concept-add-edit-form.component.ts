@@ -63,7 +63,6 @@ export class ConceptAddEditFormComponent implements OnInit {
         }
       })
     }
-    console.log("save works");
   }
 
   cancel() {
