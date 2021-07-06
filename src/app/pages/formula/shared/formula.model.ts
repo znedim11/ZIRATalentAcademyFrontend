@@ -2,7 +2,7 @@ import { Grade } from "./grade.model";
 
 export class Formula {
     id: number;
-    name: String;
+    name: string;
     formula: string;
     grades: string[];
     reviewCount: number;

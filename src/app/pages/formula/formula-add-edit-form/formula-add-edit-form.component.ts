@@ -66,18 +66,22 @@ export class FormulaAddEditFormComponent implements OnInit {
       if (this.isEdit) {
         this.api.put(FormulaApi.EDIT_FORMULA.replace('#', this.id.toString()), this.formula).subscribe(() => {
           this.toastr.success("Formula edited!");
-          this.router.navigateByUrl(``);
+          this.router.navigateByUrl('review-formula/preview');
         })
       }
       else {
         this.api.post(FormulaApi.CREATE_FORMULA.replace('#', this.id.toString()), this.formula).subscribe((response) => {
           if (response && response['payload']) {
             this.toastr.success("Formula created!");
-            this.router.navigateByUrl('');
+            this.router.navigateByUrl('review-formula/preview');
           }
         })
       }
     }
+  }
+
+  cancel(){
+    this.router.navigateByUrl('review-formula/preview');
   }
 
   validate() {

@@ -14,7 +14,6 @@ export class FormulaListElementComponent {
    }
 
   handleClick() {
-    console.log(this.formula);
     this.router.navigateByUrl("/formula/" + this.formula.id + "/edit");
   }
 
