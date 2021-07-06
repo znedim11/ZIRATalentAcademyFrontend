@@ -37,7 +37,7 @@ export class ConceptAddEditFormComponent implements OnInit {
           this.concept.imageCreateRequest = new ImageRequest();
 
           if (helper.imageUrl){
-            this.concept.imageCreateRequest.imageName = helper.imageUrl;
+            this.concept.imageCreateRequest.imageData = helper.imageUrl;
           }
         }
       }, (error) => {
