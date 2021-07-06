@@ -1,0 +1,37 @@
+.container {
+  height: 300px;
+  border: 2px solid #95a9d1;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;   
+  margin: 0px 5px 20px 5px;
+  box-shadow: 1px 1px;
+  }   
+  
+.formula-details{
+  padding: 5%;
+  width: auto;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+  padding: 10px;
+}
+
+.formula-details::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */  
+}
+
+.formula-details h4{
+  text-transform: uppercase;
+}
+
+.limit{
+  overflow-wrap: break-word;
+}
+
+.formula-details p{
+  font-size: 15px;
+}

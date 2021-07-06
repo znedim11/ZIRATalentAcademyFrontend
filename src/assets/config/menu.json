@@ -138,7 +138,7 @@
 							{
 								"code": "HUB_PREVIEW_STATIC",
 								"label": "Preview",
-								"url": "reviewFormulas/preview",
+								"url": "review-formula/preview",
 								"attributes": {}
 							},
 							{

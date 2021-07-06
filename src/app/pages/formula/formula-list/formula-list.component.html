@@ -1,0 +1,8 @@
+<div class="formula-list-header">
+    <h1>Formulas</h1>
+    <button type="button" class="btn-zira" (click)="handleClick()">New formula</button>
+  </div>
+  <hr/>
+  <div class="formula-list">
+    <formula-list-element *ngFor="let formula of formulaList" [formula] = "formula" class="formula-list-element"></formula-list-element>
+  </div>
