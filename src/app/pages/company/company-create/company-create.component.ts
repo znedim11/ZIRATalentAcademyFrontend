@@ -96,12 +96,6 @@ export class CompanyCreateComponent implements OnInit{
         return false;
       }
     }
-    if (this.companyCreateRequest.telNumber !== null && this.companyCreateRequest.telNumber !== '' && this.companyCreateRequest.telNumber!==undefined){
-      if (!this.formValidator.validatePhoneNumber(this.companyCreateRequest.telNumber)){
-        this.toastr.warning('Format allowed: +3876x/xxx-xxx.', 'Please enter valid phone number.');
-        return false;
-      }
-    }
     if (this.companyCreateRequest.startDate && this.companyCreateRequest.endDate){
       let startDate = new Date(this.companyCreateRequest.startDate);
       let endDate = new Date(this.companyCreateRequest.endDate);
