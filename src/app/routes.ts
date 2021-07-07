@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component'
 import { CharacterOverviewComponent } from './pages/character/character-overview/character-overview.component';
 import { CharacterSearchComponent } from './pages/character/character-search/character-search.component'
 import { FormulaListComponent } from './pages/formula/formula-list/formula-list.component'
+import { CompanyCreateComponent } from './pages/company/company-create/company-create.component'
 
 
 export const appRoutes: Routes = [
@@ -24,5 +25,7 @@ export const appRoutes: Routes = [
     { path: 'review-formula/preview', component: FormulaListComponent },
     { path: 'franchise', component: FranchiseComponent },
     { path: 'home', component: HomeComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full' }
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'company/:id/edit', component: CompanyCreateComponent },
+    { path: 'company-add', component: CompanyCreateComponent }
 ]
