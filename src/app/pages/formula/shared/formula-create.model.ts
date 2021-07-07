@@ -1,8 +1,7 @@
-import { Grade } from "./grade.model";
 
-export class FormulaCreate{
-    name:String;
-    formula:string;
+export class FormulaCreate {
+    name: String;
+    formula: string;
     grades: string[]
 
     constructor() {

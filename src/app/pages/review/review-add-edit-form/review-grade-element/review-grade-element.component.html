@@ -1,0 +1,4 @@
+<div>
+    <label for="grade" class="required">{{grade.type}}</label>
+    <input [(ngModel)]="grade.grade" min="-100" max ="100" (change)="change()" name="grade" type="number" id="grade" placeholder="Grade value"/>
+</div>
