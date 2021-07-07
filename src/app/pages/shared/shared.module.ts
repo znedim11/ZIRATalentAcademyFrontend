@@ -17,7 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [],
   imports: [
-    MatTabsModule
+    MatTabsModule,
   ],
   exports: [
     BrowserModule,
