@@ -11,6 +11,7 @@ import { FranchiseComponent } from './pages/franchise/franchise.component'
 import { GameOverviewComponent } from './pages/game/game-overview.component'
 import { HomeComponent } from './pages/home/home.component'
 import { ReviewAddEditFormComponent } from './pages/review/review-add-edit-form/review-add-edit-form.component'
+import { ReviewOverviewComponent } from './pages/review/review-overview/review-overview.component'
 
 
 export const appRoutes: Routes = [
@@ -21,6 +22,7 @@ export const appRoutes: Routes = [
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },
     { path: 'concept/search', component: ConceptSearchComponent },
     { path: 'game/:id/information', component: GameOverviewComponent },
+    { path: 'game/:gameId/review/:id', component: ReviewOverviewComponent },
     { path: 'game/:gameId/review/add', component: ReviewAddEditFormComponent },
     { path: 'game/:gameId/review/:id/edit', component: ReviewAddEditFormComponent },
     { path: 'add-formula', component: FormulaAddEditFormComponent },

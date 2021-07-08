@@ -8,6 +8,9 @@ export class Review {
     formulaId: number;
     gameId: number;
     grades: Grade[];
+    reviewerId: string;
+    reviewerName: string;
+    numOfReviewesByReviewer: number;
     
     constructor() {
         this.title = null;
@@ -15,6 +18,9 @@ export class Review {
         this.totalRating = null;
         this.formulaId = null;
         this.gameId = null;
+        this.reviewerId = null;
+        this.reviewerName = null;
+        this.numOfReviewesByReviewer = null;
         this.grades = [];
     }
 }
