@@ -1,0 +1,149 @@
+section {
+  height: 100%;
+    
+  h3 {
+    margin: 1%;
+    color: #1a3469;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    .inputRow{
+      display: flex; 
+      align-items: stretch; 
+      justify-content: space-between;
+      margin-bottom: 20px;  
+
+      .inputGroup{
+        display: flex; 
+        flex-direction: column; 
+        width: 100%;  
+        margin-right: 10px;
+
+        label {
+          margin-bottom: 5px;
+          color: #1a3469;
+        }
+      }
+
+      .inputGroup:last-of-type{
+        margin-right: 0px;
+      }
+    }
+
+    .imageInputContainer {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      height: 100%;
+
+      .imageContainer{
+        width: 100%;
+        height: 100%;
+        max-height: 335px;
+        border: 2px solid #1a3469;
+
+        img {
+          width: 100%;
+          height: 100%;
+          max-height: 331px;
+          object-fit: contain;
+        }
+      }
+
+      button {
+        margin-left: 5px;
+        width: max-content;
+        height: min-content;
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    h3 {
+      align-self: flex-start;
+    }
+
+    quill-editor {
+      color: #1a3469;
+      height: 500px;
+      svg {
+        fill: #1a3469;
+      }
+    }
+  }
+
+  .save {
+    background-color: #1a3469;
+    color: white;
+    border: 2px solid #1a3469;
+  }
+
+  .save[disabled] {
+      background-color: #95a9d1;
+      color: white;
+      border: 2px solid #95a9d1;
+  }
+
+  button {
+      color: #1a3469;
+      border: 2px solid #1a3469;
+      background-color: white;
+      outline: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+  }
+
+  .buttons {
+      align-self: flex-end;
+      display: flex;
+      button {
+          width: 100px;
+          margin: 10px;
+      }
+  }
+
+  .infoButtons{
+    margin-left: auto;
+    margin-top:50px;
+    button {
+      float: right;
+      width: 100px;
+      margin: 10px;
+    }
+  }
+
+  .alert {
+      margin-bottom: 5px;
+    }
+  .alert-danger {
+      border-color: #DC3545;
+      color: #DC3545;
+  }
+  .required::after {
+      content: "*";
+      color: red;
+  }
+}
+  
+textarea{
+  height: 335px;
+  max-height: 335px;
+  min-height: 335px;
+}
+
+select{
+  height: 30px;
+}
+
+label {
+  margin-right: 5px;
+}

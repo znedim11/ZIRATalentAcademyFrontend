@@ -22,6 +22,7 @@ import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { appRoutes } from './routes';
     MatTabsModule,
     ConceptModule,
     GameModule,
-    FormulaModule
+    FormulaModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     FranchiseService, 

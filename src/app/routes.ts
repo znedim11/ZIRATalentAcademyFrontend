@@ -9,11 +9,13 @@ import { HomeComponent } from './pages/home/home.component'
 import { CharacterOverviewComponent } from './pages/character/character-overview/character-overview.component';
 import { CharacterSearchComponent } from './pages/character/character-search/character-search.component'
 import { FormulaListComponent } from './pages/formula/formula-list/formula-list.component'
-
+import { CharacterAddEditComponent } from './pages/character/character-add-edit/character-add-edit.component';
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
     { path: 'character/search', component: CharacterSearchComponent },
+    { path: 'add-character', component: CharacterAddEditComponent},
+    { path: 'character/:id/edit', component: CharacterAddEditComponent },
     { path: 'concept/:id/overview', component: ConceptOverviewComponent },
     { path: 'add-concept', component: ConceptAddEditFormComponent },
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },
