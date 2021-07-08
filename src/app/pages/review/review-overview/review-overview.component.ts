@@ -25,6 +25,7 @@ export class ReviewOverviewComponent implements OnInit {
         { headerName: "Grade Type", field: "type", flex: 1 },
         { headerName: "Grade", field: "grade", flex: 1, initialSort: 'desc' }
     ]
+    loggedUser = '';
 
     constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private toastr: ToastrService) { }
 
@@ -42,6 +43,7 @@ export class ReviewOverviewComponent implements OnInit {
                         var helper: Review = response['payload'];
 
                         this.review = helper
+                        this.isReviewer = this.loggedUser == this.review.reviewerId;
 
                         this.api.get(FormulaApi.GET_FORMULA_BY_ID.replace('#', this.review.formulaId.toString())).subscribe((response) => {
                             if (response) {
@@ -62,7 +64,8 @@ export class ReviewOverviewComponent implements OnInit {
             .append('Access-Control-Allow-Origin', '*');
 
         this.api.get(SharedApi.GET_LOGGED_USER, headers).subscribe((response) => {
-            this.isReviewer = response['code'] == this.review.reviewerId;
+            this.loggedUser = response['code'];
+            this.isReviewer = this.loggedUser == this.review.reviewerId;
         })
 
     }
