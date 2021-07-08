@@ -23,6 +23,7 @@ import { GameModule } from './pages/game/game.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { ReviewModule } from './pages/review/review.module';
 import { ReviewComponent } from './pages/review/review.component';
 import { FormValidatorService } from './pages/shared/form-validator.service';
 import { RestApiService } from './pages/shared/rest-api.service';
@@ -57,6 +58,7 @@ import { appRoutes } from './routes';
     GameModule,
     FormulaModule,
     CompanyModule,
+    ReviewModule,
     MatSelectModule,
     MatInputModule
   ],

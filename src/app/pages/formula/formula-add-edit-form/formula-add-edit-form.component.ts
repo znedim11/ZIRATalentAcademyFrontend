@@ -3,12 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RestApiService } from '../../shared/rest-api.service';
 import { FormulaApi } from '../shared/formula-api.constant';
+import { FormulaCreate } from '../shared/formula-create.model';
 import { Formula } from '../shared/formula.model';
-import { FormulaCreate } from '../shared/formulaCreate.model';
 import { Grade } from '../shared/grade.model';
 
 @Component({
-  selector: 'app-formula-add-edit-form',
+  selector: 'formula-add-edit-form',
   templateUrl: './formula-add-edit-form.component.html',
   styleUrls: ['./formula-add-edit-form.component.scss']
 })
@@ -34,7 +34,7 @@ export class FormulaAddEditFormComponent implements OnInit {
       this.api.get(FormulaApi.GET_FORMULA_BY_ID.replace('#', this.id.toString())).subscribe((response) => {
         if (response) {
           var helper: Formula = response['payload'];
-
+          this.grades = [];
           this.formula.name = helper.name;
           this.formula.formula = helper.formula;
 
@@ -80,8 +80,8 @@ export class FormulaAddEditFormComponent implements OnInit {
     }
   }
 
-  cancel(){
-    this.router.navigateByUrl('review-formula/preview');
+  clear() {
+    this.ngOnInit();
   }
 
   validate() {

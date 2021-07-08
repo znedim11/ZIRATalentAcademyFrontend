@@ -1,0 +1,108 @@
+section {
+    h3 {
+        margin-left: 6%;
+        margin-top: 1%;
+        color: #1a3469;
+   }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        .row {
+            width: 100%;
+            label {
+                width: 8%;
+           }
+            input, textarea {
+                width: 92%;
+           }
+       }
+        select{
+            height: 30px;
+       }
+        label {
+            margin-bottom: 5px;
+            color: #1a3469;
+       }
+        .required::after {
+            content: "*";
+            color: red;
+       }
+        input, textarea {
+            margin-bottom: 10px;
+       }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+       }
+        .cancel {
+            color: #1a3469;
+      border: 2px solid #1a3469;
+      background-color: white;
+      outline: none;
+       }
+   }
+    .bottom {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        height: 450px;
+        .bottom-left {
+            width: 33%;
+            label {
+                width: 25%;
+           }
+            select{
+                width:75%;
+           }
+            i{
+                margin-top: 8%;
+           }
+                .grades {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+               }
+                fieldset {
+                    padding-left: 5px;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 250px;
+                    width: 100%;
+                    p {
+                        word-wrap:break-word;
+                   }
+               
+           }
+       }
+        .bottom-right {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            quill-editor{
+                width: 100%;
+                min-height: 300px;
+            }
+            
+       }
+   }
+    .form-buttons {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+   }
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: #1a3469;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 140px;
+    margin-right: 5px;
+}
