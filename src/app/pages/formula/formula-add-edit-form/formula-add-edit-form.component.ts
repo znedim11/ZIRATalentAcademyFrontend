@@ -34,7 +34,7 @@ export class FormulaAddEditFormComponent implements OnInit {
       this.api.get(FormulaApi.GET_FORMULA_BY_ID.replace('#', this.id.toString())).subscribe((response) => {
         if (response) {
           var helper: Formula = response['payload'];
-
+          this.grades = [];
           this.formula.name = helper.name;
           this.formula.formula = helper.formula;
 
@@ -80,8 +80,8 @@ export class FormulaAddEditFormComponent implements OnInit {
     }
   }
 
-  cancel(){
-    this.router.navigateByUrl('review-formula/preview');
+  clear() {
+    this.ngOnInit();
   }
 
   validate() {

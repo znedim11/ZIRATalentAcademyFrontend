@@ -40,6 +40,7 @@ export class ReviewAddEditFormComponent implements OnInit {
         this.isEdit = true;
         this.api.get(ReviewApi.GET_REVIEW_BY_ID.replace('#', this.id.toString())).subscribe((response) => {
           if (response) {
+            this.review.grades = [];
             var helper: Review = response['payload'];
   
             this.review.title = helper.title;
@@ -94,9 +95,10 @@ export class ReviewAddEditFormComponent implements OnInit {
     }
   }
 
-  cancel() {
-    this.router.navigateByUrl('');
+  clear() {
+    this.ngOnInit();
   }
+
 
   formulaChange() {
     this.api.get(FormulaApi.GET_FORMULA_BY_ID.replace('#', this.review.formulaId.toString())).subscribe((response) => {
