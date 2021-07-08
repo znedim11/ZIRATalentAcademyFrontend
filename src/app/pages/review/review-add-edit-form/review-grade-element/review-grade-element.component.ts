@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Grade } from 'src/app/pages/formula/shared/grade.model';
 
 @Component({
   selector: 'review-grade-element',
@@ -7,13 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ReviewGradeElementComponent implements OnInit {
   @Output() changeGrade = new EventEmitter();
-  @Input() grade;
+  @Input() grade:Grade;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.grade);
-    console.log(this.grade.value)
   }
 
   change() {

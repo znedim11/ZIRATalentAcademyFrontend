@@ -6,6 +6,7 @@ import { Grade } from '../../formula/shared/grade.model';
 import { RestApiService } from '../../shared/rest-api.service';
 import { ReviewApi } from '../shared/review-api.constant';
 import { ReviewCreate } from '../shared/review-create.model';
+import { ReviewUpdate } from '../shared/review-update.model';
 import { Review } from '../shared/review.model';
 
 @Component({
@@ -23,7 +24,6 @@ export class ReviewAddEditFormComponent implements OnInit {
   value: number;
   valueFormula: string;
   formulaSelect = [];
-  grades: Grade[];
 
   constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private toastr: ToastrService) { }
 
@@ -47,9 +47,17 @@ export class ReviewAddEditFormComponent implements OnInit {
             this.review.formulaId = helper.formulaId;
             this.review.totalRating = helper.totalRating;
   
+            this.api.get(FormulaApi.GET_FORMULA_BY_ID.replace('#', this.review.formulaId.toString())).subscribe((response) => {
+              if (response) {
+                this.formula = response['payload']['formula'];
+                this.valueFormula = this.formula;
+                this.evalGrade();
+              }
+            })
+
             if (helper.grades) {
               for (const grade of helper.grades) {
-                this.grades.push(new Grade(grade));
+                this.review.grades.push(new Grade(grade.type, grade.grade));
               }
             }
           }
@@ -63,18 +71,19 @@ export class ReviewAddEditFormComponent implements OnInit {
     if (this.valid) {
 
       if (this.isEdit) {
-        this.api.put(ReviewApi.EDIT_REVIEW.replace('#', this.id.toString()), this.review).subscribe(() => {
+        const review: ReviewUpdate = new ReviewUpdate();
+        review.title = this.review.title;
+        review.text = this.review.text;
+        review.formulaId = this.review.formulaId;
+        review.totalRating = this.review.totalRating;
+        review.grades = this.review.grades;
+
+        this.api.put(ReviewApi.EDIT_REVIEW.replace('#', this.id.toString()), review).subscribe(() => {
           this.toastr.success("Review edited!");
           this.router.navigateByUrl('');
         })
       }
       else {
-        console.log(this.grades);
-        for(const grade of this.grades){
-          console.log(grade);
-          this.review.grades.set(grade.type, grade.grade);
-          console.log(this.review.grades)
-        }
         this.api.post(ReviewApi.CREATE_REVIEW.replace('#', this.id.toString()), this.review).subscribe((response) => {
           if (response && response['payload']) {
             this.toastr.success("Review created!");
@@ -97,13 +106,13 @@ export class ReviewAddEditFormComponent implements OnInit {
       }
     })
 
-    this.grades = [];
+    this.review.grades = [];
 
     this.api.get(FormulaApi.GET_GRADES_BY_FORMULA.replace('#', this.review.formulaId.toString())).subscribe((response) => {
       if (response) {
         var grades = response['payload'];
         for (const grade of grades) {
-          this.grades.push(new Grade(grade));
+          this.review.grades.push(new Grade(grade));
         }
       }
     })
@@ -117,16 +126,14 @@ export class ReviewAddEditFormComponent implements OnInit {
     this.value = null;
     this.valueFormula = this.formula;
 
-    for (let grade of this.grades) {
+    for (let grade of this.review.grades) {
       if (grade.grade === null) {
         this.valid = false;
         return;
       }
     }
 
-    this.valueFormula = this.formula;
-
-    for (let grade of this.grades) {
+    for (let grade of this.review.grades) {
       let gradeRegex = new RegExp(`${grade.type}\\b`, "ig");
       this.valueFormula = this.valueFormula.replace(gradeRegex, grade.grade.toString());
     }
@@ -149,7 +156,7 @@ export class ReviewAddEditFormComponent implements OnInit {
       return;
     }
 
-    for (let grade of this.grades) {
+    for (let grade of this.review.grades) {
       if (grade.grade === null) {
         this.toastr.warning("Every grade is required to have value!");
         this.valid = false;

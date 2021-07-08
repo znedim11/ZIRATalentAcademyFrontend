@@ -14,16 +14,14 @@
                     <option *ngFor="let formula of formulaSelect" [value]="formula.id">{{formula.name}}</option>
                 </select>
                 <hr/>
-                <div class="bottom-bottom">
                     <div class="grades">
-                        <review-grade-element *ngFor="let grade of grades" (changeGrade)="changeGrade($event)" [grade]="grade"></review-grade-element>
+                        <review-grade-element *ngFor="let grade of review.grades" (changeGrade)="changeGrade($event)" [grade]="grade"></review-grade-element>
                     </div>
                     <fieldset>
                         <legend>Final Grade Preview</legend>
-                        <h4>{{valueFormula}}</h4>
+                        <p>{{valueFormula}}</p>
                         <h1>{{review.totalRating}}</h1>
                     </fieldset>
-                </div>
             </div>
 
             <div class="bottom-right">

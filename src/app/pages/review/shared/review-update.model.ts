@@ -1,11 +1,10 @@
 import { Grade } from "../../formula/shared/grade.model";
 
-export class ReviewCreate {
+export class ReviewUpdate {
     title:string;
     text:string;
     totalRating: number;
     formulaId:number;
-    gameId:number;
     grades:Grade[];
 
     constructor() {
@@ -13,7 +12,6 @@ export class ReviewCreate {
         this.text = null;
         this.totalRating = null;
         this.formulaId = null;
-        this.gameId = null;
         this.grades = [];
     }
 }
