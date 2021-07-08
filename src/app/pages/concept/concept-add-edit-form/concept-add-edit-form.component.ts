@@ -15,7 +15,7 @@ import { Concept } from '../shared/concept.model';
 export class ConceptAddEditFormComponent implements OnInit {
   concept: ConceptCreate;
   isEdit = false;
-  id:number;
+  id: number;
 
   constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private toastr: ToastrService) { }
 
@@ -28,7 +28,7 @@ export class ConceptAddEditFormComponent implements OnInit {
       this.isEdit = true;
       this.api.get(ConceptApi.GET_CONCEPT_BY_ID.replace('#', this.id.toString())).subscribe((response) => {
         if (response) {
-          var helper:Concept = response['payload'];
+          var helper: Concept = response['payload'];
 
           this.concept.name = helper.name;
           this.concept.aliases = helper.aliases;
@@ -36,7 +36,7 @@ export class ConceptAddEditFormComponent implements OnInit {
           this.concept.outline = helper.outline;
           this.concept.imageCreateRequest = new ImageRequest();
 
-          if (helper.imageUrl){
+          if (helper.imageUrl) {
             this.concept.imageCreateRequest.imageData = helper.imageUrl;
           }
         }
@@ -65,13 +65,8 @@ export class ConceptAddEditFormComponent implements OnInit {
     }
   }
 
-  cancel() {
-    this.toastr.info('Add/Edit cancelled!');
-
-    if (this.isEdit)
-      this.router.navigateByUrl(`/concept/${this.id}/overview`);
-    else
-      this.router.navigateByUrl('/concept/search');
+  clear() {
+    this.ngOnInit();
   }
 
   onSelectFile(event) {
