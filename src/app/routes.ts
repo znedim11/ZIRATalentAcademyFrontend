@@ -22,8 +22,9 @@ export const appRoutes: Routes = [
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },
     { path: 'concept/search', component: ConceptSearchComponent },
     { path: 'game/:id/information', component: GameOverviewComponent },
-    { path: 'game/:gameId/review/:id', component: ReviewOverviewComponent },
+    
     { path: 'game/:gameId/review/add', component: ReviewAddEditFormComponent },
+    { path: 'game/:gameId/review/:id', component: ReviewOverviewComponent },
     { path: 'game/:gameId/review/:id/edit', component: ReviewAddEditFormComponent },
     { path: 'add-formula', component: FormulaAddEditFormComponent },
     { path: 'formula/:id/edit', component: FormulaAddEditFormComponent },
