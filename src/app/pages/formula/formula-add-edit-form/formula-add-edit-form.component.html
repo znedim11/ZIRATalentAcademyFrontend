@@ -1,5 +1,6 @@
 <section>
-    <h3>Add/Edit Formula</h3>
+    <h3 *ngIf="id">Edit Formula</h3>
+    <h3 *ngIf="!id">Add Formula</h3>
     <form #formulaform="ngForm" (ngSubmit)="save()">
         <div class="row">
             <label for="name" class="required">Name:
@@ -34,7 +35,7 @@
                     </div>
                     <div class="form-buttons">
                         <button type="submit">Save</button>
-                        <button (click)="cancel()" class="cancel" type="reset">Cancel</button>
+                        <button (click)="clear()" class="cancel" type="reset">Reset values</button>
                     </div>
                 </div>
             </div>

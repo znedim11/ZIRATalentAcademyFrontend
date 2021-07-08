@@ -1,0 +1,85 @@
+<section>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab class="overview" label="Overview">
+      <h3 *ngIf="isEdit">Edit concept</h3>
+      <h3 *ngIf="!isEdit">Add concept</h3>
+      <form #companyForm="ngForm" (ngSubmit)="saveCompany()" novalidate>
+        <div class="name">
+          <label class="required" for="name">Name: </label>
+          <input #name="ngModel" [(ngModel)]="companyCreateRequest.name" type="text" id="name" name="name" required />
+        </div>
+        <div class="top-info">
+          <div>
+            <label for="country">Country: </label>
+            <input [(ngModel)]="companyCreateRequest.country" type="text" id="country" name="country" />
+          </div>
+          <div>
+            <label for="city">City: </label>
+            <input [(ngModel)]="companyCreateRequest.city" type="text" id="city" name="city" />
+          </div>
+          <div>
+            <label for="address">Address: </label>
+            <input [(ngModel)]="companyCreateRequest.address" type="text" id="address" name="address" />
+          </div>
+          <div>
+            <label for="website">Website: </label>
+            <input [(ngModel)]="companyCreateRequest.website" type="text" id="website" name="website" />
+          </div>
+        </div>
+        <div class="outLine">
+          <label for="outlineText">Outline: </label>
+          <textarea [(ngModel)]="companyCreateRequest.outlineText" id="outlineText" name="outlineText"></textarea>
+        </div>
+        <div class="bot-info">
+          <div class="date-info">
+            <div>
+              <label for="telNumber">Tel. Number: </label>
+              <input [(ngModel)]="companyCreateRequest.telNumber" type="text" id="telNumber" name="telNumber" />
+            </div>
+            <div>
+              <label for="email">Email: </label>
+              <input [(ngModel)]="companyCreateRequest.email" type="email" id="email" name="email" />
+            </div>
+            <div>
+              <label for="startDate">Start Date: </label>
+              <input [(ngModel)]="companyCreateRequest.startDate" type="datetime-local" id="startDate" name="startDate"
+                step="0.001" />
+            </div>
+            <div>
+              <label for="endDate">End Date: </label>
+              <input [(ngModel)]="companyCreateRequest.endDate" type="datetime-local" id="endDate" name="endDate"
+                step="0.001" />
+            </div>
+          </div>
+          <div class="image">
+            <label>Cover Photo: </label>
+            <img *ngIf="companyCreateRequest.imageCreateRequest.imageData" [src]="companyCreateRequest.imageCreateRequest.imageData.toString()"
+              alt="Image" />
+            <div *ngIf="!companyCreateRequest.imageCreateRequest.imageData"
+              style="margin-top: 2%;width:120px;height:140px;font-size: 200px;border: 2px solid #1a3469;">
+            </div>
+            <input #imageInput hidden="true" type='file' accept="image/*" (change)="onSelectFile($event)">
+            <button type="button" (click)="imageInput.click()">Choose Photo</button>
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="save">Save</button>
+          <button (click)="cancel()" type="reset" class="cancel">Cancel</button>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab label="Information">
+      <div class="info">
+        <h3 *ngIf="isEdit">Edit information</h3>
+        <h3 *ngIf="!isEdit">Add information</h3>
+        <quill-editor [(ngModel)]="companyCreateRequest.information" name="information"></quill-editor>
+        <div class="info-buttons">
+          <div class="buttons">
+            <button type="submit" (click)="saveCompany()" class="save">Save</button>
+            <button (click)="cancel()" type="reset" class="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</section>

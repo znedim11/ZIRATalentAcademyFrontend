@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { CharacterModule } from './pages/character/character.module';
+import { CompanyModule } from './pages/company/company.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { FormulaModule } from './pages/formula/formula.module';
 import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
@@ -20,6 +21,8 @@ import { GameModule } from './pages/game/game.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { ReviewModule } from './pages/review/review.module';
+import { FormValidatorService } from './pages/shared/form-validator.service';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -51,11 +54,14 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ConceptModule,
     GameModule,
     FormulaModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    CompanyModule,
+    ReviewModule
   ],
   providers: [
     FranchiseService, 
-    RestApiService
+    RestApiService,
+    FormValidatorService
   ],
   bootstrap: [AppComponent]
 })

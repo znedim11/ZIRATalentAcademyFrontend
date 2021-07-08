@@ -1,0 +1,40 @@
+<section>
+    <h3 *ngIf="id">Edit Review</h3>
+    <h3 *ngIf="!id">Add Review</h3>
+    <form #reviewform="ngForm" (ngSubmit)="save()">
+        <div class="row">
+            <label for="title" class="required">Title:
+            </label>
+            <input [(ngModel)]="review.title" type="text" id="title" name="title" placeholder="Review title"/>
+        </div>
+        <div class="bottom">
+            <div class="bottom-left">
+                <label for="formulaId" class="required">Formula:</label>
+                <select [(ngModel)]="review.formulaId" id="formulaId" name="formulaId" (change)="formulaChange()">
+                    <option *ngFor="let formula of formulaSelect" [value]="formula.id">{{formula.name}}</option>
+                </select>
+                <hr/>
+                    <div class="grades">
+                        <review-grade-element *ngFor="let grade of review.grades" (changeGrade)="changeGrade($event)" [grade]="grade"></review-grade-element>
+                    </div>
+                    <fieldset>
+                        <legend>Final Grade Preview</legend>
+                        <p>{{valueFormula}}</p>
+                        <h1>{{review.totalRating}}</h1>
+                    </fieldset>
+            </div>
+
+            <div class="bottom-right">
+                <label for="text" class="text">Review text:</label>
+                <quill-editor [(ngModel)]="review.text" name="text"></quill-editor>
+            </div>
+
+        </div>
+
+        <div class="form-buttons">
+            <button (click)="clear()" class="cancel" type="reset">Reset values</button>
+            <button type="submit">Save</button>
+        </div>
+
+    </form>
+</section>

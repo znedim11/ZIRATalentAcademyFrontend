@@ -81,7 +81,7 @@
 			},
 			{
 				"code": "HUB_REWIEWS_STATIC",
-				"label": "Rewiews",
+				"label": "Reviews",
 				"icon": "reviews",
 				"attributes": {},
 				"children": [

@@ -102,4 +102,7 @@ export class GameOverviewComponent implements OnInit {
         return span;
     }
 
+    addReview() {
+        this.router.navigateByUrl(`game/${this.game.id}/review/add`);
+    }
 }
