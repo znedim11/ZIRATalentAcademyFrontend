@@ -1,6 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +23,7 @@ import { GameModule } from './pages/game/game.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { ReviewComponent } from './pages/review/review.component';
 import { FormValidatorService } from './pages/shared/form-validator.service';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
@@ -33,7 +36,8 @@ import { appRoutes } from './routes';
     FranchiseComponent,
     HomeComponent,
     FranchisesListComponent,
-    FranchiseFormComponent
+    FranchiseFormComponent,
+    ReviewComponent,
   ],
   imports: [
     CharacterModule,
@@ -52,7 +56,9 @@ import { appRoutes } from './routes';
     ConceptModule,
     GameModule,
     FormulaModule,
-    CompanyModule
+    CompanyModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [
     FranchiseService, 

@@ -83,17 +83,19 @@
 				"code": "HUB_REWIEWS_STATIC",
 				"label": "Rewiews",
 				"icon": "reviews",
+				"url": "reviews",
 				"attributes": {},
 				"children": [
 					{
 						"code": "HUB_EXTERNAL_STATIC",
 						"label": "External",
-						"url": "external",
+						"url": "reviews/external",
 						"attributes": {}
 					},
 					{
 						"code": "HUB_INTERNAL_STATIC",
 						"label": "Internal",
+						"url":"reviews/internal",
 						"attributes": {},
 						"children": [
 							{

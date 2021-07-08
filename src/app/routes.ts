@@ -10,6 +10,7 @@ import { CharacterOverviewComponent } from './pages/character/character-overview
 import { CharacterSearchComponent } from './pages/character/character-search/character-search.component'
 import { FormulaListComponent } from './pages/formula/formula-list/formula-list.component'
 import { CompanyCreateComponent } from './pages/company/company-create/company-create.component'
+import { ReviewComponent } from './pages/review/review.component'
 
 
 export const appRoutes: Routes = [
@@ -27,5 +28,8 @@ export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'company/:id/edit', component: CompanyCreateComponent },
-    { path: 'company-add', component: CompanyCreateComponent }
+    { path: 'company-add', component: CompanyCreateComponent },
+    { path: 'reviews', component: ReviewComponent},
+    { path: 'reviews/external', component: ReviewComponent},
+    { path: 'reviews/internal', component: ReviewComponent},
 ]
