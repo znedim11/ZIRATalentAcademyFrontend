@@ -3,12 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RestApiService } from '../../shared/rest-api.service';
 import { FormulaApi } from '../shared/formula-api.constant';
+import { FormulaCreate } from '../shared/formula-create.model';
 import { Formula } from '../shared/formula.model';
-import { FormulaCreate } from '../shared/formulaCreate.model';
 import { Grade } from '../shared/grade.model';
 
 @Component({
-  selector: 'app-formula-add-edit-form',
+  selector: 'formula-add-edit-form',
   templateUrl: './formula-add-edit-form.component.html',
   styleUrls: ['./formula-add-edit-form.component.scss']
 })

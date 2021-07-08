@@ -1,5 +1,6 @@
 <section>
-    <h3>Add/Edit Formula</h3>
+    <h3 *ngIf="id">Edit Formula</h3>
+    <h3 *ngIf="!id">Add Formula</h3>
     <form #formulaform="ngForm" (ngSubmit)="save()">
         <div class="row">
             <label for="name" class="required">Name:

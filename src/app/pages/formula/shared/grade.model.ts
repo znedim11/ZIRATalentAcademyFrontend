@@ -10,5 +10,9 @@ export class Grade {
             this.type = args[0];
             this.grade = null;
         }
+        else if(args.length == 2){
+            this.type = args[0];
+            this.grade = args[1];
+        }
     }
 }
