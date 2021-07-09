@@ -1,7 +1,6 @@
 <div (click)="showCharacter(character.id)" class="container">
-  <div>
-    <img *ngIf="character.imageUrl != null" [src]="character.imageUrl" alt="Can't load cover" class="character-image" width="150" height="200">
-    <img *ngIf="character.imageUrl == null" src="https://i.imgur.com/SFaq3O1.png" alt="Can't load cover" class="character-image" width="150" height="200">
+  <div class="image-container">
+    <img [src]="character.imageUrl" alt="Can't load cover" class="character-image" width="150" height="200">
   </div>
 
   <div  class="character-info">
