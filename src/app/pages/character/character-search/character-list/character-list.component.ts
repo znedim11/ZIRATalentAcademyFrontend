@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
 import {HttpParams} from '@angular/common/http';
+import { Router } from '@angular/router';
 import {RestApiService} from '../../../shared/rest-api.service';
 import {CharacterApi} from '../../shared/character-api.constant';
 
@@ -12,14 +13,18 @@ import {CharacterApi} from '../../shared/character-api.constant';
 export class CharacterListComponent implements OnChanges, OnInit {
   @Input() searchQuery;
 
-  characterList;
+  characterList: CharacterItem[];
   params;
 
-  constructor(private api: RestApiService){}
+  constructor(private api: RestApiService, private router:Router){}
 
   ngOnInit() {
     this.api.get(CharacterApi.SEARCH_CHARACTERS).subscribe(data => {
       this.characterList = data.payload;
+/*
+      this.characterList.forEach(characterItem => {
+        characterItem.hasImg = this.checkImage(characterItem.imageUrl);
+      });*/
     });
   }
 
@@ -46,4 +51,26 @@ export class CharacterListComponent implements OnChanges, OnInit {
     }
   }
 
+  newCharacter(){
+    this.router.navigateByUrl('/add-character')
+  }
+
+  checkImage(imageUrl) : Boolean{
+    var img;
+    this.api.get(CharacterApi.GET_COVER_IMAGE + imageUrl).subscribe(data => {
+      img = data.payload;
+      return img ? true : false;
+    });
+    return false;    
+  }
+
+}
+
+class CharacterItem{
+  name: string;
+  outlineText: string;
+  imageUrl: string;
+  id: number;
+  numberOfAppearances: number;
+  hasImg: Boolean;
 }

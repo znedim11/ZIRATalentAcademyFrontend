@@ -10,6 +10,7 @@ import { FormulaListComponent } from './pages/formula/formula-list/formula-list.
 import { FranchiseComponent } from './pages/franchise/franchise.component'
 import { GameOverviewComponent } from './pages/game/game-overview.component'
 import { HomeComponent } from './pages/home/home.component'
+import { CharacterAddEditComponent } from './pages/character/character-add-edit/character-add-edit.component';
 import { ReviewAddEditFormComponent } from './pages/review/review-add-edit-form/review-add-edit-form.component'
 import { ReviewOverviewComponent } from './pages/review/review-overview/review-overview.component'
 import { ReviewComponent } from './pages/review/review.component'
@@ -18,6 +19,8 @@ import { ReviewComponent } from './pages/review/review.component'
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
     { path: 'character/search', component: CharacterSearchComponent },
+    { path: 'add-character', component: CharacterAddEditComponent},
+    { path: 'character/:id/edit', component: CharacterAddEditComponent },
     { path: 'concept/:id/overview', component: ConceptOverviewComponent },
     { path: 'add-concept', component: ConceptAddEditFormComponent },
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },

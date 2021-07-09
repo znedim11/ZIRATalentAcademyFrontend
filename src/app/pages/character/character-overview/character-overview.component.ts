@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {RestApiService} from '../../shared/rest-api.service';
 import {CharacterApi} from '../shared/character-api.constant';
 import * as moment from 'moment';
+import { Character } from '../shared/character.model';
 
 @Component({
   templateUrl: './character-overview.component.html',
@@ -10,13 +11,14 @@ import * as moment from 'moment';
 })
 export class CharacterOverviewComponent implements OnInit{
 
-  character;
+  character: Character = new Character();
   characterGames = [];
   numOfGames = null;
 
   constructor(
     private route: ActivatedRoute,
     private api: RestApiService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class CharacterOverviewComponent implements OnInit{
 
   getCharacter() {
     const id = +this.route.snapshot.paramMap.get('id');
+
     this.api.get(CharacterApi.GET_CHARACTER_BY_ID + id).subscribe(character => {
       if (character) {
         this.character = character["payload"];
@@ -49,4 +52,15 @@ export class CharacterOverviewComponent implements OnInit{
 
   }
   
+  editcharacter() {
+    this.router.navigate(['/character/'+ this.character.id + '/edit']);
+  }
+
+  deletecharacter() {
+    if (confirm('Are you sure you want to delete character: ' + this.character.name + ' ?')) {
+      this.api.delete(CharacterApi.DELETE_CHARACTER + this.character.id ).subscribe(() => {
+          this.router.navigate(['/character/search']);
+      })
+    }
+  }
 }

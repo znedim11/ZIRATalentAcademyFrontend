@@ -28,6 +28,7 @@ import { ReviewComponent } from './pages/review/review.component';
 import { FormValidatorService } from './pages/shared/form-validator.service';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { appRoutes } from './routes';
     ConceptModule,
     GameModule,
     FormulaModule,
+    NgMultiSelectDropDownModule.forRoot(),
     CompanyModule,
     ReviewModule,
     MatSelectModule,

@@ -18,11 +18,39 @@ section {
           padding-top: 5px;
           border-top: 2px solid #1a3469;
         }
+
+        .controlButtons{
+          display: flex;
+
+          .cbtn{
+            float: right;
+          }
+          .cbtn:first-of-type{
+            margin-left: auto;
+            margin-right: 10px;
+          }
+          .cbtn:last-of-type{
+            background-color: #691a1a;
+            border: 2px solid #691a1a; 
+            color: #fff
+          }
+        }
       }
-  
-      img {
-        width: auto;
-        height: 100%;
+
+      .image-container{
+        margin-right: 10px;
+        width: 235px;
+        height: 315px;
+        min-width: 235px; 
+        min-height: 315px;
+        border: 2px solid #1a3469;
+        border-radius: 5px;
+        background-image: url('https://i.imgur.com/SFaq3O1.png'); 
+        background-position: center;
+    
+        .character-image {
+          object-fit: contain;
+        }
       }
     }
   

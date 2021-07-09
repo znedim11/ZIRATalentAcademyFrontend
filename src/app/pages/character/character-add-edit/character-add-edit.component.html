@@ -1,0 +1,101 @@
+<section>
+        <mat-tab-group>
+            <mat-tab label="Configuration">
+                <h3 *ngIf="isEdit">Edit character</h3>
+                <h3 *ngIf="!isEdit">Add character</h3>
+                <form #characterForm="ngForm" (ngSubmit)="save()" novalidate>
+                    <div class="inputRow">
+                        <div class="inputGroup">
+                            <label class="required" for="name">Name: </label>
+                            <input [(ngModel)]="character.name" type="text" id="name" name="name" required />
+                            <div *ngIf="characterForm.controls.name?.invalid && (characterForm.controls.name?.touched)" class="alert alert-danger">
+                                Name is required
+                            </div>
+                        </div>
+        
+                        <div class="inputGroup">
+                            <label for="realName">Real name: </label>
+                            <input [(ngModel)]="character.realName" type="text" id="realName" name="realName" />
+                        </div>
+        
+                        <div class="inputGroup">
+                            <label for="aliases">Aliases: </label>
+                            <input [(ngModel)]="character.aliases" type="text" id="aliases" name="aliases" />
+                        </div>
+                    </div>
+        
+                    <div class="inputRow">
+                        <div class="inputGroup">
+                            <label for="gender">Gender: </label>
+                            <select [(ngModel)]="character.gender" id="gender" name="gender">
+                                <option value="any">Any</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                        </div>
+        
+                        <div class="inputGroup">
+                            <label for="dob">Date of birth: </label>
+                            <input [(ngModel)]="character.dob" type="date" id="dob" name="dob" />
+                        </div>
+        
+                        <div class="inputGroup">
+                            <label for="dod">Date of death: </label>
+                            <input [(ngModel)]="character.dod" type="date" id="dod" name="dod" />
+                        </div>
+                    </div>
+
+                    <div class="inputRow">
+                        <div class="inputGroup">
+                            <label for="gamesIds">Games: </label>
+                            <ng-multiselect-dropdown
+                            name="gamesIds"
+                            class="gamesMultiselect"
+                            [placeholder]="'Choose games'"
+                            [settings]="dropdownSettings"
+                            [data]="gamesList"
+                            [(ngModel)]="characterGames"
+                            >
+                            </ng-multiselect-dropdown>
+                        </div>
+        
+                        <div class="inputGroup">
+                            <label for="outlineText">Outline text: </label>
+                            <textarea [(ngModel)]="character.outlineText" id="outlineText" name="outlineText"></textarea>
+                        </div>
+        
+                        <div class="inputGroup">
+                            <label>Cover Photo: </label>
+                            <div class="imageInputContainer">
+                                <div class="imageContainer">
+                                    <img *ngIf="character.imageCreateRequest.imageData"
+                                        [src]="character.imageCreateRequest.imageData.toString()" alt="Image" />
+                                    <div *ngIf="!character.imageCreateRequest.imageData">
+                                    </div>
+                                </div>
+                                <input (change)="onSelectFile($event)" #imageInput hidden="true" type='file' accept="image/*">
+                                <button (click)="imageInput.click()" type="button">Choose Photo</button>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="buttons">
+                        <button [disabled]="characterForm.invalid" type="submit" class="save">Save</button>
+                        <button type="reset" class="cancel" (click)="cancel()">Cancel</button>
+                    </div>
+                </form>
+            </mat-tab>
+              
+            <mat-tab label="Information">
+                <h3 *ngIf="isEdit">Edit character</h3>
+                <h3 *ngIf="!isEdit">Add character</h3>
+                    <div class="info">
+                        <quill-editor [(ngModel)]="character.information" name="information"></quill-editor>
+                    </div>
+                    <div class="infoButtons">
+                        <button class="cancel" (click)="cancel()">Cancel</button>
+                        <button class="save" (click)="save()" [disabled]="characterForm.invalid">Save</button> 
+                    </div>  
+            </mat-tab>
+        </mat-tab-group>
+</section>
