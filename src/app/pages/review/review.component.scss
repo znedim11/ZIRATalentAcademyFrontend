@@ -1,0 +1,63 @@
+  #tableSection{
+    border: 1px solid #1a3469;
+    height: 600px;
+    overflow: scroll;
+    width: 73%;
+    float:left;
+    margin-bottom: 15px;
+  }
+
+  #searchSection{
+    border: 1px solid #1a3469;
+    width: 26%;
+    height: 600px;
+    float: right;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+.searchItem{
+   width: 90%;
+  }
+
+  #searchButton{
+    float: right;
+    margin-right: 5%;
+    position: relative;
+    top: 195px;
+  }
+
+#statsSection{
+    width: 100%;
+    border: 1px solid #1a3469;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.statsItem{
+  margin-top: 50px;
+  p{
+    font-size: 30px;
+  }
+
+  h3{
+    font-size:18px;
+  }
+}
+
+.layout{
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 40px;
+}
+
+form{
+  margin-top: 15px;
+}
+
+h1 ,h3{
+  color: #1a3469;
+}
