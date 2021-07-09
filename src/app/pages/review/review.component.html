@@ -1,0 +1,99 @@
+<div class="layout">
+
+    <h1>Reviews</h1>
+    <hr>
+
+    <section id="tableSection">
+        <table id="table" class="table table-bordered table-striped">
+            <th>Game</th>
+            <th>Platform</th>
+            <th>Title</th>
+            <th>Reviewer</th>
+            <th>Total Rating</th>
+
+            <tbody>
+                <tr *ngFor="let item of reviewResponse">
+                    <td *ngIf="item.gameName!=null" data-label="Game">{{item.gameName}}</td>
+                    <td *ngIf="item.gameName==null" data-label="Game">No data</td>
+                    <td *ngIf="item.platform!=null" data-label="Platform">{{item.platform}}</td>
+                    <td *ngIf="item.platform==null" data-label="Platform">No data</td>
+                    <td *ngIf="item.title!=null" data-label="Title">{{item.title}}</td>
+                    <td *ngIf="item.title==null" data-label="Title">No data</td>
+                    <td *ngIf="item.reviewerName!=null" data-label="Reviewer">{{item.reviewerName}}</td>
+                    <td *ngIf="item.reviewerName==null" data-label="Reviewer">No data</td>
+                    <td *ngIf="item.totalRating!=null" data-label="Total Rating">{{item.totalRating}}</td>
+                    <td *ngIf="item.totalRating==null" data-label="Total Rating">No data</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="searchSection">
+            <mat-form-field class="searchItem">
+                <mat-select placeholder="Select a game" [(value)]="reviewsFilter.gameId">
+                    <mat-option #selectedGame *ngFor="let game of gameResponse" [value]="game.id">
+                        {{game.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="searchItem">
+                <mat-select placeholder="Select a platform" [(value)]="reviewsFilter.platformId">
+                    <mat-option *ngFor="let platform of platformResponse" [value]="platform.id">
+                        {{platform.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="searchItem">
+                <mat-select placeholder="Select a reviewer" [(value)]="reviewsFilter.reviewerId">
+                    <mat-option *ngFor="let reviewer of reviewerResponse" [value]="reviewer.usercode">
+                        {{reviewer.displayname}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="searchItem">
+                <input type="number" min="0" max="10" matInput placeholder="Lowest Rating" #input1 [(ngModel)]='reviewsFilter.lowestRating'>
+            </mat-form-field>
+    
+            <mat-form-field class="searchItem">
+                <input  type="number" min="0" max="10" matInput placeholder="Highest Rating" #input1  [(ngModel)]='reviewsFilter.highestRating'>
+            </mat-form-field>
+            <button id="searchButton" type="submit" class="btn-zira" (click)="onSubmit()">Search</button>
+    </section>
+    
+
+    <section id="statsSection">
+        <div class="statsItem">
+            <h3>Total Reviews</h3> <br>
+            <p *ngIf="statsResponse.totalReviews==null">No data</p>
+            <p *ngIf="statsResponse.totalReviews!=null">{{statsResponse.totalReviews}}</p>
+        </div>
+
+        <div class="statsItem">
+            <h3>Most Popular Platform</h3><br>
+            <p *ngIf="statsResponse.topPlatformName==null">No data</p>
+            <p *ngIf="statsResponse.topPlatformName!=null">{{statsResponse.topPlatformName}}</p>
+        </div>
+
+        <div class="statsItem">
+            <h3>Average Grade</h3><br>
+            <p *ngIf="statsResponse.averageGrade==null">No data</p>
+            <p *ngIf="statsResponse.averageGrade!=null">{{statsResponse.averageGrade}}</p>
+        </div>
+
+        <div class="statsItem">
+            <h3>Best Game</h3><br>
+            <p *ngIf="statsResponse.topGameName==null">No data</p>
+            <p *ngIf="statsResponse.topGameName!=null">{{statsResponse.topGameName}}</p>
+        </div>
+
+        <div class="statsItem">
+            <h3>Worst Game</h3><br>
+            <p *ngIf="statsResponse.flopGameName==null">No data</p>
+            <p *ngIf="statsResponse.flopGameName!=null">{{statsResponse.flopGameName}}</p>
+        </div>
+    </section>
+</div>
+

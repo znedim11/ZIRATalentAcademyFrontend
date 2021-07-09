@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component'
 import { CharacterAddEditComponent } from './pages/character/character-add-edit/character-add-edit.component';
 import { ReviewAddEditFormComponent } from './pages/review/review-add-edit-form/review-add-edit-form.component'
 import { ReviewOverviewComponent } from './pages/review/review-overview/review-overview.component'
+import { ReviewComponent } from './pages/review/review.component'
 
 
 export const appRoutes: Routes = [
@@ -25,7 +26,6 @@ export const appRoutes: Routes = [
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },
     { path: 'concept/search', component: ConceptSearchComponent },
     { path: 'game/:id/information', component: GameOverviewComponent },
-    
     { path: 'game/:gameId/review/add', component: ReviewAddEditFormComponent },
     { path: 'game/:gameId/review/:id', component: ReviewOverviewComponent },
     { path: 'game/:gameId/review/:id/edit', component: ReviewAddEditFormComponent },
@@ -36,5 +36,8 @@ export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'company/:id/edit', component: CompanyCreateComponent },
-    { path: 'company-add', component: CompanyCreateComponent }
+    { path: 'company-add', component: CompanyCreateComponent },
+    { path: 'reviews', component: ReviewComponent},
+    { path: 'reviews/external', component: ReviewComponent},
+    { path: 'reviews/internal', component: ReviewComponent},
 ]
