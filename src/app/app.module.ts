@@ -29,6 +29,7 @@ import { FormValidatorService } from './pages/shared/form-validator.service';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { PlatformCreateComponent } from './pages/platform/platform-create/platform-create.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FranchisesListComponent,
     FranchiseFormComponent,
     ReviewComponent,
+    FranchiseFormComponent,
+    PlatformCreateComponent
   ],
   imports: [
     CharacterModule,
