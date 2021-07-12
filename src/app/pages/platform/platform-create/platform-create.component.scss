@@ -17,15 +17,6 @@ section {
       margin-bottom: 10px;
     }
 
-    button {
-      border: none;
-      outline: none;
-      background-color: #1a3469;
-      color: white;
-      border-radius: 5px;
-      padding: 5px 10px;
-    }
-
     .image {
 
       display: flex;
@@ -45,23 +36,9 @@ section {
       }
     }
 
-    .buttons {
-      align-self: flex-end;
-      display: flex;
-      button {
-        width: 100px;
-        margin: 10px;
-      }
-    }
-
-    .save {
-      background-color: #00AB66;
-      color: white;
-    }
-
-    .cancel {
-      background-color: #DC3545;
-      color: white;
+    .required::after {
+      content: "*";
+      color: red;
     }
   }
 
@@ -82,6 +59,40 @@ section {
     }
   }
 
+  button {
+    border: none;
+    outline: none;
+    background-color: #1a3469;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  .buttons {
+    align-self: flex-end;
+    display: flex;
+    button {
+      width: 100px;
+      margin: 10px;
+    }
+  }
+
+  .save {
+    background-color: #00AB66;
+    color: white;
+  }
+
+  .cancel {
+    background-color: #DC3545;
+    color: white;
+  }
+
+  .info-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    width: 80%;
+  }
 }
 
 .alert {

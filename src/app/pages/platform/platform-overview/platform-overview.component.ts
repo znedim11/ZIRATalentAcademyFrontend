@@ -16,7 +16,6 @@ import { ViewEncapsulation } from '@angular/core';
 export class PlatformOverviewComponent implements OnInit {
 
   public platform: Platform;
-  private games;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +32,6 @@ export class PlatformOverviewComponent implements OnInit {
     this.api.get(PlatformApi.GET_PLATFORM + "/" + id).subscribe(platform => {
       if (platform) {
         this.platform = platform["payload"];
-        this.games = "";
       }
     });
   }

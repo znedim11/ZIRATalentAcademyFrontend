@@ -1,6 +1,7 @@
 import { PlatformApi } from '../../shared/platform-api.constant';
 import { RestApiService } from '../../../shared/rest-api.service';
-import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core'
+import { FilterExpression } from '../../shared/filter-expression-model';
 import { Platform, PlatformSearchRequest } from '../../shared/platform.model';
 import { HttpParams } from '@angular/common/http';
 
@@ -15,6 +16,7 @@ export class PlatformListComponent implements OnChanges {
   public platformList: Platform[];
 
   constructor(private api: RestApiService) {
+
   }
 
   ngOnChanges(changes: SimpleChanges) {

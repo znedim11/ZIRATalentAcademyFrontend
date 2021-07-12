@@ -25,7 +25,7 @@ export class PlatformSearchFormComponent implements OnInit {
   features: any;
   developers: any;
   publishers: any;
- 
+
   constructor(private api: RestApiService) {
 
   }

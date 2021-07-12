@@ -1,33 +1,38 @@
+
 <section>
   <mat-tab-group>
     <mat-tab class="overview" label="Overview">
       <h3>Add/Edit Platform</h3>
-      <form #platformForm="ngForm" (ngSubmit)="savePlatform()" >
-        <label  for="name">Name: </label>
-        <input [(ngModel)]="platform.name" type="text" id="name" name="name" #name="ngModel" required/>
-        <div [hidden]="name.valid || name.pristine"
+      <form #platformForm="ngForm" (ngSubmit)="savePlatform()" novalidate >
+        <label class="required"  for="fullName">Name: </label>
+        <input [(ngModel)]="platformCreateRequest.fullName" type="text" id="fullName" name="fullName" #fullName="ngModel" required/>
+        <div [hidden]="validName"
              class="alert alert-danger">
           Name is required
         </div>
 
         <label  for="abbr">Abbreviation: </label>
-        <input [(ngModel)]="platform.abbriviation" type="text" id="abbr" name="abbriviation"/>
+        <input [(ngModel)]="platformCreateRequest.abbriviation" type="text" id="abbr" name="abbriviation"/>
 
-        <label  for="aliases">Aliases: </label>
-        <input [(ngModel)]="platform.aliases" type="text" id="aliases" name="aliases"/>
+        <label class="required" for="code">Code: </label>
+        <input [(ngModel)]="platformCreateRequest.code" type="text" id="code" name="code" #code="ngModel" required/>
+        <div [hidden]="validCode"
+             class="alert alert-danger">
+          Code is required
+        </div>
 
-        <label  for="outline">Outline: </label>
-        <textarea [(ngModel)]="platform.outline" id="outline" name="outline"></textarea>
+        <label  for="outlineText">Outline: </label>
+        <textarea [(ngModel)]="platformCreateRequest.outlineText" id="outlineText" name="outlineText"></textarea>
 
         <div class="image">
           <label>Cover Photo: </label>
-          <img *ngIf="platform.imageData" [src]="platform.imageData.toString()" alt="Image"  />
-          <input #imageInput hidden="true" type='file' (change)="onSelectFile($event)">
+          <img *ngIf="platformCreateRequest.imageCreateRequest.imageData" [src]="platformCreateRequest.imageCreateRequest.imageData.toString()" alt="Image"  />
+          <input #imageInput hidden="true" type='file' accept="image/*" (change)="onSelectFile($event)">
           <button type="button" (click)="imageInput.click()">Choose Photo</button>
         </div>
 
         <div class="buttons">
-          <button [disabled]="!platformForm.form.valid" type="submit" class="save">Save</button>
+          <button type="submit" class="save">Save</button>
           <button (click)="cancel()" type="reset" class="cancel">Cancel</button>
         </div>
       </form>
@@ -35,9 +40,17 @@
     <mat-tab  label="Information">
       <div class="info">
         <h3>Add/Edit Information</h3>
-        <quill-editor [(ngModel)]="platform.information" name="information"></quill-editor>
+        <quill-editor [(ngModel)]="platformCreateRequest.information" name="information"></quill-editor>
+        <div class="info-buttons">
+          <div class="buttons">
+            <button (click)="savePlatform()" class="save">Save</button>
+            <button (click)="cancel()" class="cancel">Cancel</button>
+          </div>
+        </div>
       </div>
     </mat-tab>
   </mat-tab-group>
 </section>
+
+
 

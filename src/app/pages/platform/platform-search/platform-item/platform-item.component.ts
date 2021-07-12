@@ -9,7 +9,7 @@ import { ViewEncapsulation } from '@angular/core';
   styleUrls: ['./platform-item.component.scss']
 })
 export class PlatformItemComponent {
-  @Input() platform;
+  @Input() platform: { id: any; };
 
   constructor(private router: Router) {
 
