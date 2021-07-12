@@ -32,7 +32,7 @@
 					{
 						"code": "HUB_PLATFORMS_STATIC",
 						"label": "Platforms",
-						"url": "platform/search",
+						"url": "platform-search",
 						"attributes": {}
 					},
 					{

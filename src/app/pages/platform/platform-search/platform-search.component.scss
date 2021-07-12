@@ -1,4 +1,4 @@
-.game-search-conatiner {
+.platfrom-search-conatiner {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -7,12 +7,12 @@
     height: 100%;
 }
 
-.game-list {
-    width: 55%;
+.platfrom-list {
+    width: 30%;
 }
 
-.game-search-form {
-    width: 35%;
+.platfrom-search-form {
+    width: 30%;
     border: 2px solid #95a9d1;
     border-radius: 5px;
 }

@@ -1,20 +1,21 @@
 import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core'
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector: 'platform-item',
-    templateUrl: './platform-item.component.html',
-    styleUrls: ['./platform-item.component.scss']
+  selector: 'platform-item',
+  templateUrl: './platform-item.component.html',
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./platform-item.component.scss']
 })
 export class PlatformItemComponent {
-    @Input() platform;
+  @Input() platform;
 
-    constructor(private router: Router){
+  constructor(private router: Router) {
 
-    }
+  }
 
-    onDoubleClick(){
-        console.log("TEST");
-        this.router.navigate(['platform',this.platform.id]);
-    }
+  onDoubleClick() {
+    this.router.navigate(['platform', this.platform.id]);
+  }
 }

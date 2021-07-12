@@ -4,7 +4,7 @@
       <img *ngIf="platform.imageUrl" [src]="platform.imageUrl" alt="Can't load cover" />
       <div class="top-info">
         <div style="display: flex;flex-direction: row;">
-          <h1>{{platform.name}}</h1>
+          <h1>{{platform.fullName}}</h1>
           <button type="button" class="btn btn-zira" [routerLink]="['/platform-form',platform.id]">Edit platform</button>
         </div>
         <span>{{platform.numberOfReleases}} Releases </span> <span style="color: #1a3469">&#9679; </span>
