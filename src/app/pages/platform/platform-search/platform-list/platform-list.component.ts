@@ -1,8 +1,7 @@
 import { PlatformApi } from '../../shared/platform-api.constant';
 import { RestApiService } from '../../../shared/rest-api.service';
 import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core'
-import { FilterExpression } from '../../shared/filter-expression-model';
-import { Platform, PlatformSearchRequest } from '../../shared/platform.model';
+import { Platform } from '../../shared/platform.model';
 import { HttpParams } from '@angular/common/http';
 
 @Component({
@@ -11,7 +10,7 @@ import { HttpParams } from '@angular/common/http';
   styleUrls: ['./platform-list.component.scss']
 })
 export class PlatformListComponent implements OnChanges {
-  @Input() searchQuery: PlatformSearchRequest;
+  @Input() searchQuery: any;
 
   public platformList: Platform[];
 
@@ -23,17 +22,16 @@ export class PlatformListComponent implements OnChanges {
 
     const currentSearchQuery: SimpleChange = changes.searchQuery;
     if (!currentSearchQuery.firstChange) {
-      let searchQuery = currentSearchQuery.currentValue;
+      this.searchQuery = currentSearchQuery.currentValue;
 
       let params = new HttpParams();
 
-      params = searchQuery.name ? params.set('fullName', searchQuery.name) : params;
-      params = searchQuery.genre ? params.set('regionIds', searchQuery.regionIds) : params;
-      params = searchQuery.startDate ? params.set('startDate', searchQuery.startDate) : params;
-      params = searchQuery.endDate ? params.set('endDate', searchQuery.endDate) : params;
-      params = searchQuery.developer ? params.set('developerIds', searchQuery.developerIds) : params;
-      params = searchQuery.publisher ? params.set('publisherIds', searchQuery.publisherIds) : params;[]
-      console.log(JSON.stringify(searchQuery));
+      params = this.searchQuery.name ? params.set('fullName', this.searchQuery.name) : params;
+      params = this.searchQuery.genre ? params.set('regionIds', this.searchQuery.regionIds) : params;
+      params = this.searchQuery.startDate ? params.set('startDate', this.searchQuery.startDate) : params;
+      params = this.searchQuery.endDate ? params.set('endDate', this.searchQuery.endDate) : params;
+      params = this.searchQuery.developer ? params.set('developerIds', this.searchQuery.developerIds) : params;
+      params = this.searchQuery.publisher ? params.set('publisherIds', this.searchQuery.publisherIds) : params;
       let options = { params : params };
       this.api.get(PlatformApi.SEARCH_PLATFORMS, options).subscribe(response => {
         this.platformList = response['payload'];

@@ -21,8 +21,6 @@ import { PlatformSearchFormComponent } from './platform-search/platform-search-f
   imports: [
     SharedModule
   ],
-  exports: [
-    PlatformCreateComponent
-  ]
+  exports: []
 })
 export class PlatformModule { }

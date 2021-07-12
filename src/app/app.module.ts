@@ -29,8 +29,8 @@ import { FormValidatorService } from './pages/shared/form-validator.service';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { PlatformCreateComponent } from './pages/platform/platform-create/platform-create.component';
 import { PlatformModule } from '@angular/cdk/platform';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -42,8 +42,7 @@ import { PlatformModule } from '@angular/cdk/platform';
     FranchisesListComponent,
     FranchiseFormComponent,
     ReviewComponent,
-    FranchiseFormComponent,
-    PlatformCreateComponent
+    FranchiseFormComponent
   ],
   imports: [
     CharacterModule,
@@ -67,7 +66,8 @@ import { PlatformModule } from '@angular/cdk/platform';
     ReviewModule,
     MatSelectModule,
     MatInputModule,
-    PlatformModule
+    PlatformModule,
+    QuillModule.forRoot()
   ],
   providers: [
     FranchiseService, 
