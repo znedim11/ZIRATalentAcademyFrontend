@@ -5,19 +5,20 @@ import { ReviewAddEditFormComponent } from './review-add-edit-form/review-add-ed
 import { ReviewGradeElementComponent } from './review-add-edit-form/review-grade-element/review-grade-element.component';
 import { ReviewGridComponent } from './review-overview/review-grid/review-grid.component';
 import { ReviewOverviewComponent } from './review-overview/review-overview.component';
+import { ReviewComponent } from './review.component';
 
 
 @NgModule({
     imports: [
-        SharedModule,
-        QuillModule.forRoot()
+        SharedModule
     ],
     exports: [],
     declarations: [
         ReviewGradeElementComponent,
         ReviewAddEditFormComponent,
         ReviewOverviewComponent,
-        ReviewGridComponent
+        ReviewGridComponent,
+        ReviewComponent
     ],
     providers: [],
 })

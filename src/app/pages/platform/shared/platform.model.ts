@@ -26,6 +26,7 @@ export class Platform {
   information: string;
   code: string;
   url: string;
+  id: string;
   constructor() {
     this.fullName = null;
     this.abbriviation = null;
@@ -33,6 +34,7 @@ export class Platform {
     this.information = null;
     this.code = null;
     this.url = null;
+    this.id = null;
   }
 }
 

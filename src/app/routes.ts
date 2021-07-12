@@ -42,6 +42,6 @@ export const appRoutes: Routes = [
     { path: 'reviews', component: ReviewComponent},
     { path: 'reviews/external', component: ReviewComponent},
     { path: 'reviews/internal', component: ReviewComponent},
-    { path: 'platform/:id', component: PlatformOverviewComponent },
     { path: 'platform/search', component: PlatformSearchComponent },
+    { path: 'platform/:id', component: PlatformOverviewComponent }
 ]
