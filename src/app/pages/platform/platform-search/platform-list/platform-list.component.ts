@@ -1,7 +1,6 @@
 import { PlatformApi } from '../../shared/platform-api.constant';
 import { RestApiService } from '../../../shared/rest-api.service';
-import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core'
-import { FilterExpression } from '../../shared/filter-expression-model';
+import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { Platform, PlatformSearchRequest } from '../../shared/platform.model';
 import { HttpParams } from '@angular/common/http';
 

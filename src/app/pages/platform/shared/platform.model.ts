@@ -1,4 +1,5 @@
-import { ImageCreateRequest } from '../../shared/image.model';
+import { ImageRequest } from "../../shared/image-request.model";
+
 
 export class PlatformCreateRequest {
   fullName: string;
@@ -6,7 +7,7 @@ export class PlatformCreateRequest {
   outlineText: string;
   information: string;
   code: string;
-  imageCreateRequest: ImageCreateRequest;
+  imageCreateRequest: ImageRequest;
 
   constructor() {
     this.fullName = null;
@@ -14,7 +15,7 @@ export class PlatformCreateRequest {
     this.outlineText = null;
     this.information = null;
     this.code = null;
-    this.imageCreateRequest = new ImageCreateRequest();
+    this.imageCreateRequest = new ImageRequest();
   }
 }
 

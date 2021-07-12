@@ -14,6 +14,8 @@ import { CharacterAddEditComponent } from './pages/character/character-add-edit/
 import { ReviewAddEditFormComponent } from './pages/review/review-add-edit-form/review-add-edit-form.component'
 import { ReviewOverviewComponent } from './pages/review/review-overview/review-overview.component'
 import { ReviewComponent } from './pages/review/review.component'
+import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
+import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
 
 
 export const appRoutes: Routes = [
@@ -40,4 +42,6 @@ export const appRoutes: Routes = [
     { path: 'reviews', component: ReviewComponent},
     { path: 'reviews/external', component: ReviewComponent},
     { path: 'reviews/internal', component: ReviewComponent},
+    { path: 'platform/:id', component: PlatformOverviewComponent },
+    { path: 'platform/search', component: PlatformSearchComponent },
 ]

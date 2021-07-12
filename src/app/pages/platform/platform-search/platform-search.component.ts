@@ -10,7 +10,7 @@ export class PlatformSearchComponent {
     
     searchQuery: PlatformSearchRequest;
 
-    searchSubmitted(searchQuery){
+    searchSubmitted(searchQuery: PlatformSearchRequest){
         this.searchQuery = searchQuery;
         if(this.searchQuery.fullName == ""){
             this.searchQuery.fullName = null;
