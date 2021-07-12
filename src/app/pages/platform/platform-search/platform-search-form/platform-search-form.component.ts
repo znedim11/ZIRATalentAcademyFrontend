@@ -1,6 +1,6 @@
 import { RestApiService } from '../../../shared/rest-api.service';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core'
-import { GameApi } from 'src/app/pages/game/shared/game-api.constant';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SharedApi } from 'src/app/pages/shared/shared-api.constat';
 
 @Component({
   selector: 'platform-search-form',
@@ -25,22 +25,22 @@ export class PlatformSearchFormComponent implements OnInit {
   features: any;
   developers: any;
   publishers: any;
-
+ 
   constructor(private api: RestApiService) {
 
   }
 
   ngOnInit() {
 
-    this.api.get(GameApi.GET_REGION_NAMES).subscribe((results) => {
+    this.api.get(SharedApi.GET_REGIONS).subscribe((results) => {
       this.regions = results.payload;
     })
 
-    this.api.get(GameApi.GET_COMPANY_NAMES).subscribe((results) => {
+    this.api.get(SharedApi.GET_COMAPNIES).subscribe((results) => {
       this.developers = results.payload;
     })
 
-    this.api.get(GameApi.GET_COMPANY_NAMES).subscribe((results) => {
+    this.api.get(SharedApi.GET_COMAPNIES).subscribe((results) => {
       this.publishers = results.payload;
     })
   }

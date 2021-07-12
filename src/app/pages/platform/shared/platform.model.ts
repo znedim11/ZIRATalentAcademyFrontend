@@ -1,6 +1,5 @@
 import { ImageRequest } from "../../shared/image-request.model";
 
-
 export class PlatformCreateRequest {
   fullName: string;
   abbriviation: string;

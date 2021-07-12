@@ -15,7 +15,6 @@ export class PlatformListComponent implements OnChanges {
   public platformList: Platform[];
 
   constructor(private api: RestApiService) {
-
   }
 
   ngOnChanges(changes: SimpleChanges) {

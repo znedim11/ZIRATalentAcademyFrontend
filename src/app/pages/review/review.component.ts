@@ -4,6 +4,7 @@ import { ValueCache } from 'ag-grid-community';
 import { ConceptApi } from '../concept/shared/concept-api.constant';
 import { PlatformApi } from '../platform/shared/platform-api.constant';
 import { RestApiService } from '../shared/rest-api.service';
+import { SharedApi } from '../shared/shared-api.constat';
 import { ReviewApi } from './shared/review-api.constant';
 import { ReviewFilter } from './shared/review-filter';
 import { ReviewType } from './shared/review-type.enum';
@@ -53,11 +54,11 @@ export class ReviewComponent implements OnInit {
         this.statsResponse.averageGrade=this.statsResponse.averageGrade.toFixed(2);
       });
 
-    this.api.get(ConceptApi.GET_GAMES)
+    this.api.get(SharedApi.GET_GAMES)
       .subscribe((game) => {
         this.gameResponse = game['payload'];
       });
-    this.api.get(PlatformApi.GET_PLATFORMS)
+    this.api.get(SharedApi.GET_PLATFORMS)
       .subscribe((platform) => {
         this.platformResponse = platform['payload'];
       });

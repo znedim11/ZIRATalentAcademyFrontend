@@ -7,6 +7,7 @@ import { CharacterCreate } from '../shared/character-create.model';
 import { Character } from '../shared/character.model';
 import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
+import { SharedApi } from '../../shared/shared-api.constat';
 
 @Component({
   selector: 'app-character-add-edit',
@@ -34,7 +35,7 @@ export class CharacterAddEditComponent implements OnInit {
 
     this.id = +this.route.snapshot.paramMap.get('id');
 
-    this.api.get(CharacterApi.GET_GAMES)
+    this.api.get(SharedApi.GET_GAMES)
     .subscribe((games) => {
       this.gamesList = games['payload'];
     });

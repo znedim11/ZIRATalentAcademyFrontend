@@ -30,6 +30,7 @@ import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { PlatformCreateComponent } from './pages/platform/platform-create/platform-create.component';
+import { PlatformModule } from '@angular/cdk/platform';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { PlatformCreateComponent } from './pages/platform/platform-create/platfo
     CompanyModule,
     ReviewModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    PlatformModule
   ],
   providers: [
     FranchiseService, 
