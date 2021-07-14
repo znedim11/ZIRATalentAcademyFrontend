@@ -29,6 +29,7 @@ import { FormValidatorService } from './pages/shared/form-validator.service';
 import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CompanyModule,
     ReviewModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    QuillModule.forRoot(),
   ],
   providers: [
     FranchiseService, 

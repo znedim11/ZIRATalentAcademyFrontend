@@ -14,6 +14,7 @@ import { CharacterAddEditComponent } from './pages/character/character-add-edit/
 import { ReviewAddEditFormComponent } from './pages/review/review-add-edit-form/review-add-edit-form.component'
 import { ReviewOverviewComponent } from './pages/review/review-overview/review-overview.component'
 import { ReviewComponent } from './pages/review/review.component'
+import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form/game-add-edit-form.component'
 
 
 export const appRoutes: Routes = [
@@ -40,4 +41,6 @@ export const appRoutes: Routes = [
     { path: 'reviews', component: ReviewComponent},
     { path: 'reviews/external', component: ReviewComponent},
     { path: 'reviews/internal', component: ReviewComponent},
+    { path: 'add-game', component: GameAddEditFormComponent},
+    { path: 'game/:id/edit', component: GameAddEditFormComponent},
 ]
