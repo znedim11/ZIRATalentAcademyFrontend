@@ -16,7 +16,7 @@ import { ReviewOverviewComponent } from './pages/review/review-overview/review-o
 import { ReviewComponent } from './pages/review/review.component'
 import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
-
+import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
@@ -43,5 +43,6 @@ export const appRoutes: Routes = [
     { path: 'reviews/external', component: ReviewComponent},
     { path: 'reviews/internal', component: ReviewComponent},
     { path: 'platform/search', component: PlatformSearchComponent },
-    { path: 'platform/:id', component: PlatformOverviewComponent }
+    { path: 'platform/:id', component: PlatformOverviewComponent },
+    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent }
 ]
