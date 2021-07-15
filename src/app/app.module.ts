@@ -26,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
+import { LinkMapModule } from './pages/link-map/link-map.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { MenuModule } from './pages/menu/menu.module';
     FormulaModule,
     FranchiseModule,
     ConceptModule,
-    MenuModule
+    MenuModule,
+    LinkMapModule
   ],
   providers: [
     DateFormatterService,
