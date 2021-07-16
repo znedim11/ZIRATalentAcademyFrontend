@@ -16,16 +16,10 @@ import { ReviewOverviewComponent } from './pages/review/review-overview/review-o
 import { ReviewComponent } from './pages/review/review.component'
 import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
-<<<<<<< HEAD
-import { LinkMapCreate } from './pages/link-map/shared/link-map-create.model'
 import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
-
-=======
 import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
->>>>>>> captain-quazer
 
 export const appRoutes: Routes = [
-    { path: 'character/:id/overview', component: CharacterOverviewComponent },
     { path: 'character/search', component: CharacterSearchComponent },
     { path: 'add-character', component: CharacterAddEditComponent},
     { path: 'character/:id/edit', component: CharacterAddEditComponent },
