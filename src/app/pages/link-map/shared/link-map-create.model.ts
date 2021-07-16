@@ -1,11 +1,11 @@
 export class LinkMapCreate {
     objectAId: number;
     objectAType: string;
-    objectsMap: Map<string, number>;
+    objectBMap: {};
 
     constructor() {
         this.objectAId = null;
         this.objectAType = null;
-        this.objectsMap = new Map<string, number>();
+        this.objectBMap = {};
     }
 }
