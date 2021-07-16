@@ -20,6 +20,7 @@ import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link
 import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 
 export const appRoutes: Routes = [
+    { path: 'character/:id/overview', component: CharacterOverviewComponent },
     { path: 'character/search', component: CharacterSearchComponent },
     { path: 'add-character', component: CharacterAddEditComponent},
     { path: 'character/:id/edit', component: CharacterAddEditComponent },
