@@ -6,7 +6,7 @@ export class GameCreate {
     outlineText:string;
     franchiseId : number;
     dlc: string;
-    parentGameId:number;
+    dlcGameId:number;
     genre:string;
     information: string;
     imageCreateRequest :ImageRequest;
@@ -17,7 +17,7 @@ export class GameCreate {
         this.outlineText = null;
         this.franchiseId = null;
         this.dlc=null;
-        this.parentGameId=null;
+        this.dlcGameId=null;
         this.genre=null;
         this.information=null;
         this.imageCreateRequest = new ImageRequest();

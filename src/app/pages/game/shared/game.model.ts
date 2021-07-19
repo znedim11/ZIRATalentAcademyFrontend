@@ -6,7 +6,7 @@ export class Game {
     created : Date;
     createdBy : string;
     dlc: string;
-    parentGameId:number;
+    dlcGameId:number;
     franchiseId: number;
     fullName: string;
     genre: string;

@@ -6,9 +6,10 @@ import { ConceptApi } from 'src/app/pages/concept/shared/concept-api.constant';
 import { FranchiseApi } from 'src/app/pages/franchise/shared/franchise-api.constant';
 import { ImageRequest } from 'src/app/pages/shared/image-request.model';
 import { RestApiService } from 'src/app/pages/shared/rest-api.service';
-import { GameApi } from '../../shared/game-api.constant';
-import { GameCreate } from '../../shared/game-create';
-import { Game } from '../../shared/game.model';
+import { GameApi } from '../shared/game-api.constant';
+import { GameCreate } from '../shared/game-create';
+import { Game } from '../shared/game.model';
+
 
 @Component({
   selector: 'app-game-add-edit-form',
@@ -48,9 +49,9 @@ export class GameAddEditFormComponent implements OnInit {
           this.game.genre=helper.genre;
           this.game.information=helper.information;
           this.game.outlineText=helper.outlineText;
-          this.game.parentGameId=helper.parentGameId;
+          this.game.dlcGameId=helper.dlcGameId;
 
-          if(this.game.dlc=='1'){    
+          if(this.game.dlc=='1'){  
             this.hideDlc = false;
             this.showDlc = true;
           }
@@ -58,7 +59,6 @@ export class GameAddEditFormComponent implements OnInit {
             this.hideDlc = true;
             this.showDlc = false;
           }
-          this.validDlc = true
 
           if (helper.imageUrl) {
             this.game.imageCreateRequest.imageData = helper.imageUrl;
@@ -69,20 +69,40 @@ export class GameAddEditFormComponent implements OnInit {
       })
     }
 
-    this.api.get(FranchiseApi.GET_FRANCHISES)
-    .subscribe((franchises) => {
-      this.franchiseResponse = franchises['payload'];
-    });
+    this.validate();
+
+    // this.api.get(FranchiseApi.GET_FRANCHISES)
+    // .subscribe((franchises) => {
+    //   this.franchiseResponse = franchises['payload'];
+    // });
     this.api.get(GameApi.GET_MAIN_GAMES)
     .subscribe((games) => {
       this.gameResponse = games['payload'];
     });
-
-
-    
-        
   }
+
+  validate(){
+    this.validDlc = true
+    if(this.game.dlc=='1'){  
+      this.hideDlc = false;
+      this.showDlc = true;
+    }
+    else{
+      this.hideDlc = true;
+      this.showDlc = false;
+    }
+  }
+
   save() {
+    if(this.showDlc==true)
+    {
+      this.game.dlc="1";
+    }
+    else if (this.hideDlc==true)
+    {
+      this.game.dlc="0";
+    }
+
     if (this.isEdit) {
       this.api.put(GameApi.EDIT_GAME.replace('#', this.id.toString()), this.game).subscribe(() => {
         this.toastr.success("Game edited!");
@@ -93,7 +113,7 @@ export class GameAddEditFormComponent implements OnInit {
       this.api.post(GameApi.CREATE_GAME.replace('#', this.id.toString()), this.game).subscribe((response) => {
         if (response && response['payload']) {
           this.toastr.success("Game created!");
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/game/'+response['payload'].id+"/information");
         }
       })
     }
@@ -114,9 +134,34 @@ export class GameAddEditFormComponent implements OnInit {
     }
   }
 
+  test()
+  {
+    if(this.game.dlcGameId){
+      console.log(this.game.dlcGameId);
+      this.validDlc=true;
+    }
+    else{
+      this.validDlc=false;
+    }
+
+  }
+
   showDlcChecked() {
+
     this.hideDlc = !this.hideDlc;
     this.showDlc = !this.showDlc;
+
+    if(this.showDlc)
+    {
+      this.test();
+    }
+    
+    if (this.hideDlc)
+    {
+      this.validDlc=true;
+    }
+    
+    
 }
 
 }

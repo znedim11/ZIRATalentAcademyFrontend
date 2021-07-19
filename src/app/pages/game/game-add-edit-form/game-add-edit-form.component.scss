@@ -62,3 +62,23 @@ width: 149px;
     background-color: #1a3469;
 }
 
+#saveBtn[disabled] {
+    background-color: #95a9d1;
+    color: white;
+    border: none
+  }
+
+quill-editor {
+    color: #1a3469;
+    svg {
+      fill: #1a3469;
+    }
+}
+
+.info{
+    height:100%;
+}
+
+.buttonsInfo{
+    float:right;
+}

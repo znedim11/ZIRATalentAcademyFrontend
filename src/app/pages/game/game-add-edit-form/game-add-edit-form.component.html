@@ -1,8 +1,8 @@
 <section>
     <mat-tab-group>
         <mat-tab class="configuration" label="Configuration">
-            <h3 class="title" *ngIf="isEdit">Edit concept</h3>
-            <h3 class="title" *ngIf="!isEdit">Add concept</h3>
+            <h3 class="title" *ngIf="isEdit">Edit game</h3>
+            <h3 class="title" *ngIf="!isEdit">Add game</h3>
             <form #gameForm="ngForm" (ngSubmit)="save()" novalidate>
                 <div>
                     <label class="required" for="name">Name: </label>
@@ -41,7 +41,7 @@
                         </mat-form-field> <br>
                     </div>
                     <div style="height: 65px;">
-                        <label  style="float: left;height: 35px; margin-right: 100px;" for="dlc">Dlc:</label>
+                        <label style="float: left;height: 35px; margin-right: 100px;" for="dlc">Dlc:</label>
                         <div id="checkboxes">
 
                             <label class="chkLabels" for="dlcYes">
@@ -54,13 +54,13 @@
                         </div>
 
                         <div [hidden]="hideDlc">
-                            <select style="margin-left: 40px;" [(ngModel)]="game.parentGameId" id="parentGameId"
-                                name="parentGameId">
+                            <select (change)="test()" style="margin-left: 40px;" [(ngModel)]="game.dlcGameId"
+                                id="dlcGameId" name="dlcGameId">
                                 <option *ngFor="let dlc of gameResponse" [value]="dlc.id">{{dlc.name}}
                                 </option>
                             </select>
                         </div>
-                        <div [hidden]="validDlc" class="alert alert-danger">
+                        <div [hidden]="validDlc" class="alert alert-danger" style="display: flex;">
                             Dlc Game is required
                         </div>
                     </div><br>
@@ -76,34 +76,38 @@
                     <div class="image" style="width: 50%">
                         <label>Cover Photo: </label>
                         <img *ngIf="game.imageCreateRequest.imageData"
-                            [src]="game.imageCreateRequest.imageData.toString()" style="margin-top: 2%;width:120px;height:140px;font-size: 200px;border: 2px solid #1a3469;" alt="Image" />
+                            [src]="game.imageCreateRequest.imageData.toString()"
+                            style="margin-top: 2%;width:120px;height:140px;font-size: 200px;border: 2px solid #1a3469;"
+                            alt="Image" />
                         <div *ngIf="!game.imageCreateRequest.imageData"
                             style="margin-top: 2%;width:120px;height:140px;font-size: 200px;border: 2px solid #1a3469;">
                         </div>
                         <input (change)="onSelectFile($event)" style="margin-top: 2%;" #imageInput hidden="true"
                             type='file' accept="image/*">
-                        <button id="browseButton" class="btn-zira" (click)="imageInput.click()" style="margin-top:18%;" type="button">Choose Photo</button>
+                        <button id="browseButton" class="btn-zira" (click)="imageInput.click()" style="margin-top:18%;"
+                            type="button">Choose Photo</button>
                     </div>
                 </div>
 
-                    <div class="buttons">
-                        <button [disabled]="gameForm.invalid"  class="btn-zira" type="submit" id="saveBtn">Save</button>
-                        <button type="reset" class="cancel"  class="btn-zira" (click)="clear()">Reset values</button>
-                    </div>
+                <div class="buttons">
+                    <button [disabled]="gameForm.invalid" class="btn-zira" type="submit" id="saveBtn">Save</button>
+                    <button type="reset" class="cancel" class="btn-zira" (click)="clear()">Reset values</button>
+                </div>
             </form>
         </mat-tab>
         <mat-tab label="Information">
-            <div class="info">
+            <div>
                 <h3 *ngIf="isEdit">Edit information</h3>
                 <h3 *ngIf="!isEdit">Add information</h3>
-                <quill-editor [(ngModel)]="game.information"></quill-editor>
-                <div class="info-buttons">
-                    <div class="buttons">
-                        <button>Save</button>
-                        <button>Reset values</button>
-                    </div>
+                <div>
+                    <quill-editor [(ngModel)]="game.information" name="information"></quill-editor>
+                </div>
+                <div class="buttonsInfo">
+                    <button class="btn-zira" type="submit" id="saveBtn" (click)="save()">Save</button>
+                    <button type="reset" class="cancel" class="btn-zira" (click)="clear()">Reset values</button>
                 </div>
             </div>
+
         </mat-tab>
     </mat-tab-group>
 </section>
