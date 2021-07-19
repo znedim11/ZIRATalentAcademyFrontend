@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Character } from '../../character/shared/character.model';
 import { Game } from '../../game/shared/game.model';
+import { LinkMapAddFormComponent } from '../../link-map/link-map-add-form/link-map-add-form.component';
 import { Object } from '../../object/shared/object.model';
 import { Person } from '../../person/shared/person.model';
+import { ObjectType } from '../../shared/object-type.constant';
 import { RestApiService } from '../../shared/rest-api.service';
 import { ConceptApi } from '../shared/concept-api.constant';
 import { Concept } from '../shared/concept.model';
@@ -48,7 +51,7 @@ export class ConceptOverviewComponent implements OnInit {
         { headerName: "Location", field: "name", initialSort: 'desc', sortable: true, flex: 1, cellRenderer: this.createLink.bind(this) }
     ]
 
-    constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private toastr: ToastrService) { }
+    constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private toastr: ToastrService, private matDialog: MatDialog) { }
 
     ngOnInit() {
         this.getData();
@@ -129,5 +132,13 @@ export class ConceptOverviewComponent implements OnInit {
                 this.router.navigateByUrl('/concept/search');
             })
         }
+    }
+
+    linkConcept() {
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.id = "modal-component";
+        dialogConfig.data = { objectAId: this.concept.id, objectAType: ObjectType.CONCEPT, objectAName: this.concept.name }
+        const modalDialog = this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
     }
 }

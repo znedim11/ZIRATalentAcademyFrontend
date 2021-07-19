@@ -1,25 +1,26 @@
 <section>
+    <mat-icon (click)="closeModal()">close</mat-icon>
     <h3>Link {{objectAName}} to...
     </h3>
     <form #conceptform="ngForm" (ngSubmit)="save()" novalidate>
         <div class="select-box-list">
-            <div class="selectBox">
+            <div class="selectBox" [hidden]="!showSelect.get('character')">
                 <ng-multiselect-dropdown name="characters" [settings]="dropdownSettings" [placeholder]="'Characters'" [data]="character.dropdownList" [(ngModel)]="character.selectedItems"></ng-multiselect-dropdown>
             </div>
-            <div class="selectBox">
+            <div class="selectBox" [hidden]="!showSelect.get('concept')">
                 <ng-multiselect-dropdown name="concepts" [settings]="dropdownSettings" [placeholder]="'Concepts'" [data]="concept.dropdownList" [(ngModel)]="concept.selectedItems"></ng-multiselect-dropdown>
             </div>
 
-            <div class="selectBox">
+            <div class="selectBox" [hidden]="!showSelect.get('game')">
                 <ng-multiselect-dropdown name="games" [settings]="dropdownSettings" [placeholder]="'Games'" [data]="game.dropdownList" [(ngModel)]="game.selectedItems"></ng-multiselect-dropdown>
             </div>
-            <div class="selectBox">
+            <div class="selectBox" [hidden]="!showSelect.get('location')">
                 <ng-multiselect-dropdown name="locations" [settings]="dropdownSettings" [placeholder]="'Locations'" [data]="location.dropdownList" [(ngModel)]="location.selectedItems"></ng-multiselect-dropdown>
             </div>
-            <div class="selectBox">
+            <div class="selectBox" [hidden]="!showSelect.get('object')">
                 <ng-multiselect-dropdown name="objects" [settings]="dropdownSettings" [placeholder]="'Objects'" [data]="object.dropdownList" [(ngModel)]="object.selectedItems"></ng-multiselect-dropdown>
             </div>
-            <div class="selectBox">
+            <div class="selectBox" [hidden]="!showSelect.get('person')">
                 <ng-multiselect-dropdown name="persons" [settings]="dropdownSettings" [placeholder]="'Persons'" [data]="person.dropdownList" [(ngModel)]="person.selectedItems"></ng-multiselect-dropdown>
             </div>
 

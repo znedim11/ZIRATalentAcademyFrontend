@@ -28,7 +28,7 @@ export const appRoutes: Routes = [
     { path: 'add-concept', component: ConceptAddEditFormComponent },
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },
     { path: 'concept/search', component: ConceptSearchComponent },
-    { path: 'game/:id/information', component: GameOverviewComponent },
+    { path: 'game/:id/overview', component: GameOverviewComponent },
     { path: 'game/:gameId/review/add', component: ReviewAddEditFormComponent },
     { path: 'game/:gameId/review/:id', component: ReviewOverviewComponent },
     { path: 'game/:gameId/review/:id/edit', component: ReviewAddEditFormComponent },
@@ -45,6 +45,6 @@ export const appRoutes: Routes = [
     { path: 'reviews/internal', component: ReviewComponent},
     { path: 'platform/search', component: PlatformSearchComponent },
     { path: 'platform/:id', component: PlatformOverviewComponent },
-    { path: ':type/:id/link', component: LinkMapAddFormComponent}
+    { path: ':type/:id/link', component: LinkMapAddFormComponent},
     { path: 'reports/dlc-analysis', component: DlcAnalysisComponent }
 ]
