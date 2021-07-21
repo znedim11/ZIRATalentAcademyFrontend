@@ -19,8 +19,8 @@
                 <span *ngFor="let abbr of game.platformAbbreviations">{{abbr}}
                 </span>
             </p>
-            <p *ngIf="game.outline">{{game.outline}}</p>
-            <p *ngIf="!game.outline">No available outline</p>
+            <p *ngIf="game.outlineText">{{game.outline}}</p>
+            <p *ngIf="!game.outlineText">No available outline</p>
         </div>
     </div>
     <div class="bottom">

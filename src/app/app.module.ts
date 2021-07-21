@@ -26,6 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,6 @@ import { MenuModule } from './pages/menu/menu.module';
     QuillModule.forRoot(),
     ToastrModule.forRoot(),
     MatFormFieldModule,
-    MatSelectModule,
     GameModule,
     CharacterModule,
     CompanyModule,
@@ -55,6 +56,9 @@ import { MenuModule } from './pages/menu/menu.module';
     FranchiseModule,
     ConceptModule,
     MenuModule
+    MatSelectModule,
+    MatInputModule,
+    QuillModule.forRoot(),
   ],
   providers: [
     DateFormatterService,
