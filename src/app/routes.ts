@@ -46,7 +46,7 @@ export const appRoutes: Routes = [
     { path: 'reviews/internal', component: ReviewComponent},
     { path: 'platform/search', component: PlatformSearchComponent },
     { path: 'platform/:id', component: PlatformOverviewComponent },
-    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent }
+    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent },
     { path: 'add-game', component: GameAddEditFormComponent},
     { path: 'game/:id/edit', component: GameAddEditFormComponent},
 ]
