@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 import { QuillModule } from 'ngx-quill';
 import { ToastrModule } from 'ngx-toastr';
-
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { CharacterModule } from './pages/character/character.module';
@@ -23,11 +22,11 @@ import { appRoutes } from './routes';
 import {RestApiService} from './pages/shared/rest-api.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -55,7 +54,7 @@ import { QuillModule } from 'ngx-quill';
     FormulaModule,
     FranchiseModule,
     ConceptModule,
-    MenuModule
+    MenuModule,
     MatSelectModule,
     MatInputModule,
     QuillModule.forRoot(),
