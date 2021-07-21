@@ -1,0 +1,113 @@
+<section>
+    <mat-tab-group>
+        <mat-tab class="configuration" label="Configuration">
+            <h3 class="title" *ngIf="isEdit">Edit game</h3>
+            <h3 class="title" *ngIf="!isEdit">Add game</h3>
+            <form #gameForm="ngForm" (ngSubmit)="save()" novalidate> 
+                <div>
+                    <label class="required" for="name">Name: </label>
+                    <input [(ngModel)]="game.fullName" type="text" id="name" name="name" required />
+                    <div *ngIf="gameForm.controls.name?.invalid && (gameForm.controls.name?.touched)"
+                        class="alert alert-danger">
+                        Name is required
+                    </div>
+                </div>
+
+                <div>
+                    <label class="required" for="abbriviation">Abbriviation: </label>
+                    <input [(ngModel)]="game.abbriviation" type="text" id="abbriviation" name="abbriviation" required />
+                    <div *ngIf="gameForm.controls.abbriviation?.invalid && (gameForm.controls.abbriviation?.touched)"
+                        class="alert alert-danger">
+                        Abbriviation is required
+                    </div>
+                </div>
+
+                <div>
+                    <label for="outline">Outline: </label>
+                    <textarea [(ngModel)]="game.outlineText" id="outline" name="outline"></textarea>
+                </div>
+                <div style="display: block;
+                float: left;
+                width: 40%;">
+
+                    <div class="franchiseSection">
+                        <label style="margin-right: 100px;" for="franchise">Franchise:</label>
+                        <mat-form-field style="width: 330px;">
+                            <mat-select placeholder="Select a franchise" [(value)]="game.franchiseId">
+                                <mat-option *ngFor="let franchise of franchiseResponse" [value]="franchise.id">
+                                    {{franchise.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field> <br>
+                    </div>
+                    <div style="height: 65px;">
+                        <label style="float: left;height: 35px; margin-right: 100px;" for="dlc">Dlc:</label>
+                        <div id="checkboxes">
+
+                            <label class="chkLabels" for="dlcYes">
+                                <input class="checkbox" type="checkbox" id="dlcYes" value="Yes" name="dlcYes"
+                                    (click)="showDlcChecked()" [(ngModel)]="showDlc"> Yes</label> <br>
+
+                            <label class="chkLabels" for="dlcNo"><input class="checkbox" type="checkbox" id="dlcNo"
+                                    value="dlcNo" name="dlcNo" [(ngModel)]="hideDlc" (click)="showDlcChecked()">
+                                No</label>
+                        </div>
+
+                        <div [hidden]="hideDlc">
+                            <select (change)="loadCheckbox()" style="margin-left: 40px;" [(ngModel)]="game.dlcGameId"
+                                id="dlcGameId" name="dlcGameId">
+                                <option *ngFor="let dlc of gameResponse" [value]="dlc.id">{{dlc.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div [hidden]="validDlc" class="alert alert-danger" style="display: flex;">
+                            Dlc Game is required
+                        </div>
+                    </div><br>
+
+                    <div class="genreSection">
+                        <label style="margin-right: 100px;" for="genre">Genre:</label>
+                        <input style="width: 333px;
+                    float: none;" type="text" [(ngModel)]="game.genre" name="genre">
+                    </div>
+                </div>
+
+                <div style="float: left; margin-top: 16px;">
+                    <div class="image" style="width: 50%">
+                        <label>Cover Photo: </label>
+                        <img *ngIf="game.imageCreateRequest.imageData"
+                            [src]="game.imageCreateRequest.imageData.toString()"
+                            style="margin-top: 2%;width:120px;height:140px;font-size: 200px;border: 2px solid #1a3469;"
+                            alt="Image" />
+                        <div *ngIf="!game.imageCreateRequest.imageData"
+                            style="margin-top: 2%;width:120px;height:140px;font-size: 200px;border: 2px solid #1a3469;">
+                        </div>
+                        <input (change)="onSelectFile($event)" style="margin-top: 2%;" #imageInput hidden="true"
+                            type='file' accept="image/*">
+                        <button id="browseButton" class="btn-zira" (click)="imageInput.click()" style="margin-top:18%;"
+                            type="button">Choose Photo</button>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button [disabled]="gameForm.invalid" class="btn-zira" type="submit" id="saveBtn">Save</button>
+                    <button class="cancel" class="btn-zira" (click)="clear()">Reset values</button>
+                </div>
+            </form>
+        </mat-tab>
+        <mat-tab label="Information">
+            <div>
+                <h3 *ngIf="isEdit">Edit information</h3>
+                <h3 *ngIf="!isEdit">Add information</h3>
+                <div>
+                    <quill-editor [(ngModel)]="game.information" name="information"></quill-editor>
+                </div>
+                <div class="buttonsInfo">
+                    <button class="btn-zira" type="submit" id="saveBtn" (click)="save()">Save</button>
+                    <button type="reset" class="cancel" class="btn-zira" (click)="clear()">Reset values</button>
+                </div>
+            </div>
+
+        </mat-tab>
+    </mat-tab-group>
+</section>

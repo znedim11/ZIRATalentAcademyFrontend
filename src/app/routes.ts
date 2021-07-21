@@ -17,6 +17,7 @@ import { ReviewComponent } from './pages/review/review.component'
 import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
 import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
+import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
 
 
 export const appRoutes: Routes = [
@@ -45,5 +46,7 @@ export const appRoutes: Routes = [
     { path: 'reviews/external', component: ReviewComponent},
     { path: 'reviews/internal', component: ReviewComponent},
     { path: 'platform/search', component: PlatformSearchComponent },
-    { path: 'platform/:id', component: PlatformOverviewComponent }
+    { path: 'platform/:id', component: PlatformOverviewComponent },
+    { path: 'add-game', component: GameAddEditFormComponent},
+    { path: 'game/:id/edit', component: GameAddEditFormComponent},
 ]
