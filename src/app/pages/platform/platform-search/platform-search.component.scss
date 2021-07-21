@@ -1,0 +1,18 @@
+.platfrom-search-conatiner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 2%;
+    height: 100%;
+}
+
+.platfrom-list {
+    width: 30%;
+}
+
+.platfrom-search-form {
+    width: 30%;
+    border: 2px solid #95a9d1;
+    border-radius: 5px;
+}

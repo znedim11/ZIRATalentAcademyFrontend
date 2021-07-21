@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { RestApiService } from 'src/app/pages/shared/rest-api.service';
+import { SharedApi } from 'src/app/pages/shared/shared-api.constat';
 import { ConceptApi } from '../../shared/concept-api.constant';
 
 @Component({
@@ -31,12 +32,12 @@ export class ConceptSearchFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.get(ConceptApi.GET_GAMES)
+    this.api.get(SharedApi.GET_GAMES)
       .subscribe((games) => {
         this.gameSelect = games['payload'];
       });
 
-    this.api.get(ConceptApi.GET_CHARACTERS)
+    this.api.get(SharedApi.GET_CHARACTERS)
       .subscribe((characters) => {
         this.characterSelect = characters['payload'];
       });

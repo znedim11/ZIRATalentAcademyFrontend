@@ -9,7 +9,6 @@ export class CharacterApi {
     public static CREATE_CHARACTER = '/vigor/character/create';
     public static EDIT_CHARACTER = '/vigor/character/';
     public static DELETE_CHARACTER = '/vigor/character/';
-    public static GET_GAMES = '/vigor/game/lovs';
     public static GET_COVER_IMAGE = '/vigor/';
 }
   
