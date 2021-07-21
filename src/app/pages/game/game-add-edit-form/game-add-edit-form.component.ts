@@ -75,10 +75,10 @@ export class GameAddEditFormComponent implements OnInit {
     // .subscribe((franchises) => {
     //   this.franchiseResponse = franchises['payload'];
     // });
-    this.api.get(GameApi.GET_MAIN_GAMES)
-    .subscribe((games) => {
-      this.gameResponse = games['payload'];
-    });
+    // this.api.get(GameApi.GET_MAIN_GAMES)
+    // .subscribe((games) => {
+    //   this.gameResponse = games['payload'];
+    // });
   }
 
   validate(){
@@ -121,6 +121,7 @@ export class GameAddEditFormComponent implements OnInit {
 
   clear() {
     this.ngOnInit();
+    this.validate();
   }
 
   onSelectFile(event) {
@@ -134,7 +135,7 @@ export class GameAddEditFormComponent implements OnInit {
     }
   }
 
-  test()
+  loadCheckbox()
   {
     if(this.game.dlcGameId){
       console.log(this.game.dlcGameId);
@@ -153,7 +154,7 @@ export class GameAddEditFormComponent implements OnInit {
 
     if(this.showDlc)
     {
-      this.test();
+      this.loadCheckbox();
     }
     
     if (this.hideDlc)
