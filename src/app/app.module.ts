@@ -54,7 +54,8 @@ import { MenuModule } from './pages/menu/menu.module';
     FormulaModule,
     FranchiseModule,
     ConceptModule,
-    MenuModule
+    MenuModule,
+    FranchiseModule
   ],
   providers: [
     DateFormatterService,
