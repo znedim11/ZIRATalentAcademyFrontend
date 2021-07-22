@@ -22,4 +22,8 @@ export class Game {
     publisher: string;
     firstReleaseDate: string;
     imageRequest: ImageRequest;
+
+    constructor() {
+        this.imageRequest = new ImageRequest();
+    }
 }
