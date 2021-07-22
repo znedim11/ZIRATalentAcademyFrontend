@@ -16,6 +16,7 @@ import { ReviewOverviewComponent } from './pages/review/review-overview/review-o
 import { ReviewComponent } from './pages/review/review.component'
 import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
+import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
 import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
 
@@ -37,6 +38,7 @@ export const appRoutes: Routes = [
     { path: 'formula/:id/edit', component: FormulaAddEditFormComponent },
     { path: 'review-formula/preview', component: FormulaListComponent },
     { path: 'franchise', component: FranchiseComponent },
+    { path: 'franchise/:id/overview', component: FranchiseOverviewComponent },
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'company/:id/edit', component: CompanyCreateComponent },

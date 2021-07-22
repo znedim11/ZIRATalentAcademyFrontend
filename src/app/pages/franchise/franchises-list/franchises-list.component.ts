@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { FranchiseService } from '../shared/franchise.service';
 
@@ -18,16 +19,14 @@ export class FranchisesListComponent implements OnInit {
     }
 
     columnDefs = [
-        { headerName: "Name", field: "name" },
+        { headerName: "Name", field:"name", flex: 1.5, initialSort: 'desc', sortable: true, cellStyle: {color: 'blue', 'text-decoration': 'underline'}, cellRenderer: this.createLink.bind(this) },
         { headerName: "Created", field: "created" },
         { headerName: "CreatedBy", field: "createdBy" },
-        { headerName: "First Appearance", field: "firstAppearance" },
         { headerName: "Outline", field: "outlineText" },
-        { headerName: "Games", field: "games" },
         { headerName: "Aliases", field: "aliases" }
     ]
 
-    constructor(private franchiseService: FranchiseService) {
+    constructor(private franchiseService: FranchiseService, private router:Router) {
 
     }
 
@@ -52,5 +51,14 @@ export class FranchisesListComponent implements OnInit {
 
     sizeToFit() {
         this.gridApi.sizeColumnsToFit();
+    }
+
+    createLink(params) {
+        var span = document.createElement('span');
+        span.innerHTML = `<p> ${params.value} </p>`;
+        span.addEventListener('click', () => {
+            this.router.navigateByUrl('/franchise/' + params.data.id + '/overview');
+        });
+        return span;
     }
 }
