@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
-
 import { SharedModule } from '../shared/shared.module';
+import { FranchiseCreateComponent } from './franchise-form/franchise-form.component';
+import { FranchiseOverviewComponent } from './franchise-overview/franchise-overview.component';
 import { FranchiseComponent } from './franchise.component';
-import { FranchiseFormComponent } from './franchise-form/franchise-form.component';
 import { FranchisesListComponent } from './franchises-list/franchises-list.component';
+import { FranchiseService } from './shared/franchise.service';
 
 
 @NgModule({
-  declarations: [
-      FranchiseComponent,
-      FranchiseFormComponent,
-      FranchisesListComponent
-  ],
-  imports: [
-    SharedModule
-  ],
-  exports: []
+    imports: [
+        SharedModule
+    ],
+    exports: [],
+    declarations: [
+        FranchiseCreateComponent,
+        FranchiseOverviewComponent,
+        FranchisesListComponent,
+        FranchiseComponent
+    ],
+    providers: [
+        FranchiseService
+    ],
 })
 export class FranchiseModule { }

@@ -33,6 +33,9 @@ export class GameAddEditFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isEdit = false;
+    this.isChecked = false;
+
     this.game = new GameCreate();
 
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -120,8 +123,9 @@ export class GameAddEditFormComponent implements OnInit {
   }
 
   clear() {
-    this.ngOnInit();
-    this.validate();
+    this.game=null;
+    this.game=new GameCreate(); 
+    this.showDlcChecked();
   }
 
   onSelectFile(event) {
@@ -138,7 +142,6 @@ export class GameAddEditFormComponent implements OnInit {
   loadCheckbox()
   {
     if(this.game.dlcGameId){
-      console.log(this.game.dlcGameId);
       this.validDlc=true;
     }
     else{

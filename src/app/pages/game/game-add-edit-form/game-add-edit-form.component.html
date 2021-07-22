@@ -3,7 +3,7 @@
         <mat-tab class="configuration" label="Configuration">
             <h3 class="title" *ngIf="isEdit">Edit game</h3>
             <h3 class="title" *ngIf="!isEdit">Add game</h3>
-            <form #gameForm="ngForm" (ngSubmit)="save()" novalidate>
+            <form #gameForm="ngForm" (ngSubmit)="save()" novalidate> 
                 <div>
                     <label class="required" for="name">Name: </label>
                     <input [(ngModel)]="game.fullName" type="text" id="name" name="name" required />
@@ -54,7 +54,7 @@
                         </div>
 
                         <div [hidden]="hideDlc">
-                            <select (change)="test()" style="margin-left: 40px;" [(ngModel)]="game.dlcGameId"
+                            <select (change)="loadCheckbox()" style="margin-left: 40px;" [(ngModel)]="game.dlcGameId"
                                 id="dlcGameId" name="dlcGameId">
                                 <option *ngFor="let dlc of gameResponse" [value]="dlc.id">{{dlc.name}}
                                 </option>
@@ -91,7 +91,7 @@
 
                 <div class="buttons">
                     <button [disabled]="gameForm.invalid" class="btn-zira" type="submit" id="saveBtn">Save</button>
-                    <button type="reset" class="cancel" class="btn-zira" (click)="clear()">Reset values</button>
+                    <button class="cancel" class="btn-zira" (click)="clear()">Reset values</button>
                 </div>
             </form>
         </mat-tab>
