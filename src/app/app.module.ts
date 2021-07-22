@@ -59,6 +59,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ConceptModule,
     MenuModule,
     FranchiseModule,
+    FranchiseModule,
     MatSelectModule,
     MatInputModule,
     QuillModule.forRoot(),
