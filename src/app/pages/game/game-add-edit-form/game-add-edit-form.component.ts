@@ -51,7 +51,7 @@ export class GameAddEditFormComponent implements OnInit {
           this.game.franchiseId=helper.franchiseId;
           this.game.genre=helper.genre;
           this.game.information=helper.information;
-          this.game.outlineText=helper.outline;
+          this.game.outlineText=helper.outlineText;
           this.game.dlcGameId=helper.dlcGameId;
 
           if(this.game.dlc=='1'){  
@@ -125,6 +125,7 @@ export class GameAddEditFormComponent implements OnInit {
   clear() {
     this.game=null;
     this.game=new GameCreate(); 
+    this.showDlcChecked();
   }
 
   onSelectFile(event) {

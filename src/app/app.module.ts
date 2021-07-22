@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { MenuModule } from './pages/menu/menu.module';
     FranchiseModule,
     ConceptModule,
     MenuModule,
-    FranchiseModule
+    FranchiseModule,
   ],
   providers: [
     DateFormatterService,

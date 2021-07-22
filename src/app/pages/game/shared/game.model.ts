@@ -14,7 +14,7 @@ export class Game {
     information: string;
     modified: Date;
     modifiedBy: string;
-    outline: string;
+    outlineText: string;
     numberOfReleases: number;
     platformAbbreviations: String[];
     platformName: string;
