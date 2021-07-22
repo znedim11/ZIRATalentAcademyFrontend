@@ -6,6 +6,7 @@ import { Concept } from '../concept/shared/concept.model';
 import { Person } from '../person/shared/person.model';
 import { RestApiService } from '../shared/rest-api.service';
 import { Game } from './shared/game.model';
+import { ImageRequest } from '../shared/image-request.model';
 
 @Component({
     selector: 'game-overview',
@@ -52,7 +53,12 @@ export class GameOverviewComponent implements OnInit {
         this.api.get(GameApi.GET_GAME_OVERVIEW.replace('#', id.toString()))
             .subscribe(game => {
                 if (game) {
-                    this.game = game["payload"];
+                    var helper: Game = game['payload'];
+                    this.game = helper;
+                    this.game.imageRequest= new ImageRequest();
+                    if (helper.imageUrl) {
+                        this.game.imageRequest.imageData = helper.imageUrl;
+                      }
                     this.api.get(GameApi.GET_RELEASECOUNT_BY_GAME.replace('#', id.toString()))
                         .subscribe(releasecount => {
                             if (releasecount)
