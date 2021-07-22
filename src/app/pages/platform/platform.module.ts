@@ -7,6 +7,8 @@ import { PlatformSearchComponent } from './platform-search/platform-search.compo
 import { PlatformItemComponent } from './platform-search/platform-item/platform-item.component';
 import { PlatformListComponent } from './platform-search/platform-list/platform-list.component';
 import { PlatformSearchFormComponent } from './platform-search/platform-search-form/platform-search-form.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { PlatformSearchFormComponent } from './platform-search/platform-search-f
     PlatformSearchFormComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    AngularMultiSelectModule
   ],
   exports: []
 })

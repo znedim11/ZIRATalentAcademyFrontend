@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
@@ -58,6 +59,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     MatSelectModule,
     MatInputModule,
     QuillModule.forRoot(),
+    MenuModule, 
+    AngularMultiSelectModule
   ],
   providers: [
     DateFormatterService,

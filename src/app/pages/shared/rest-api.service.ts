@@ -18,6 +18,7 @@ export class RestApiService {
   public get(...request): Observable<any> {
     const [ path, options ] = request;
     let wrappedOptions = {...options, ...this.httpOptions};
+    console.log(wrappedOptions);
     return this.http.get(path, wrappedOptions)
       .pipe(catchError( err => {
         this.toastr.error(err.error.message || err.message, 'Get error');
