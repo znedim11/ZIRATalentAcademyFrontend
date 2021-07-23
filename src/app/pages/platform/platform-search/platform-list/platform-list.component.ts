@@ -10,7 +10,7 @@ import { HttpParams } from '@angular/common/http';
   styleUrls: ['./platform-list.component.scss']
 })
 export class PlatformListComponent implements OnChanges {
-  @Input() searchQuery;
+  @Input() searchQuery: any;
 
   public platformList: Platform[];
 
@@ -19,7 +19,6 @@ export class PlatformListComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-
     const currentSearchQuery: SimpleChange = changes.searchQuery;
     if (!currentSearchQuery.firstChange) {
       let searchQuery = currentSearchQuery.currentValue;

@@ -18,7 +18,7 @@ export class FranchiseService {
     };
 
 
-    addOrEditFranchise(franchise) {
+    saveFranchise(franchise) {
         console.log(franchise);
     }
 

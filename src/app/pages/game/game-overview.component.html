@@ -1,6 +1,6 @@
 <section>
     <div class="top">
-        <img alt="Game image" src="" />
+        <img *ngIf="game.imageRequest.imageData" [src]="game.imageRequest.imageData.toString()" style="margin-top: 2%;width:120px;height:140px;font-size: 200px;border: 2px solid #1a3469;" alt="Game image" />
         <div class="top-info">
             <div style="display: flex;">
                 <h1>{{game.fullName}}</h1>
@@ -23,8 +23,8 @@
                 <span *ngFor="let abbr of game.platformAbbreviations">{{abbr}}
                 </span>
             </p>
-            <p *ngIf="game.outline">{{game.outline}}</p>
-            <p *ngIf="!game.outline">No available outline</p>
+            <p *ngIf="game.outlineText">{{game.outline}}</p>
+            <p *ngIf="!game.outlineText">No available outline</p>
         </div>
     </div>
     <div class="bottom">

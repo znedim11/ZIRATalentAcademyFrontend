@@ -1,5 +1,4 @@
-<div class="platform-search-conatiner">
+<div class="platform-search-container">
     <platform-list [searchQuery]="searchQuery" class="platform-list"></platform-list>
-    <platform-search-form (searchPlatformsEmmiter)="searchSubmitted($event)" class="platform-search-form">
-    </platform-search-form>
+    <platform-search-form (searchPlatformsEmmiter)="search($event)" class="platform-search-form"></platform-search-form>
 </div>

@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 import { QuillModule } from 'ngx-quill';
 import { ToastrModule } from 'ngx-toastr';
-
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { CharacterModule } from './pages/character/character.module';
@@ -23,10 +22,16 @@ import { appRoutes } from './routes';
 import {RestApiService} from './pages/shared/rest-api.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
+<<<<<<< HEAD
 import { LinkMapModule } from './pages/link-map/link-map.module';
+=======
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+>>>>>>> captain-quazer
 
 @NgModule({
   declarations: [
@@ -47,6 +52,7 @@ import { LinkMapModule } from './pages/link-map/link-map.module';
     ToastrModule.forRoot(),
     MatFormFieldModule,
     MatSelectModule,
+    MatInputModule,
     GameModule,
     CharacterModule,
     CompanyModule,
@@ -56,7 +62,17 @@ import { LinkMapModule } from './pages/link-map/link-map.module';
     FranchiseModule,
     ConceptModule,
     MenuModule,
+<<<<<<< HEAD
     LinkMapModule
+=======
+    FranchiseModule,
+    FranchiseModule,
+    MatSelectModule,
+    MatInputModule,
+    QuillModule.forRoot(),
+    MenuModule, 
+    AngularMultiSelectModule
+>>>>>>> captain-quazer
   ],
   providers: [
     DateFormatterService,
