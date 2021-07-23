@@ -12,7 +12,7 @@
             </div>
 
             <div class="selectBox" [hidden]="!showSelect.get('game')">
-                <ng-multiselect-dropdown name="games" [settings]="dropdownSettings" [placeholder]="'Games'" [data]="game.dropdownList" [(ngModel)]="game.selectedItems"></ng-multiselect-dropdown>
+                <ng-multiselect-dropdown name="games" [settings]="dropdownSettings" [placeholder]="'Games'" [data]="game.dropdownList" [(ngModel)]="game.selectedItems" (onScrollToEnd)="fetchMore($event)"></ng-multiselect-dropdown>
             </div>
             <div class="selectBox" [hidden]="!showSelect.get('location')">
                 <ng-multiselect-dropdown name="locations" [settings]="dropdownSettings" [placeholder]="'Locations'" [data]="location.dropdownList" [(ngModel)]="location.selectedItems"></ng-multiselect-dropdown>

@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ObjectType } from '../../shared/object-type.constant';
 import { RestApiService } from '../../shared/rest-api.service';
-import { SharedApi } from '../../shared/shared-api.constat';
 import { LinkMapApi } from '../shared/link-map-api.constant';
 import { LinkMapCreate } from '../shared/link-map-create.model';
 
@@ -34,6 +33,9 @@ export class LinkMapAddFormComponent implements OnInit {
   objectAName: string;
 
   linkMap: LinkMapCreate;
+
+  gamesLoading: boolean = false;
+  pageSize: number = 100;
 
   showSelect = new Map<ObjectType, boolean>([
     [ObjectType.CHARACTER, true],
@@ -89,16 +91,24 @@ export class LinkMapAddFormComponent implements OnInit {
       }
     })
 
-    /* this.api.get(LinkMapApi.GET_GAMES, options).subscribe((response) => {
-      if(response){
-        var helperList:SelectItem[] = [];
+    var gameParams = new HttpParams();
+    gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
+      .set('type', this.linkMap.objectAType.toString())
+      .set('pagination', JSON.stringify({entitesPerPage: this.pageSize, page: this.game.dropdownList.length / 2 + 1}));
+    var gameOptions = { params: gameParams };
+
+    console.log(encodeURIComponent(gameParams.get('pagination')));
+    this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
+      if (response) {
+        var helperList: SelectItem[] = [];
         var payload = response['payload'];
+        console.log(payload);
         if (payload != null && payload.length > 0)
-          helperList = payload.map(function(item) {return {item_id: item.id, item_text: item.name }});
+          helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name } });
         this.game.dropdownList = helperList;
         this.game.selectedItems = [];
       }
-    }) */
+    })
 
     this.api.get(LinkMapApi.GET_LOCATIONS, options).subscribe((response) => {
       if (response) {
@@ -143,10 +153,9 @@ export class LinkMapAddFormComponent implements OnInit {
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
       allowSearchFilter: true,
-      maxHeight: 100
+      maxHeight: 50,
+      lazyLoading: true
     };
-
-
   }
 
   save() {
@@ -196,5 +205,31 @@ export class LinkMapAddFormComponent implements OnInit {
 
   closeModal() {
     this.dialogRef.close();
+  }
+
+  fetchMore(event: any) {
+    if (event.end === this.game.dropdownList.length - 1) {
+      this.gamesLoading = true;
+
+      var gameParams = new HttpParams();
+      gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
+        .set('type', this.linkMap.objectAType.toString())
+        .set('pagination', `{'entitiesPerPage': ${this.pageSize}, 'page': ${this.game.dropdownList.length / 2 + 1} }`);
+      var gameOptions = { params: gameParams };
+
+      this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
+        if (response) {
+          var helperList: SelectItem[] = [];
+          var payload = response['payload'];
+          console.log(payload);
+          if (payload != null && payload.length > 0)
+            helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name } });
+          this.game.dropdownList = this.game.dropdownList.concat(helperList);
+          this.game.selectedItems = [];
+        }
+
+        this.gamesLoading = false;
+      }, () => this.gamesLoading = false);
+    }
   }
 }
