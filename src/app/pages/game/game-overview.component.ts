@@ -6,6 +6,9 @@ import { Concept } from '../concept/shared/concept.model';
 import { Person } from '../person/shared/person.model';
 import { RestApiService } from '../shared/rest-api.service';
 import { Game } from './shared/game.model';
+import { ObjectType } from '../shared/object-type.constant';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { LinkMapAddFormComponent } from '../link-map/link-map-add-form/link-map-add-form.component';
 import { ImageRequest } from '../shared/image-request.model';
 
 @Component({
@@ -41,7 +44,7 @@ export class GameOverviewComponent implements OnInit {
         { headerName: "Location", field: "name", initialSort: 'desc', sortable: true, flex: 1, cellRenderer: this.createLink.bind(this) }
     ]
 
-    constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router) { }
+    constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private matDialog: MatDialog) { }
 
     ngOnInit() {
         this.getData();
@@ -110,5 +113,14 @@ export class GameOverviewComponent implements OnInit {
 
     addReview() {
         this.router.navigateByUrl(`game/${this.game.id}/review/add`);
+    }
+
+    linkGame(){
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.id = "modal-component";
+        dialogConfig.width = "900px";
+        dialogConfig.data = { objectAId: this.game.id, objectAType: ObjectType.GAME, objectAName: this.game.fullName }
+        this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
     }
 }

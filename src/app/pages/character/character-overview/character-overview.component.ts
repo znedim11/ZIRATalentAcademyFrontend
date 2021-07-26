@@ -9,6 +9,9 @@ import { Concept } from '../../concept/shared/concept.model';
 import { Object } from '../../object/shared/object.model';
 import { Person } from '../../person/shared/person.model';
 import { Location } from '../../location/shared/location.model';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ObjectType } from '../../shared/object-type.constant';
+import { LinkMapAddFormComponent } from '../../link-map/link-map-add-form/link-map-add-form.component';
 
 @Component({
   templateUrl: './character-overview.component.html',
@@ -54,7 +57,7 @@ export class CharacterOverviewComponent implements OnInit{
     private route: ActivatedRoute,
     private api: RestApiService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService, private matDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -126,4 +129,13 @@ export class CharacterOverviewComponent implements OnInit{
       })
     }
   }
+
+  linkCharacter(){
+    const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.id = "modal-component";
+        dialogConfig.width = "900px";
+        dialogConfig.data = { objectAId: this.character.id, objectAType: ObjectType.CHARACTER, objectAName: this.character.name }
+        this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
+}
 }

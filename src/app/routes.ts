@@ -17,9 +17,9 @@ import { ReviewComponent } from './pages/review/review.component'
 import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
 import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
-import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
-
+import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
+import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
@@ -30,7 +30,7 @@ export const appRoutes: Routes = [
     { path: 'add-concept', component: ConceptAddEditFormComponent },
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },
     { path: 'concept/search', component: ConceptSearchComponent },
-    { path: 'game/:id/information', component: GameOverviewComponent },
+    { path: 'game/:id/overview', component: GameOverviewComponent },
     { path: 'game/:gameId/review/add', component: ReviewAddEditFormComponent },
     { path: 'game/:gameId/review/:id', component: ReviewOverviewComponent },
     { path: 'game/:gameId/review/:id/edit', component: ReviewAddEditFormComponent },
@@ -47,8 +47,9 @@ export const appRoutes: Routes = [
     { path: 'reviews/external', component: ReviewComponent},
     { path: 'reviews/internal', component: ReviewComponent},
     { path: 'platform/search', component: PlatformSearchComponent },
-    { path: 'platform/:id', component: PlatformOverviewComponent },
-    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent },
+    { path: 'platform/:id/overview', component: PlatformOverviewComponent },
+    { path: ':type/:id/link', component: LinkMapAddFormComponent},
+    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent},
     { path: 'add-game', component: GameAddEditFormComponent},
-    { path: 'game/:id/edit', component: GameAddEditFormComponent},
+    { path: 'game/:id/edit', component: GameAddEditFormComponent}
 ]

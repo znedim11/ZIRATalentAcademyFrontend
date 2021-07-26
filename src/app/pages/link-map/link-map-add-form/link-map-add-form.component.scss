@@ -1,0 +1,64 @@
+section {
+    padding: 10px;
+    mat-icon {
+        float: right;
+        margin-right: 2%;
+        color: #1a3469;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    h3 {
+        color: #1a3469;
+    }
+    form {
+        .select-box-list {
+            flex-wrap: wrap;
+            display: grid;
+            margin: 20px 0px;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-auto-rows: minmax(auto, auto);
+            column-gap: 20px;
+            row-gap: 10px;
+        }
+    }
+    button {
+        color: #1a3469;
+        border: 2px solid #1a3469;
+        background-color: white;
+        outline: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+    .buttons {
+        float: right;
+        button {
+            height: 40px;
+            width: 130px;
+            margin: 10px;
+        }
+    }
+    .save {
+        background-color: #1a3469;
+        color: white;
+        border: none
+    }
+    .save[disabled] {
+        background-color: #95a9d1;
+        color: white;
+        border: none
+    }
+}
+
+.alert {
+    margin-bottom: 5px;
+}
+
+.alert-danger {
+    border-color: #DC3545;
+    color: #DC3545;
+}
+
+label {
+    margin-right: 5px;
+}

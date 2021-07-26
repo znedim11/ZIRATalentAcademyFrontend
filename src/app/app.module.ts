@@ -26,8 +26,8 @@ import {MatInputModule} from '@angular/material/input';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
+import { LinkMapModule } from './pages/link-map/link-map.module';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FranchiseModule,
     ConceptModule,
     MenuModule,
-    FranchiseModule,
+    LinkMapModule,
     FranchiseModule,
     MatSelectModule,
     MatInputModule,
