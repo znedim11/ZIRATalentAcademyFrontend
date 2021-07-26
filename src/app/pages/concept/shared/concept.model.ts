@@ -8,6 +8,6 @@ export class Concept {
     outline: string;
     imageUrl: string;
     numberOfGames: string;
-    releaseDate: String;
+    releaseDate: string;
     imageRequest: ImageRequest;
 }

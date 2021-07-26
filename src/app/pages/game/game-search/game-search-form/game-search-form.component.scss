@@ -1,0 +1,54 @@
+.form {
+    padding: 10px 20px;
+    color: #1a3469;
+    label {
+        margin-bottom: 0;
+    }
+    .formRow {
+        display: inline flex;
+        margin: 15px 0;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        label {
+            width: 35%;
+        }
+        input {
+            height: 30px;
+            width: 60%;
+        }
+        angular2-multiselect {
+            height: 30px;
+            width: 100%;
+        }
+    }
+    .date {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        .left {
+            padding-left: 0;
+            margin-left: 0;
+            width: 35%;
+        }
+        .right {
+            width: 60%;
+            input[type=date] {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+button {
+    margin-left: auto;
+    width: 45%;
+}
+
+button[type=submit] {
+    background-color: #1a3469;
+    color: white;
+    border: none;
+}

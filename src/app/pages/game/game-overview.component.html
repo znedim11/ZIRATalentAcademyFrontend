@@ -29,7 +29,7 @@
     </div>
     <div class="bottom">
         <div class="info">
-            <p *ngIf="game.information">{{game.information}}</p>
+            <p *ngIf="game.information" [innerHTML]="game.information"></p>
             <p *ngIf="!game.information">No available information</p>
         </div>
         <div class="details">

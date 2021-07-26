@@ -1,0 +1,8 @@
+<div class="game-list-header">
+    <h1>Games</h1>
+    <button type="button" class="btn-zira" (click)="handleClick()">New game</button>
+</div>
+<hr/>
+<div class="game-list">
+    <game-list-element *ngFor="let game of gameList" [game]="game" class="game-list-element"></game-list-element>
+</div>

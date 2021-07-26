@@ -8,8 +8,8 @@ import { RestApiService } from '../shared/rest-api.service';
 import { Game } from './shared/game.model';
 import { ObjectType } from '../shared/object-type.constant';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { LinkMapAddFormComponent } from '../link-map/link-map-add-form/link-map-add-form.component';
 import { ImageRequest } from '../shared/image-request.model';
+import { LinkMapAddFormComponent } from '../link-map/link-map-add-form/link-map-add-form.component';
 
 @Component({
     selector: 'game-overview',
