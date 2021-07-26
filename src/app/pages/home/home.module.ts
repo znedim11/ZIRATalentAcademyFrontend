@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { QuillModule } from 'ngx-quill';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 
 
 @NgModule({
     imports: [
-        SharedModule
+        SharedModule,
+        AutocompleteLibModule
     ],
     exports: [],
     declarations: [

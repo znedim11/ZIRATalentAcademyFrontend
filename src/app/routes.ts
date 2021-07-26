@@ -52,5 +52,5 @@ export const appRoutes: Routes = [
     { path: 'reports/dlc-analysis', component: DlcAnalysisComponent},
     { path: 'add-game', component: GameAddEditFormComponent},
     { path: 'game/:id/edit', component: GameAddEditFormComponent},
-    { path: '/', component: HomeComponent}
+    { path: 'home', component: HomeComponent}
 ]
