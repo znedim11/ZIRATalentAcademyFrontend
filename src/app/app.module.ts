@@ -28,6 +28,8 @@ import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
 import { LinkMapModule } from './pages/link-map/link-map.module';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     MatInputModule,
     QuillModule.forRoot(),
     MenuModule, 
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    HomeModule
   ],
   providers: [
     DateFormatterService,
