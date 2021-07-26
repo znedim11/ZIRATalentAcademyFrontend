@@ -18,6 +18,8 @@ import { PlatformOverviewComponent } from './pages/platform/platform-overview/pl
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
 import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
 import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
+import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
+import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },

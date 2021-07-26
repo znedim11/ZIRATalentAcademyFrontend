@@ -31,11 +31,14 @@ class MultiSelectHelper {
 })
 export class LinkMapAddFormComponent implements OnInit {
   objectAName: string;
+  filter: string;
 
   linkMap: LinkMapCreate;
 
-  gamesLoading: boolean = false;
-  pageSize: number = 100;
+  settings = {};
+  gameLoading: boolean = false;
+  indices: any;
+  readonly bufferSize: number = 10;
 
   showSelect = new Map<ObjectType, boolean>([
     [ObjectType.CHARACTER, true],
@@ -64,6 +67,8 @@ export class LinkMapAddFormComponent implements OnInit {
     this.linkMap.objectAType = this.data.objectAType;//this.route.snapshot.paramMap.get('type');
     this.objectAName = this.data.objectAName;
 
+    console.log(this.data);
+
     var params = new HttpParams();
     params = params.set('id', this.linkMap.objectAId.toString());
     params = params.set('type', this.linkMap.objectAType.toString());
@@ -91,24 +96,25 @@ export class LinkMapAddFormComponent implements OnInit {
       }
     })
 
+    let nextPage = (this.game.dropdownList.length / this.bufferSize) + 1;
+
     var gameParams = new HttpParams();
     gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
       .set('type', this.linkMap.objectAType.toString())
-      .set('pagination', JSON.stringify({entitesPerPage: this.pageSize, page: this.game.dropdownList.length / 2 + 1}));
+      .set('pagination', JSON.stringify({ entitiesPerPage: this.bufferSize, page: nextPage }));
     var gameOptions = { params: gameParams };
 
-    console.log(encodeURIComponent(gameParams.get('pagination')));
     this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
       if (response) {
         var helperList: SelectItem[] = [];
         var payload = response['payload'];
-        console.log(payload);
-        if (payload != null && payload.length > 0)
+        if (payload != null && payload.length > 0) {
           helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name } });
-        this.game.dropdownList = helperList;
+        }
+        this.game.dropdownList = this.game.dropdownList.concat(helperList);
         this.game.selectedItems = [];
       }
-    })
+    });
 
     this.api.get(LinkMapApi.GET_LOCATIONS, options).subscribe((response) => {
       if (response) {
@@ -153,9 +159,20 @@ export class LinkMapAddFormComponent implements OnInit {
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
       allowSearchFilter: true,
-      maxHeight: 50,
       lazyLoading: true
     };
+
+    this.settings = {
+      text: "Select Items",
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      lazyLoading: true,
+      maxHeight: 300,
+      labelKey: 'item_text',
+      primaryKey: 'item_id'
+    };
+
   }
 
   save() {
@@ -208,28 +225,53 @@ export class LinkMapAddFormComponent implements OnInit {
   }
 
   fetchMore(event: any) {
-    if (event.end === this.game.dropdownList.length - 1) {
-      this.gamesLoading = true;
+    console.log(event.endIndex);
+    if (event.endIndex === this.game.dropdownList.length - 1) {
+      this.gameLoading = true;
+
+      let nextPage = (this.game.dropdownList.length / this.bufferSize) + 1;
 
       var gameParams = new HttpParams();
       gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
         .set('type', this.linkMap.objectAType.toString())
-        .set('pagination', `{'entitiesPerPage': ${this.pageSize}, 'page': ${this.game.dropdownList.length / 2 + 1} }`);
+        .set('pagination', JSON.stringify({ entitiesPerPage: this.bufferSize, page: nextPage }));
       var gameOptions = { params: gameParams };
 
       this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
         if (response) {
           var helperList: SelectItem[] = [];
           var payload = response['payload'];
-          console.log(payload);
+          if (payload != null && payload.length > 0) {
+            helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name } });
+          }
+          this.game.dropdownList = this.game.dropdownList.concat(helperList);
+        }
+        this.gameLoading = false;
+      }, () => this.gameLoading = false);
+    }
+  }
+
+  onSearch(event: any) {
+    console.log(this.filter);
+    console.log(this.filter.length);
+    if (this.filter.length > 3) {
+      var gameParams = new HttpParams();
+      gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
+        .set('type', this.linkMap.objectAType.toString())
+        .set('filter', JSON.stringify([{ attribute: "fullName", filterOperation: "BEGINS_WITH", expressionValue: this.filter }]));
+      var gameOptions = { params: gameParams };
+
+
+      this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
+        if (response) {
+          var helperList: SelectItem[] = [];
+          var payload = response['payload'];
           if (payload != null && payload.length > 0)
             helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name } });
-          this.game.dropdownList = this.game.dropdownList.concat(helperList);
+          this.game.dropdownList = helperList;
           this.game.selectedItems = [];
         }
-
-        this.gamesLoading = false;
-      }, () => this.gamesLoading = false);
+      });
     }
   }
 }

@@ -6,14 +6,10 @@ import { Concept } from '../concept/shared/concept.model';
 import { Person } from '../person/shared/person.model';
 import { RestApiService } from '../shared/rest-api.service';
 import { Game } from './shared/game.model';
-<<<<<<< HEAD
 import { ObjectType } from '../shared/object-type.constant';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LinkMapAddFormComponent } from '../link-map/link-map-add-form/link-map-add-form.component';
 import { ImageRequest } from '../shared/image-request.model';
-=======
-import { ImageRequest } from '../shared/image-request.model';
->>>>>>> captain-quazer
 
 @Component({
     selector: 'game-overview',

@@ -26,12 +26,8 @@ import {MatInputModule} from '@angular/material/input';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
-<<<<<<< HEAD
 import { LinkMapModule } from './pages/link-map/link-map.module';
-=======
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
->>>>>>> captain-quazer
 
 @NgModule({
   declarations: [
@@ -62,17 +58,13 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FranchiseModule,
     ConceptModule,
     MenuModule,
-<<<<<<< HEAD
-    LinkMapModule
-=======
-    FranchiseModule,
+    LinkMapModule,
     FranchiseModule,
     MatSelectModule,
     MatInputModule,
     QuillModule.forRoot(),
     MenuModule, 
     AngularMultiSelectModule
->>>>>>> captain-quazer
   ],
   providers: [
     DateFormatterService,
