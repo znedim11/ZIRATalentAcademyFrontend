@@ -3,25 +3,12 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MultiselectHelper } from '../../shared/multiselect-helper.model';
 import { ObjectType } from '../../shared/object-type.constant';
 import { RestApiService } from '../../shared/rest-api.service';
+import { SelectItem } from '../../shared/select-item.model';
 import { LinkMapApi } from '../shared/link-map-api.constant';
 import { LinkMapCreate } from '../shared/link-map-create.model';
-
-interface SelectItem {
-  item_id: number;
-  item_text: string;
-}
-
-class MultiSelectHelper {
-  dropdownList: SelectItem[];
-  selectedItems: SelectItem[];
-
-  constructor() {
-    this.dropdownList = [];
-    this.selectedItems = [];
-  }
-}
 
 @Component({
   selector: 'link-map-add-form',
@@ -109,12 +96,12 @@ export class LinkMapAddFormComponent implements OnInit {
     [ObjectType.PERSON, true]
   ])
 
-  character: MultiSelectHelper = new MultiSelectHelper();
-  concept: MultiSelectHelper = new MultiSelectHelper();
-  game: MultiSelectHelper = new MultiSelectHelper();
-  location: MultiSelectHelper = new MultiSelectHelper();
-  object: MultiSelectHelper = new MultiSelectHelper();
-  person: MultiSelectHelper = new MultiSelectHelper();
+  character: MultiselectHelper = new MultiselectHelper();
+  concept: MultiselectHelper = new MultiselectHelper();
+  game: MultiselectHelper = new MultiselectHelper();
+  location: MultiselectHelper = new MultiselectHelper();
+  object: MultiselectHelper = new MultiselectHelper();
+  person: MultiselectHelper = new MultiselectHelper();
 
   constructor(
     private api: RestApiService,

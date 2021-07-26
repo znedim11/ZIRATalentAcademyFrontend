@@ -7,7 +7,6 @@ import { LinkMapAddFormComponent } from './link-map-add-form/link-map-add-form.c
 @NgModule({
     imports: [
         SharedModule,
-        NgMultiSelectDropDownModule.forRoot(),
         AngularMultiSelectModule
     ],
     exports: [],

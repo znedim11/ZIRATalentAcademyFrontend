@@ -1,11 +1,9 @@
 .form {
     padding: 10px 20px;
     color: #1a3469;
-
     label {
         margin-bottom: 0;
     }
-
     .formRow {
         display: flex;
         margin: 15px 0;
@@ -20,20 +18,19 @@
             height: 30px;
             width: 60%;
         }
-
-        select[multiple] {
-            height: 100%;
+        angular2-multiselect {
+            height: 30px;
+            width: 100%;
         }
     }
 }
 
-button{
+button {
     margin-left: auto;
     width: 45%;
 }
 
-
-button[type=submit]{
+button[type=submit] {
     background-color: #1a3469;
     color: white;
     border: none;

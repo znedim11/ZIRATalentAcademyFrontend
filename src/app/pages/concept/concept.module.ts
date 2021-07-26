@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { QuillModule } from 'ngx-quill';
 import { SharedModule } from '../shared/shared.module';
 import { ConceptAddEditFormComponent } from './concept-add-edit-form/concept-add-edit-form.component';
@@ -12,7 +13,8 @@ import { ConceptSearchComponent } from './concept-search/concept-search.componen
 
 @NgModule({
     imports: [
-        SharedModule
+        SharedModule,
+        AngularMultiSelectModule
     ],
     exports: [],
     declarations: [
