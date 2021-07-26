@@ -5,14 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './concept-search.component.html',
   styleUrls: ['./concept-search.component.scss']
 })
-export class ConceptSearchComponent implements OnInit {
+export class ConceptSearchComponent {
 
   searchObject;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   submit(searchObject) {
     this.searchObject = searchObject;

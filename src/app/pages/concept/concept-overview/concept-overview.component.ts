@@ -107,7 +107,7 @@ export class ConceptOverviewComponent implements OnInit {
                         });
                 }
             },
-                error => { this.router.navigateByUrl('/concept/search'); }
+                () => { this.router.navigateByUrl('/concept/search'); }
 
             )
     }
@@ -138,7 +138,8 @@ export class ConceptOverviewComponent implements OnInit {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.id = "modal-component";
+        dialogConfig.width = "900px";
         dialogConfig.data = { objectAId: this.concept.id, objectAType: ObjectType.CONCEPT, objectAName: this.concept.name }
-        const modalDialog = this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
+        this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
     }
 }

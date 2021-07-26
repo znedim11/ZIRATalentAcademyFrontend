@@ -119,7 +119,8 @@ export class GameOverviewComponent implements OnInit {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.id = "modal-component";
+        dialogConfig.width = "900px";
         dialogConfig.data = { objectAId: this.game.id, objectAType: ObjectType.GAME, objectAName: this.game.fullName }
-        const modalDialog = this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
+        this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
     }
 }

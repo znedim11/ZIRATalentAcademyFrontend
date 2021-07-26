@@ -134,7 +134,8 @@ export class CharacterOverviewComponent implements OnInit{
     const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = true;
         dialogConfig.id = "modal-component";
+        dialogConfig.width = "900px";
         dialogConfig.data = { objectAId: this.character.id, objectAType: ObjectType.CHARACTER, objectAName: this.character.name }
-        const modalDialog = this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
+        this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
 }
 }
