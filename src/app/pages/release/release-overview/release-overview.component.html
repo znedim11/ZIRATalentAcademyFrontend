@@ -1,0 +1,14 @@
+<div>
+  <h4>{{ title }}</h4>
+
+  <div>
+    <ul *ngFor="let interval of map | keyvalue">
+      {{
+        interval.key
+      }}
+      <li *ngFor="let item of interval.value">
+        <release-item></release-item>
+      </li>
+    </ul>
+  </div>
+</div>

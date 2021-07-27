@@ -15,6 +15,7 @@ import { CharacterModule } from './pages/character/character.module';
 import { CompanyModule } from './pages/company/company.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { FormulaModule } from './pages/formula/formula.module';
+import { ReleaseModule } from './pages/release/release.module';
 import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
 import { FranchiseComponent } from './pages/franchise/franchise.component';
 import { FranchisesListComponent } from './pages/franchise/franchises-list/franchises-list.component';
@@ -58,6 +59,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ConceptModule,
     GameModule,
     FormulaModule,
+    ReleaseModule,
     NgMultiSelectDropDownModule.forRoot(),
     CompanyModule,
     ReviewModule,
