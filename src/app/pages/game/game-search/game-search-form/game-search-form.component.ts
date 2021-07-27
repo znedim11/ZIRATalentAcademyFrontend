@@ -56,7 +56,7 @@ export class GameSearchFormComponent implements OnInit {
       singleSelection: true,
       maxHeight: 150,
       labelKey: 'item_text',
-      primaryKey: 'item_text',
+      primaryKey: 'item_id',
       autoPosition: false,
       enableSearchFilter: true,
       lazyLoading: true,
@@ -66,7 +66,7 @@ export class GameSearchFormComponent implements OnInit {
       singleSelection: true,
       maxHeight: 150,
       labelKey: 'item_text',
-      primaryKey: 'item_text',
+      primaryKey: 'item_id',
       autoPosition: false,
       enableSearchFilter: true,
       lazyLoading: true,
@@ -76,7 +76,7 @@ export class GameSearchFormComponent implements OnInit {
       singleSelection: true,
       maxHeight: 150,
       labelKey: 'item_text',
-      primaryKey: 'item_text',
+      primaryKey: 'item_id',
       autoPosition: false,
       enableSearchFilter: true,
       lazyLoading: true,
@@ -153,7 +153,7 @@ export class GameSearchFormComponent implements OnInit {
           var helperList: SelectItem[] = [];
           var payload = response['payload'];
           if (payload != null && payload.length > 0) {
-            helperList = payload.map(function (item) { return { item_id: null, item_text: item }; });
+            helperList = payload.map(function (item) { return { item_id: item, item_text: item }; });
           }
 
           this.genre.dropdownList = helperList;
@@ -209,7 +209,7 @@ export class GameSearchFormComponent implements OnInit {
   onSearchDev(event: any) {
     if (this.filterDev.length > 3) {
       var companyParams = new HttpParams();
-      companyParams = companyParams.set('filter', JSON.stringify([{ attribute: "fullName", filterOperation: "BEGINS_WITH", expressionValue: this.filterDev }]));
+      companyParams = companyParams.set('filter', JSON.stringify([{ attribute: "name", filterOperation: "BEGINS_WITH", expressionValue: this.filterDev }]));
       var companyOptions = { params: companyParams };
 
 
@@ -233,7 +233,7 @@ export class GameSearchFormComponent implements OnInit {
   onSearchPub(event: any) {
     if (this.filterPub.length > 3) {
       var companyParams = new HttpParams();
-      companyParams = companyParams.set('filter', JSON.stringify([{ attribute: "fullName", filterOperation: "BEGINS_WITH", expressionValue: this.filterPub }]));
+      companyParams = companyParams.set('filter', JSON.stringify([{ attribute: "name", filterOperation: "BEGINS_WITH", expressionValue: this.filterPub }]));
       var companyOptions = { params: companyParams };
 
 

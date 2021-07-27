@@ -81,7 +81,7 @@ export class GameListComponent implements OnInit, OnChanges {
     let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
     let max = document.documentElement.scrollHeight;
     if (pos == max) {
-      var nextPage = this.gameList.length / this.pageSize + 1;
+      var nextPage = Math.ceil(this.gameList.length / this.pageSize) + 1;
       var params = new HttpParams();
 
       params = params.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
