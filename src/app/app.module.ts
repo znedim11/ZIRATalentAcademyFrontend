@@ -19,16 +19,18 @@ import { ReviewModule } from './pages/review/review.module';
 import { DateFormatterService } from './pages/shared/date-formatter.service';
 import { FormValidatorService } from './pages/shared/form-validator.service';
 import { appRoutes } from './routes';
-import {RestApiService} from './pages/shared/rest-api.service';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
+import { RestApiService } from './pages/shared/rest-api.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
+import { LinkMapModule } from './pages/link-map/link-map.module';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReportModule } from './pages/reports/report.module'
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -59,14 +61,15 @@ import { ReportModule } from './pages/reports/report.module'
     FranchiseModule,
     ConceptModule,
     MenuModule,
-    FranchiseModule,
+    LinkMapModule,
     FranchiseModule,
     MatSelectModule,
     MatInputModule,
     QuillModule.forRoot(),
     MenuModule, 
     AngularMultiSelectModule,
-    ReportModule
+    ReportModule,
+    HomeModule
   ],
   providers: [
     DateFormatterService,

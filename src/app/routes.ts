@@ -20,7 +20,7 @@ import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview
 import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 import { CompanyRegionPlatformComponent } from './pages/reports/company-region-platform/company-region-platform.component'
 import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
-
+import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
@@ -31,7 +31,7 @@ export const appRoutes: Routes = [
     { path: 'add-concept', component: ConceptAddEditFormComponent },
     { path: 'concept/:id/edit', component: ConceptAddEditFormComponent },
     { path: 'concept/search', component: ConceptSearchComponent },
-    { path: 'game/:id/information', component: GameOverviewComponent },
+    { path: 'game/:id/overview', component: GameOverviewComponent },
     { path: 'game/:gameId/review/add', component: ReviewAddEditFormComponent },
     { path: 'game/:gameId/review/:id', component: ReviewOverviewComponent },
     { path: 'game/:gameId/review/:id/edit', component: ReviewAddEditFormComponent },
@@ -51,6 +51,9 @@ export const appRoutes: Routes = [
     { path: 'platform/:id', component: PlatformOverviewComponent },
     { path: 'reports/dlc-analysis', component: DlcAnalysisComponent },
     { path: 'reports/company-region-platform', component: CompanyRegionPlatformComponent },
+    { path: 'platform/:id/overview', component: PlatformOverviewComponent },
+    { path: ':type/:id/link', component: LinkMapAddFormComponent},
     { path: 'add-game', component: GameAddEditFormComponent},
     { path: 'game/:id/edit', component: GameAddEditFormComponent},
+    { path: 'home', component: HomeComponent}
 ]

@@ -1,129 +1,115 @@
 section {
-
     h3 {
-margin-left: 6%;
-margin-top: 1%;
-      color: #1a3469;
+        margin-left: 6%;
+        margin-top: 1%;
+        color: #1a3469;
     }
-  
     h4 {
-      word-wrap:break-word;
+        word-wrap: break-word;
     }
-  
     form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-  
-      .row {
-        width: 100%;
-        label {
-          width: 15%;
-        }
-        input, textarea {
-          width: 85%;
-        }
-      }
-  
-      label {
-        margin-bottom: 5px;
-        color: #1a3469;
-      }
-
-      .required::after {
-        content: "*";
-        color: red;
-      }
-  
-      input, textarea {
-        margin-bottom: 10px;
-      }
-  
-      textarea {
-        width: 100%;
-        min-height: 100px;
-      }
-
-      .save {
-        background-color: #00AB66;
-        color: white;
-        width: 25%;
-        min-width: 70px;
-      }
-  
-      .cancel {
-        color: #1a3469;
-  border: 2px solid #1a3469;
-  background-color: white;
-  outline: none;
-   }
-    }
-  
-    .bottom {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-  
-      .bottom-left {
-        width: 50%;
-        display: flex;
-        label {
-          width: 30%;
-        }
-        .grades {
-          width: 70%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          formula-grade {
-            width: 100%;
-          }
-          i{
-            margin-top: 8%;
-          }
-        }
-      }
-  
-      .bottom-right {
-        width: 45%;
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-  
-        fieldset {
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          min-height: 250px;
-          width: 100%;
-        }
-        .buttons {
-          display: flex;
-          width: 100%;
-          align-self: flex-end;
-          flex-wrap: wrap;
-  
-          div {
-            width: 30%;
-          }
-  
-          .form-buttons {
-            display: flex;
-            justify-content: flex-end;
-            width: 70%;
-            align-items: flex-end;
-            button {
-              margin: 0 5px;
+        align-items: center;
+        padding: 20px;
+        .row {
+            width: 100%;
+            label {
+                width: 15%;
             }
-          }
+            input,
+            textarea {
+                width: 85%;
+            }
         }
-      }
+        label {
+            margin-bottom: 5px;
+            color: #1a3469;
+        }
+        .required::after {
+            content: "*";
+            color: red;
+        }
+        input,
+        textarea {
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+        }
+        .save {
+            background-color: #00AB66;
+            color: white;
+            width: 25%;
+            min-width: 70px;
+        }
+        .cancel {
+            color: #1a3469;
+            border: 2px solid #1a3469;
+            background-color: white;
+            outline: none;
+        }
     }
-  }
-  
-  button {
+    .bottom {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        .bottom-left {
+            width: 50%;
+            display: flex;
+            label {
+                width: 30%;
+            }
+            .grades {
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                formula-grade {
+                    width: 100%;
+                }
+                i {
+                    margin-top: 8%;
+                }
+            }
+        }
+        .bottom-right {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            fieldset {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 250px;
+                width: 100%;
+            }
+            .buttons {
+                display: flex;
+                width: 100%;
+                align-self: flex-end;
+                flex-wrap: wrap;
+                div {
+                    width: 30%;
+                }
+                .form-buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 70%;
+                    align-items: flex-end;
+                    button {
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+button {
     border: none;
     outline: none;
     background-color: #1a3469;
@@ -132,22 +118,21 @@ margin-top: 1%;
     padding: 5px 10px;
     width: 140px;
     min-width: 70px;
-  }
-  
-  button:disabled,
-  button[disabled]{
+}
+
+button:disabled,
+button[disabled] {
     background-color: #cccccc;
     color: #666666;
     width: 25%;
     min-width: 70px;
-  }
-  
-  mat-icon {
+}
+
+mat-icon {
     font-size: 40px;
     width: 40px;
     height: 40px;
     &:hover {
-      cursor: pointer;
+        cursor: pointer;
     }
-  }
-  
+}

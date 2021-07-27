@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpUrlEncodingCodec} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
@@ -7,7 +7,7 @@ import { ConnectedOverlayPositionChange } from '@angular/cdk/overlay';
 
 @Injectable()
 export class RestApiService {
-
+  codec = new HttpUrlEncodingCodec();
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -16,9 +16,9 @@ export class RestApiService {
   }
 
   public get(...request): Observable<any> {
-    const [ path, options ] = request;
+    let [ path, options ] = request;
     let wrappedOptions = {...options, ...this.httpOptions};
-    console.log(wrappedOptions);
+
     return this.http.get(path, wrappedOptions)
       .pipe(catchError( err => {
         this.toastr.error(err.error.message || err.message, 'Get error');

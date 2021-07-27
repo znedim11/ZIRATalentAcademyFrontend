@@ -1,8 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RestApiService } from 'src/app/pages/shared/rest-api.service';
 import { SharedApi } from 'src/app/pages/shared/shared-api.constat';
-import { ConceptApi } from '../../shared/concept-api.constant';
 
 @Component({
   selector: 'concept-search-form',
@@ -19,7 +17,7 @@ export class ConceptSearchFormComponent implements OnInit {
     sortBy: ""
   }
 
-  sortSelect: String[] = [];
+  sortSelect: string[] = [];
   gameSelect = [];
   characterSelect = [];
 
