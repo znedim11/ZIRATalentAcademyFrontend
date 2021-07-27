@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 import { DlcAnalysisComponent } from './dlc-analysis/dlc-analysis.component';
+import { CompanyRegionPlatformComponent } from './company-region-platform/company-region-platform.component';
 
 @NgModule({
-  declarations: [DlcAnalysisComponent],
+  declarations: [
+    DlcAnalysisComponent, 
+    CompanyRegionPlatformComponent
+  ],
   imports: [
-    CommonModule
+    SharedModule,
+    AngularMultiSelectModule
   ]
 })
 export class ReportModule { }

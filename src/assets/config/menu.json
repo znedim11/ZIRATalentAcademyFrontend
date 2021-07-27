@@ -125,6 +125,12 @@
 						"label": "DLC Analysis",
 						"url": "reports/dlc-analysis",
 						"attributes": {}
+					},
+					{
+						"code": "HUB_COMPANY_REGION_PLATFORM_STATIC",
+						"label": "Company Region/Platform",
+						"url": "reports/company-region-platform",
+						"attributes": {}
 					}
 				]
 			},

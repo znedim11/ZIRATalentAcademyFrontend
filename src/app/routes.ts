@@ -18,6 +18,7 @@ import { PlatformOverviewComponent } from './pages/platform/platform-overview/pl
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
 import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
 import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
+import { CompanyRegionPlatformComponent } from './pages/reports/company-region-platform/company-region-platform.component'
 import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
 
 
@@ -49,6 +50,7 @@ export const appRoutes: Routes = [
     { path: 'platform/search', component: PlatformSearchComponent },
     { path: 'platform/:id', component: PlatformOverviewComponent },
     { path: 'reports/dlc-analysis', component: DlcAnalysisComponent },
+    { path: 'reports/company-region-platform', component: CompanyRegionPlatformComponent },
     { path: 'add-game', component: GameAddEditFormComponent},
     { path: 'game/:id/edit', component: GameAddEditFormComponent},
 ]

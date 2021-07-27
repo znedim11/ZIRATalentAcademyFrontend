@@ -28,6 +28,7 @@ import { ConceptModule } from './pages/concept/concept.module';
 import { MenuModule } from './pages/menu/menu.module';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ReportModule } from './pages/reports/report.module'
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     MatInputModule,
     QuillModule.forRoot(),
     MenuModule, 
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    ReportModule
   ],
   providers: [
     DateFormatterService,
