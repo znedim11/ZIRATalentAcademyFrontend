@@ -1,1 +1,24 @@
-<p>Home</p>
+<div class="container">
+    <div class="row">
+        <h1 class="home-title col-sm">Vigor</h1>
+        <div class="md-form col-sm">
+            <ng-autocomplete [data]="items" [searchKeyword]="keyword" (selected)='selectEvent($event)'
+                (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" placeholder="Search term...">
+            </ng-autocomplete>
+        </div>
+    </div>
+    <hr>
+</div>
+
+<ng-template #itemTemplate let-item>
+    <div class="item">
+        <img src="{{item.imageUrl}}" height="100">
+        <span [innerHTML]="item.objectName"></span> &nbsp; | &nbsp;
+        <small>Type: {{item.objectType}}</small>
+    </div>
+</ng-template>
+
+<ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound">ASDASDASDASD</div>
+</ng-template>

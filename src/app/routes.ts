@@ -50,8 +50,9 @@ export const appRoutes: Routes = [
     { path: 'reviews/internal', component: ReviewComponent },
     { path: 'platform/search', component: PlatformSearchComponent },
     { path: 'platform/:id/overview', component: PlatformOverviewComponent },
-    { path: ':type/:id/link', component: LinkMapAddFormComponent },
-    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent },
-    { path: 'add-game', component: GameAddEditFormComponent },
-    { path: 'game/:id/edit', component: GameAddEditFormComponent }
+    { path: ':type/:id/link', component: LinkMapAddFormComponent},
+    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent},
+    { path: 'add-game', component: GameAddEditFormComponent},
+    { path: 'game/:id/edit', component: GameAddEditFormComponent},
+    { path: 'home', component: HomeComponent}
 ]
