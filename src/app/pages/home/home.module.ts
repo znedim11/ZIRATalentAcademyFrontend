@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { SharedModule } from '../shared/shared.module';
+import HomeGridComponent from './home-grid/home-grid.component';
 import { HomeComponent } from './home.component';
 
 
@@ -11,7 +12,8 @@ import { HomeComponent } from './home.component';
     ],
     exports: [],
     declarations: [
-        HomeComponent
+        HomeComponent,
+        HomeGridComponent
     ],
     providers: [],
 })
