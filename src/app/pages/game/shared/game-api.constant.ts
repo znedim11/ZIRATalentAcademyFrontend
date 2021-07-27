@@ -11,4 +11,5 @@ export class GameApi {
   public static CREATE_GAME = '/vigor/game/create';
   public static GET_MAIN_GAMES = '/vigor/game/main'
   public static SEARCH_GAMES = '/vigor/game/search';
+  public static GET_GENRES = '/vigor/game/genres';
 }

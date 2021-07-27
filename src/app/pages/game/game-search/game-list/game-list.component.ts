@@ -1,4 +1,3 @@
-import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 import { HttpParams } from '@angular/common/http';
 import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,7 +15,7 @@ export class GameListComponent implements OnInit, OnChanges {
   @Input() searchObject: GameSearch;
 
   gameList: Game[] = [];
-  pageSize: number = 200;
+  pageSize: number = 50;
 
   constructor(private api: RestApiService, private router: Router) { }
 
@@ -82,9 +81,10 @@ export class GameListComponent implements OnInit, OnChanges {
     let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
     let max = document.documentElement.scrollHeight;
     if (pos == max) {
+      var nextPage = this.gameList.length / this.pageSize + 1;
       var params = new HttpParams();
 
-      params = params.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: this.gameList.length / this.pageSize + 1 }));
+      params = params.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
 
       if (this.searchObject != null) {
         params = this.searchObject.name ? params.set('name', this.searchObject.name) : params;
@@ -109,7 +109,7 @@ export class GameListComponent implements OnInit, OnChanges {
 
       this.api.get(GameApi.SEARCH_GAMES, options)
         .subscribe((games) => {
-          if (games) {
+          if (games && games.numberOfPages >= nextPage) {
             this.gameList = this.gameList.concat(games['payload']);
           }
         });

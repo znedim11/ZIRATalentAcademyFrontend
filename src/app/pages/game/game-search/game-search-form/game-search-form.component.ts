@@ -6,6 +6,7 @@ import { ObjectType } from 'src/app/pages/shared/object-type.constant';
 import { RestApiService } from 'src/app/pages/shared/rest-api.service';
 import { SelectItem } from 'src/app/pages/shared/select-item.model';
 import { SharedApi } from 'src/app/pages/shared/shared-api.constat';
+import { GameApi } from '../../shared/game-api.constant';
 import { GameSearch } from '../../shared/game-search.model';
 
 @Component({
@@ -16,7 +17,7 @@ import { GameSearch } from '../../shared/game-search.model';
 export class GameSearchFormComponent implements OnInit {
   @Output() searchEmitter = new EventEmitter();
 
-  searchObject:GameSearch = new GameSearch();
+  searchObject: GameSearch = new GameSearch();
 
   filterDev: string;
   filterPub: string;
@@ -97,34 +98,28 @@ export class GameSearchFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.region.dropdownList = [];
-    this.region.selectedItems = [];
-    this.feature.dropdownList = [];
-    this.feature.selectedItems = [];
-    this.developer.dropdownList = [];
-    this.developer.selectedItems = [];
-    this.publisher.dropdownList = [];
-    this.publisher.selectedItems = [];
-    this.genre.dropdownList = [];
-    this.genre.selectedItems = [];
 
     let nextPage = (this.companySelectList.length / this.pageSize) + 1;
     var companyParams = new HttpParams();
     companyParams = companyParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
     var companyOptions = { params: companyParams };
 
-    this.api.get(SharedApi.GET_COMPANIES, companyOptions).subscribe((response) => {
-      if (response) {
-        var helperList: SelectItem[] = [];
-        var payload = response['payload'];
-        if (payload != null && payload.length > 0) {
-          helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
+    this.api.get(SharedApi.GET_COMPANIES, companyOptions)
+      .subscribe((response) => {
+        if (response) {
+          var helperList: SelectItem[] = [];
+          var payload = response['payload'];
+          if (payload != null && payload.length > 0) {
+            helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
+          }
+          this.companySelectList = helperList;
+          this.developer.dropdownList = helperList;
+          this.publisher.dropdownList = helperList;
+
+          this.developer.selectedItems = [];
+          this.publisher.selectedItems = [];
         }
-        this.companySelectList = helperList;
-        this.developer.dropdownList = helperList;
-        this.publisher.dropdownList = helperList;
-      }
-    });
+      });
 
     this.api.get(SharedApi.GET_REGIONS)
       .subscribe((response) => {
@@ -135,6 +130,7 @@ export class GameSearchFormComponent implements OnInit {
             helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
           }
           this.region.dropdownList = helperList;
+          this.region.selectedItems = [];
         }
       });
 
@@ -147,11 +143,28 @@ export class GameSearchFormComponent implements OnInit {
             helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
           }
           this.feature.dropdownList = helperList;
+          this.feature.selectedItems = [];
         }
       });
+
+    this.api.get(GameApi.GET_GENRES)
+      .subscribe((response) => {
+        if (response) {
+          var helperList: SelectItem[] = [];
+          var payload = response['payload'];
+          if (payload != null && payload.length > 0) {
+            helperList = payload.map(function (item) { return { item_id: null, item_text: item }; });
+          }
+
+          this.genre.dropdownList = helperList;
+          this.genre.selectedItems = [];
+        }
+      });
+
   }
 
   search() {
+    console.log(this.region);
     this.searchObject.regionIds = this.region.selectedItems.map(i => i.item_id);
     this.searchObject.featureIds = this.feature.selectedItems.map(i => i.item_id);
 
