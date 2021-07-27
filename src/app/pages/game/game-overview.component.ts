@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from '../character/shared/character.model';
 import { GameApi } from '../game/shared/game-api.constant';
@@ -14,7 +14,8 @@ import { ImageRequest } from '../shared/image-request.model';
 @Component({
     selector: 'game-overview',
     templateUrl: './game-overview.component.html',
-    styleUrls: ['./game-overview.component.scss']
+    styleUrls: ['./game-overview.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class GameOverviewComponent implements OnInit {
     game: Game = new Game();
