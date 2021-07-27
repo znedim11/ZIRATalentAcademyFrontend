@@ -1,7 +1,9 @@
-<div class="container">
-    <div class="row">
-        <h1 class="home-title col-sm">Vigor</h1>
-        <div class="md-form col-sm">
+<br>
+<div class="row">
+        <div class="col-sl">
+            <h1 class="home-title col-sm">Vigor</h1>
+        </div>
+        <div class="col-lg">
             <ng-autocomplete [data]="items" [searchKeyword]="keyword" (selected)='selectEvent($event)'
                 (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
                 [notFoundTemplate]="notFoundTemplate" placeholder="Search term...">
@@ -9,7 +11,28 @@
         </div>
     </div>
     <hr>
+<div class="row">
+    <div class="col-lg">
+        <h1>Latest Game Reviews</h1>
+        <home-grid [rows]="reviews" [columns]="columnDefsReviews"></home-grid>
+    </div>
+    <div class="col-lg">
+        <h1>Wiki Status</h1>
+        <home-grid [rows]="wikiStats" [columns]="columnDefsStatuses"></home-grid>
+    </div>
 </div>
+<br>
+<div class="row">
+    <div class="col-lg">
+        <h1>Latest Game Releases</h1>
+        <hr>
+    </div>
+</div>
+
+
+
+
+
 
 <ng-template #itemTemplate let-item>
     <div class="item">
