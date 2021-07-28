@@ -18,12 +18,17 @@ export class CompanyRegionPlatformComponent implements OnInit {
   dropdownSettings = {};
   selectedCompanies = [];
   loadedCompanies = [];
+  pageSize: number = 100;
+  filter: string;
 
   constructor(private api: RestApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {     
+    var httpParams = new HttpParams();
+    let nextPage = (this.companiesList.length / this.pageSize) + 1;
+    httpParams = httpParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
 
-    this.api.get(SharedApi.GET_COMAPNIES)
+    this.api.get(SharedApi.GET_COMAPNIES, {params : httpParams})
     .subscribe((companies) => {
       this.companiesList = companies['payload'];
     });
@@ -111,6 +116,46 @@ export class CompanyRegionPlatformComponent implements OnInit {
     });
   }
 
+  async fetchMore(event: any) {
+    console.log("FETCH" + event.endIndex);
+    if (event.endIndex > 0 && event.endIndex === this.companiesList.length - 1) {
+      let nextPage = (this.companiesList.length / this.pageSize) + 1;
+      var gameParams = new HttpParams();
+      console.log("Next page: " + nextPage);
+      gameParams = gameParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
+
+      await this.api.get(SharedApi.GET_COMAPNIES, { params: gameParams }).subscribe((companies) => {
+        if (companies) {
+          this.companiesList = this.companiesList.concat(companies['payload']);
+        }
+      });
+    }
+  }
+
+  onSearch(event: any) {
+    console.log("SEARCH");
+    if (this.filter.length > 0) {
+      var gameParams = new HttpParams();
+      gameParams = gameParams.set('filter', JSON.stringify([{ attribute: "name", filterOperation: "BEGINS_WITH", expressionValue: this.filter }]));
+
+      this.api.get(SharedApi.GET_COMAPNIES, { params: gameParams }).subscribe((companies) => {
+        if (companies) {
+          this.companiesList = companies['payload'];
+        }
+      });
+    }
+    else if (this.filter.length == 0) {
+      var httpParams = new HttpParams();
+      let nextPage = (this.companiesList.length / this.pageSize) + 1;
+      httpParams = httpParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
+  
+      this.api.get(SharedApi.GET_COMAPNIES, {params : httpParams})
+      .subscribe((companies) => {
+        this.companiesList = companies['payload'];
+      });
+    }
+  }
+
   setPieData(chart: am4charts.PieChart, data: Map<number, ReportMapDetails>){
     if(data){
       var reportDetailsList = new Array<ReportDetailsItem>();
@@ -129,6 +174,8 @@ export class CompanyRegionPlatformComponent implements OnInit {
     chartTitle.text = title;
     chartTitle.fontSize = fontSize;
     chartTitle.marginBottom = marginBottom;
+    chartTitle.background.fill = am4core.color("#fff");
+    chartTitle.zIndex = 10;
   }
 
   setPieSeries(chart: am4charts.PieChart, valueName: string, categoryName: string, tooltipText: string){
@@ -136,6 +183,7 @@ export class CompanyRegionPlatformComponent implements OnInit {
     pieSeries.dataFields.value = valueName;
     pieSeries.dataFields.category = categoryName;
     pieSeries.slices.template.tooltipText = tooltipText;
+    pieSeries.labels.template.text = "{name}: {value.percent.formatNumber('#.0')}%";
   }
 }
 
