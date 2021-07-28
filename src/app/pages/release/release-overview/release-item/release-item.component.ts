@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import{Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Release } from '../../shared/release.model';
 
@@ -13,12 +13,11 @@ import { Release } from '../../shared/release.model';
 })
 
 export class ReleaseItemComponent {
-@Input() release: Release = new Release();
+    @Input() release: Release;
 
-constructor(private router:Router){}
+    constructor(private router: Router) { }
 
 
-handleClick(){
-/*that game or platform overwiew*/
-}
+    handleClick() {
+    }
 }
