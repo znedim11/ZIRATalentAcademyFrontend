@@ -14,14 +14,14 @@ import { CharacterAddEditComponent } from './pages/character/character-add-edit/
 import { ReviewAddEditFormComponent } from './pages/review/review-add-edit-form/review-add-edit-form.component'
 import { ReviewOverviewComponent } from './pages/review/review-overview/review-overview.component'
 import { ReviewComponent } from './pages/review/review.component'
-import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
-import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
-import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
 import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 import { CompanyRegionPlatformComponent } from './pages/reports/company-region-platform/company-region-platform.component'
-import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
-import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
 import { ReleaseOverviewComponent } from './pages/release/release-overview/release-overview.component'
+import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
+import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
+import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
+import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
+import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
