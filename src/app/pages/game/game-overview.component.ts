@@ -10,6 +10,7 @@ import { ObjectType } from '../shared/object-type.constant';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ImageRequest } from '../shared/image-request.model';
 import { LinkMapAddFormComponent } from '../link-map/link-map-add-form/link-map-add-form.component';
+import { ReleaseAddFormComponent } from '../release/release-add-form/release-add-form.component';
 
 @Component({
     selector: 'game-overview',
@@ -45,7 +46,7 @@ export class GameOverviewComponent implements OnInit {
         { headerName: "Location", field: "name", initialSort: 'desc', sortable: true, flex: 1, cellRenderer: this.createLink.bind(this) }
     ]
 
-    constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private matDialog: MatDialog) { }
+    constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private matDialogLink: MatDialog, private matDialogReview: MatDialog) { }
 
     ngOnInit() {
         this.getData();
@@ -122,6 +123,15 @@ export class GameOverviewComponent implements OnInit {
         dialogConfig.id = "modal-component";
         dialogConfig.width = "900px";
         dialogConfig.data = { objectAId: this.game.id, objectAType: ObjectType.GAME, objectAName: this.game.fullName }
-        this.matDialog.open(LinkMapAddFormComponent, dialogConfig);
+        const modalDialog = this.matDialogLink.open(LinkMapAddFormComponent, dialogConfig);
+    }
+
+    addRelease(){
+        const dialogConfig2 = new MatDialogConfig();
+        dialogConfig2.disableClose = true;
+        dialogConfig2.id = "modal-component2";
+        dialogConfig2.width = "900px";
+        dialogConfig2.data = { objectId: this.game.id, objectAType: ObjectType.GAME.toUpperCase()}
+        const modalDialog = this.matDialogReview.open(ReleaseAddFormComponent, dialogConfig2);
     }
 }
