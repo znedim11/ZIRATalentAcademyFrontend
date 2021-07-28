@@ -13,6 +13,11 @@ import { MaterialModule } from './material.module';
 import { CharacterModule } from './pages/character/character.module';
 import { CompanyModule } from './pages/company/company.module';
 import { FormulaModule } from './pages/formula/formula.module';
+import { ReleaseModule } from './pages/release/release.module';
+import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
+import { FranchiseComponent } from './pages/franchise/franchise.component';
+import { FranchisesListComponent } from './pages/franchise/franchises-list/franchises-list.component';
+import { FranchiseService } from './pages/franchise/shared/franchise.service';
 import { GameModule } from './pages/game/game.module';
 import { PlatformModule } from './pages/platform/platform.module';
 import { ReviewModule } from './pages/review/review.module';
@@ -54,6 +59,9 @@ import { HomeModule } from './pages/home/home.module';
     MatInputModule,
     GameModule,
     CharacterModule,
+    FormulaModule,
+    ReleaseModule,
+    NgMultiSelectDropDownModule.forRoot(),
     CompanyModule,
     ReviewModule,
     PlatformModule,
