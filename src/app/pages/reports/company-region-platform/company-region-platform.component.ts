@@ -28,7 +28,7 @@ export class CompanyRegionPlatformComponent implements OnInit {
     let nextPage = (this.companiesList.length / this.pageSize) + 1;
     httpParams = httpParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
 
-    this.api.get(SharedApi.GET_COMAPNIES, {params : httpParams})
+    this.api.get(SharedApi.GET_COMPANIES, {params : httpParams})
     .subscribe((companies) => {
       this.companiesList = companies['payload'];
     });
@@ -124,7 +124,7 @@ export class CompanyRegionPlatformComponent implements OnInit {
       console.log("Next page: " + nextPage);
       gameParams = gameParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
 
-      await this.api.get(SharedApi.GET_COMAPNIES, { params: gameParams }).subscribe((companies) => {
+      await this.api.get(SharedApi.GET_COMPANIES, { params: gameParams }).subscribe((companies) => {
         if (companies) {
           this.companiesList = this.companiesList.concat(companies['payload']);
         }
@@ -138,7 +138,7 @@ export class CompanyRegionPlatformComponent implements OnInit {
       var gameParams = new HttpParams();
       gameParams = gameParams.set('filter', JSON.stringify([{ attribute: "name", filterOperation: "BEGINS_WITH", expressionValue: this.filter }]));
 
-      this.api.get(SharedApi.GET_COMAPNIES, { params: gameParams }).subscribe((companies) => {
+      this.api.get(SharedApi.GET_COMPANIES, { params: gameParams }).subscribe((companies) => {
         if (companies) {
           this.companiesList = companies['payload'];
         }
@@ -149,7 +149,7 @@ export class CompanyRegionPlatformComponent implements OnInit {
       let nextPage = (this.companiesList.length / this.pageSize) + 1;
       httpParams = httpParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
   
-      this.api.get(SharedApi.GET_COMAPNIES, {params : httpParams})
+      this.api.get(SharedApi.GET_COMPANIES, {params : httpParams})
       .subscribe((companies) => {
         this.companiesList = companies['payload'];
       });
