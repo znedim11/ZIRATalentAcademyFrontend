@@ -58,11 +58,11 @@ export class PlatformSearchFormComponent implements OnInit {
       this.regions = results.payload;
     })
 
-    this.api.get(SharedApi.GET_COMAPNIES).subscribe((results) => {
+    this.api.get(SharedApi.GET_COMPANIES).subscribe((results) => {
       this.developers = results.payload;
     })
 
-    this.api.get(SharedApi.GET_COMAPNIES).subscribe((results) => {
+    this.api.get(SharedApi.GET_COMPANIES).subscribe((results) => {
       this.publishers = results.payload;
     })
   }
@@ -102,7 +102,7 @@ export class PlatformSearchFormComponent implements OnInit {
       params = pageSize ? params.set('pageSize', String(pageSize)) : params;
       let options = { params: params };
       console.log(options);
-      this.api.get(SharedApi.GET_COMAPNIES, options).subscribe(results => {
+      this.api.get(SharedApi.GET_COMPANIES, options).subscribe(results => {
         this.developers.push(results.payload);
         this.loading = false;
       }, () => this.loading = false);

@@ -3,25 +3,12 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MultiselectHelper } from '../../shared/multiselect-helper.model';
 import { ObjectType } from '../../shared/object-type.constant';
 import { RestApiService } from '../../shared/rest-api.service';
+import { SelectItem } from '../../shared/select-item.model';
 import { LinkMapApi } from '../shared/link-map-api.constant';
 import { LinkMapCreate } from '../shared/link-map-create.model';
-
-interface SelectItem {
-  item_id: number;
-  item_text: string;
-}
-
-class MultiSelectHelper {
-  dropdownList: SelectItem[];
-  selectedItems: SelectItem[];
-
-  constructor() {
-    this.dropdownList = [];
-    this.selectedItems = [];
-  }
-}
 
 @Component({
   selector: 'link-map-add-form',
@@ -109,12 +96,12 @@ export class LinkMapAddFormComponent implements OnInit {
     [ObjectType.PERSON, true]
   ])
 
-  character: MultiSelectHelper = new MultiSelectHelper();
-  concept: MultiSelectHelper = new MultiSelectHelper();
-  game: MultiSelectHelper = new MultiSelectHelper();
-  location: MultiSelectHelper = new MultiSelectHelper();
-  object: MultiSelectHelper = new MultiSelectHelper();
-  person: MultiSelectHelper = new MultiSelectHelper();
+  character: MultiselectHelper = new MultiselectHelper();
+  concept: MultiselectHelper = new MultiselectHelper();
+  game: MultiselectHelper = new MultiselectHelper();
+  location: MultiselectHelper = new MultiselectHelper();
+  object: MultiselectHelper = new MultiselectHelper();
+  person: MultiselectHelper = new MultiselectHelper();
 
   constructor(
     private api: RestApiService,
@@ -147,7 +134,24 @@ export class LinkMapAddFormComponent implements OnInit {
     }
 
     if (this.showSelect.get(ObjectType.GAME)) {
-      this.getGames();
+      let nextPage = (this.game.dropdownList.length / this.pageSize) + 1;
+
+      var gameParams = new HttpParams();
+      gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
+        .set('type', this.linkMap.objectAType.toString())
+        .set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
+      var gameOptions = { params: gameParams };
+
+      this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
+        if (response) {
+          var helperList: SelectItem[] = [];
+          var payload = response['payload'];
+          if (payload != null && payload.length > 0) {
+            helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
+          }
+          this.game.dropdownList = this.game.dropdownList.concat(helperList);
+        }
+      });
       this.game.selectedItems = [];
     }
 
@@ -199,30 +203,6 @@ export class LinkMapAddFormComponent implements OnInit {
           helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
         this.location.dropdownList = helperList;
         this.location.selectedItems = [];
-      }
-    });
-  }
-
-  private getGames() {
-    let nextPage = (this.game.dropdownList.length / this.pageSize) + 1;
-
-    var gameParams = new HttpParams();
-    gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
-      .set('type', this.linkMap.objectAType.toString())
-      .set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
-    var gameOptions = { params: gameParams };
-
-    console.log(this.game.dropdownList.length);
-    console.log(nextPage);
-
-    this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
-      if (response) {
-        var helperList: SelectItem[] = [];
-        var payload = response['payload'];
-        if (payload != null && payload.length > 0) {
-          helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
-        }
-        this.game.dropdownList = this.game.dropdownList.concat(helperList);
       }
     });
   }
@@ -315,15 +295,30 @@ export class LinkMapAddFormComponent implements OnInit {
 
   fetchMore(event: any) {
     if (this.showSelect.get(ObjectType.GAME)) {
-      if (event.endIndex >0 && event.endIndex === this.game.dropdownList.length - 1) {
-        this.getGames();
+      if (event.endIndex > 0 && event.endIndex === this.game.dropdownList.length - 1) {
+        let nextPage = (this.game.dropdownList.length / this.pageSize) + 1;
+
+    var gameParams = new HttpParams();
+    gameParams = gameParams.set('id', this.linkMap.objectAId.toString())
+      .set('type', this.linkMap.objectAType.toString())
+      .set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
+    var gameOptions = { params: gameParams };
+
+    this.api.get(LinkMapApi.GET_GAMES, gameOptions).subscribe((response) => {
+      if (response) {
+        var helperList: SelectItem[] = [];
+        var payload = response['payload'];
+        if (payload != null && payload.length > 0 && payload[payload.length -1].name != this.game.dropdownList[this.game.dropdownList.length - 1].item_text) {
+          helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
+        }
+        this.game.dropdownList = this.game.dropdownList.concat(helperList);
+      }
+    });
       }
     }
   }
 
   onSearch(event: any) {
-    console.log(this.filter);
-    console.log(this.filter.length);
     if (this.filter.length > 3) {
       var gameParams = new HttpParams();
       gameParams = gameParams.set('id', this.linkMap.objectAId.toString())

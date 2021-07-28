@@ -23,7 +23,7 @@ export class CompanyRegionPlatformComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.api.get(SharedApi.GET_COMAPNIES)
+    this.api.get(SharedApi.GET_COMPANIES)
     .subscribe((companies) => {
       this.companiesList = companies['payload'];
     });
