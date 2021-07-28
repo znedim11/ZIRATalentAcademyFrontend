@@ -112,7 +112,6 @@ export class ConceptSearchFormComponent implements OnInit {
 
     this.searchObject.sortBy = this.sort.selectedItems.length != 0 ? this.sort.selectedItems[0].item_text : null;
 
-    console.log(this.searchObject)
     this.searchEmitter.emit({ ...this.searchObject });
   }
 
