@@ -17,9 +17,10 @@ import { ReviewComponent } from './pages/review/review.component'
 import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
 import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
+import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
+import { CompanyRegionPlatformComponent } from './pages/reports/company-region-platform/company-region-platform.component'
 import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
 import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
-import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
@@ -47,9 +48,11 @@ export const appRoutes: Routes = [
     { path: 'reviews/external', component: ReviewComponent},
     { path: 'reviews/internal', component: ReviewComponent},
     { path: 'platform/search', component: PlatformSearchComponent },
+    { path: 'platform/:id', component: PlatformOverviewComponent },
+    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent },
+    { path: 'reports/company-region-platform', component: CompanyRegionPlatformComponent },
     { path: 'platform/:id/overview', component: PlatformOverviewComponent },
     { path: ':type/:id/link', component: LinkMapAddFormComponent},
-    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent},
     { path: 'add-game', component: GameAddEditFormComponent},
     { path: 'game/:id/edit', component: GameAddEditFormComponent},
     { path: 'home', component: HomeComponent}

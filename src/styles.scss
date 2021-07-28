@@ -77,7 +77,7 @@ $vgr-theme: mat-light-theme((
 @import '~quill/dist/quill.bubble.css';
 @import '~quill/dist/quill.snow.css';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-
+@import "~angular2-multiselect-dropdown/themes/default.theme.css";
 
 .ag-theme-alpine {
     border: 2px solid #1a3469;
