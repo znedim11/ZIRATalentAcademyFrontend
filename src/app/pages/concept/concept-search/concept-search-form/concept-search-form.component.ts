@@ -128,14 +128,11 @@ export class ConceptSearchFormComponent implements OnInit {
       gameParams = gameParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
       var gameOptions = { params: gameParams };
 
-      console.log(this.game.dropdownList.length);
-      console.log(nextPage);
-
       this.api.get(SharedApi.GET_GAMES, gameOptions).subscribe((response) => {
         if (response) {
           var helperList: SelectItem[] = [];
           var payload = response['payload'];
-          if (payload != null && payload.length > 0) {
+          if (payload != null && payload.length > 0 && payload[payload.length -1].name != this.game.dropdownList[this.game.dropdownList.length - 1].item_text) {
             helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
           }
           this.game.dropdownList = this.game.dropdownList.concat(helperList);
@@ -145,8 +142,6 @@ export class ConceptSearchFormComponent implements OnInit {
   }
 
   onSearch(event: any) {
-    console.log(this.filter);
-    console.log(this.filter.length);
     if (this.filter.length > 3) {
       var gameParams = new HttpParams();
       gameParams = gameParams.set('filter', JSON.stringify([{ attribute: "fullName", filterOperation: "BEGINS_WITH", expressionValue: this.filter }]));

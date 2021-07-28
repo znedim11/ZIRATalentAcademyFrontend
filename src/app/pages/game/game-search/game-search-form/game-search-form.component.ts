@@ -185,7 +185,6 @@ export class GameSearchFormComponent implements OnInit {
 
   fetchMore(event: any) {
     if (event.endIndex > 0 && event.endIndex === this.companySelectList.length - 1) {
-      console.log("fetch")
       let nextPage = (this.companySelectList.length / this.pageSize) + 1;
       var companyParams = new HttpParams();
       companyParams = companyParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
@@ -195,7 +194,8 @@ export class GameSearchFormComponent implements OnInit {
         if (response) {
           var helperList: SelectItem[] = [];
           var payload = response['payload'];
-          if (payload != null && payload.length > 0) {
+
+          if (payload != null && payload.length > 0 && payload[payload.length -1].name != this.companySelectList[this.companySelectList.length - 1].item_text) {
             helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
           }
           this.companySelectList = this.companySelectList.concat(helperList);
