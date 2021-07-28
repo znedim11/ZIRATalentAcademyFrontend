@@ -13,8 +13,8 @@ import { MaterialModule } from './material.module';
 import { CharacterModule } from './pages/character/character.module';
 import { CompanyModule } from './pages/company/company.module';
 import { FormulaModule } from './pages/formula/formula.module';
+import { ReleaseModule } from './pages/release/release.module';
 import { GameModule } from './pages/game/game.module';
-import { PlatformModule } from './pages/platform/platform.module';
 import { ReviewModule } from './pages/review/review.module';
 import { DateFormatterService } from './pages/shared/date-formatter.service';
 import { FormValidatorService } from './pages/shared/form-validator.service';
@@ -23,11 +23,14 @@ import { RestApiService } from './pages/shared/rest-api.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { FranchiseModule } from './pages/franchise/franchise.module';
 import { ConceptModule } from './pages/concept/concept.module';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ReportModule } from './pages/reports/report.module'
+import { PlatformModule } from './pages/platform/platform.module';
+import { FranchiseModule } from './pages/franchise/franchise.module';
 import { MenuModule } from './pages/menu/menu.module';
 import { LinkMapModule } from './pages/link-map/link-map.module';
-import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
@@ -52,6 +55,9 @@ import { HomeModule } from './pages/home/home.module';
     MatInputModule,
     GameModule,
     CharacterModule,
+    FormulaModule,
+    ReleaseModule,
+    NgMultiSelectDropDownModule.forRoot(),
     CompanyModule,
     ReviewModule,
     PlatformModule,
@@ -64,8 +70,9 @@ import { HomeModule } from './pages/home/home.module';
     MatSelectModule,
     MatInputModule,
     QuillModule.forRoot(),
-    MenuModule,
+    MenuModule, 
     AngularMultiSelectModule,
+    ReportModule,
     HomeModule
   ],
   providers: [

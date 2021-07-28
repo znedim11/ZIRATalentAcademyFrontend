@@ -1,6 +1,8 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReleaseApi } from '../release/shared/release-api.constant';
+import { Release, ReleaseDetail } from '../release/shared/release.model';
 import { ReviewApi } from '../review/shared/review-api.constant';
 import { RestApiService } from '../shared/rest-api.service';
 import { MultiSearchResponse } from './shared/multisearch.model';
@@ -17,6 +19,10 @@ export class HomeComponent implements OnInit {
   items: MultiSearchResponse[];
   reviews: any[];
   wikiStats: WikiStat[];
+  release: Release = new Release();
+  map: Map<string, ReleaseDetail[]>;
+  startDate = "2016-01-15";
+  endDate = "2016-01-31";
 
   columnDefsStatuses = [
     { headerName: "Type", field: "type", sortable: true, flex: 1, cellRenderer: this.createLinkSearch.bind(this) },
@@ -64,6 +70,17 @@ export class HomeComponent implements OnInit {
       this.reviews = [];
       this.reviews = reviews['payload'];
     });
+    let params = new HttpParams();
+    params = params.append('startDate',this.startDate)
+    params = params.append('endDate',this.endDate)
+    params = params.append('timeSegment','week')
+    params = params.append('releaseType','game');
+
+     this.api.get(ReleaseApi.GET_RELEASES_BY_TIMETABLE, {params:params} )
+     .subscribe((release) => {
+     this.release = release['payload'];
+     this.map = this.release.mapOfReleasesByIntervals;
+   });
   }
 
   selectEvent(item: MultiSearchResponse) {
@@ -85,7 +102,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  onFocused(e) {
+  onFocused(e: any) {
     // do something when input is focused
   }
 }

@@ -8,19 +8,21 @@ import { ConceptOverviewComponent } from './pages/concept/concept-overview/conce
 import { ConceptSearchComponent } from './pages/concept/concept-search/concept-search.component'
 import { FormulaAddEditFormComponent } from './pages/formula/formula-add-edit-form/formula-add-edit-form.component'
 import { FormulaListComponent } from './pages/formula/formula-list/formula-list.component'
-import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
 import { FranchiseComponent } from './pages/franchise/franchise.component'
-import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
 import { GameOverviewComponent } from './pages/game/game-overview.component'
 import { GameSearchComponent } from './pages/game/game-search/game-search.component'
 import { HomeComponent } from './pages/home/home.component'
-import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
-import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
+import { CompanyRegionPlatformComponent } from './pages/reports/company-region-platform/company-region-platform.component'
+import { ReleaseOverviewComponent } from './pages/release/release-overview/release-overview.component'
+import { FranchiseOverviewComponent } from './pages/franchise/franchise-overview/franchise-overview.component'
 import { PlatformSearchComponent } from './pages/platform/platform-search/platform-search.component'
-import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
+import { PlatformOverviewComponent } from './pages/platform/platform-overview/platform-overview.component'
+import { LinkMapAddFormComponent } from './pages/link-map/link-map-add-form/link-map-add-form.component'
+import { GameAddEditFormComponent } from './pages/game/game-add-edit-form/game-add-edit-form.component'
 import { ReviewAddEditFormComponent } from './pages/review/review-add-edit-form/review-add-edit-form.component'
 import { ReviewOverviewComponent } from './pages/review/review-overview/review-overview.component'
 import { ReviewComponent } from './pages/review/review.component'
+import { DlcAnalysisComponent } from './pages/reports/dlc-analysis/dlc-analysis.component'
 
 export const appRoutes: Routes = [
     { path: 'character/:id/overview', component: CharacterOverviewComponent },
@@ -49,10 +51,13 @@ export const appRoutes: Routes = [
     { path: 'reviews/external', component: ReviewComponent },
     { path: 'reviews/internal', component: ReviewComponent },
     { path: 'platform/search', component: PlatformSearchComponent },
+    { path: 'platform/:id', component: PlatformOverviewComponent },
+    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent },
+    { path: 'reports/company-region-platform', component: CompanyRegionPlatformComponent },
     { path: 'platform/:id/overview', component: PlatformOverviewComponent },
     { path: ':type/:id/link', component: LinkMapAddFormComponent},
-    { path: 'reports/dlc-analysis', component: DlcAnalysisComponent},
     { path: 'add-game', component: GameAddEditFormComponent},
     { path: 'game/:id/edit', component: GameAddEditFormComponent},
-    { path: 'home', component: HomeComponent}
+    { path: 'home', component: HomeComponent},
+    { path: 'release', component: ReleaseOverviewComponent}
 ]
