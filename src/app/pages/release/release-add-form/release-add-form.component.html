@@ -1,10 +1,10 @@
 <section>
     <mat-icon (click)="closeModal()">close</mat-icon>
-    <h3>Link {{objectAName}} to...
+    <h3>Create release
     </h3>
     <form #releaseform="ngForm" (ngSubmit)="save()" novalidate>
         <div class="select-box-list">
-            <div class="selectBox" [hidden]="!showSelect.get('platform')">
+            <div class="formRow" [hidden]="!showSelect.get('platform')">
                 <angular2-multiselect id="platformSelect" [data]="platform.dropdownList" [(ngModel)]="platform.selectedItems" [settings]="settings.get('platform')" (onScrollToEnd)="fetchMorePlatforms($event)" name="platforms">
                     <c-search>
                         <ng-template>
@@ -14,7 +14,7 @@
                 </angular2-multiselect>
             </div>
 
-            <div class="selectBox" [hidden]="!showSelect.get('game')">
+            <div [hidden]="!showSelect.get('game')">
                 <angular2-multiselect id="gameSelect" [data]="game.dropdownList" [(ngModel)]="game.selectedItems" [settings]="settings.get('game')" (onScrollToEnd)="fetchMoreGames($event)" name="games">
                     <c-search>
                         <ng-template>
@@ -24,11 +24,18 @@
                 </angular2-multiselect>
             </div>
 
-            <div class="formRow">
+            <div>
                 <angular2-multiselect name="regions" [settings]="settings.get('region')" [data]="region.dropdownList" [(ngModel)]="region.selectedItems"></angular2-multiselect>
             </div>
 
-            <div class="formRow ">
+            <div>
+                <label for="releaseDate">
+                    Release date:
+                </label>
+                <input type="datetime-local" [(ngModel)]="release.releaseDate" name="releaseDate">
+            </div>
+
+            <div>
                 <angular2-multiselect [data]="developer.dropdownList" [(ngModel)]="developer.selectedItems" [settings]="settings.get('developer')" (onScrollToEnd)="fetchMoreCompanies($event)" name="developers">
                     <c-search>
                         <ng-template>
@@ -38,8 +45,7 @@
                 </angular2-multiselect>
             </div>
 
-
-            <div class="formRow">
+            <div>
                 <angular2-multiselect [data]="publisher.dropdownList" [(ngModel)]="publisher.selectedItems" [settings]="settings.get('publisher')" (onScrollToEnd)="fetchMoreCompanies($event)" name="games">
                     <c-search>
                         <ng-template>

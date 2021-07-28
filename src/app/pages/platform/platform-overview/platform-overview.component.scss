@@ -1,81 +1,74 @@
 section {
     margin: 10px 10px 10px 74px;
-  
-    h1, h3, h5 {
-      color: #1a3469;
+    h1,
+    h3,
+    h5 {
+        color: #1a3469;
     }
-  
     .top {
-      display: flex;
-  
-      .top-info {
-        margin-left: 10px;
-        width: 100%;
-  
-        p {
-          margin-top: 10px;
-          padding-top: 5px;
-          border-top: 1px solid #1a3469;
-        }
-      }
-  
-      img {
-        width: 350px;
-        height: 400px;
-      }
-    }
-  
-    .bottom {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-  
-      .info {
-        width: 65%;
-
-        table { 
-          font-family: Arial, Helvetica, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        th {
-          padding-top: 12px;
-          padding-bottom: 12px;
-          text-align: left;
-          background-color: grey;
-          color:black;
-          border: 1px;
-        }
-
-        h1, h3, h5 {
-          color: #1a3469;
-        }
-        p{
-          text-align: justify;
-        }
-        ul {
-          list-style-type: square;
-        }
-      }
-  
-      .details {
-        width: 30%;
         display: flex;
-        flex-direction: column;
-  
-        p {
-          border-bottom: 1px solid #1a3469;
-          width: 90%;
-          padding-left: 5px;
-          text-align: center;
+        .top-info {
+            margin-left: 10px;
+            width: 100%;
+            p {
+                margin-top: 10px;
+                padding-top: 5px;
+                border-top: 1px solid #1a3469;
+            }
         }
-      }
+        img {
+            width: 350px;
+            height: 400px;
+        }
+        .btn-zira {
+            min-width: 120px;
+        }
     }
+    .bottom {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        .info {
+            width: 65%;
+            table {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: grey;
+                color: black;
+                border: 1px;
+            }
+            h1,
+            h3,
+            h5 {
+                color: #1a3469;
+            }
+            p {
+                text-align: justify;
+            }
+            ul {
+                list-style-type: square;
+            }
+        }
+        .details {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            p {
+                border-bottom: 1px solid #1a3469;
+                width: 90%;
+                padding-left: 5px;
+                text-align: center;
+            }
+        }
+    }
+}
 
-    
-  }
-  .btn-zira{
-    margin-left:2% ;
-  }
-
-  
+.btn-zira {
+    margin-left: 2%;
+}

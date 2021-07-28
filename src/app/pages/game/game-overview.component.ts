@@ -46,7 +46,11 @@ export class GameOverviewComponent implements OnInit {
         { headerName: "Location", field: "name", initialSort: 'desc', sortable: true, flex: 1, cellRenderer: this.createLink.bind(this) }
     ]
 
-    constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private matDialogLink: MatDialog, private matDialogReview: MatDialog) { }
+    constructor(
+        private route: ActivatedRoute, 
+        private api: RestApiService, 
+        private router: Router, 
+        private matDialog: MatDialog) { }
 
     ngOnInit() {
         this.getData();
@@ -118,20 +122,20 @@ export class GameOverviewComponent implements OnInit {
     }
 
     linkGame(){
-        const dialogConfig = new MatDialogConfig();
-        dialogConfig.disableClose = true;
-        dialogConfig.id = "modal-component";
-        dialogConfig.width = "900px";
-        dialogConfig.data = { objectAId: this.game.id, objectAType: ObjectType.GAME, objectAName: this.game.fullName }
-        const modalDialog = this.matDialogLink.open(LinkMapAddFormComponent, dialogConfig);
+        const dialogConfigLink = new MatDialogConfig();
+        dialogConfigLink.disableClose = true;
+        dialogConfigLink.id = "link-map-add-form-component";
+        dialogConfigLink.width = "900px";
+        dialogConfigLink.data = { objectAId: this.game.id, objectAType: ObjectType.GAME, objectAName: this.game.fullName }
+        this.matDialog.open(LinkMapAddFormComponent, dialogConfigLink);
     }
 
     addRelease(){
-        const dialogConfig2 = new MatDialogConfig();
-        dialogConfig2.disableClose = true;
-        dialogConfig2.id = "modal-component2";
-        dialogConfig2.width = "900px";
-        dialogConfig2.data = { objectId: this.game.id, objectAType: ObjectType.GAME.toUpperCase()}
-        const modalDialog = this.matDialogReview.open(ReleaseAddFormComponent, dialogConfig2);
+        const dialogConfigReview = new MatDialogConfig();
+        dialogConfigReview.disableClose = true;
+        dialogConfigReview.id = "release-add-form-component";
+        dialogConfigReview.width = "900px";
+        dialogConfigReview.data = { objectId: this.game.id, objectType: ObjectType.GAME.toUpperCase()}
+        this.matDialog.open(ReleaseAddFormComponent, dialogConfigReview);
     }
 }

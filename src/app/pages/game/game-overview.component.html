@@ -7,9 +7,8 @@
                 <div style="position: absolute; right:2%;" class="btn-group" role="group">
                     <button type="button" class="btn btn-zira" (click)="addReview()">Add review</button>
                     <button type="button" class="btn btn-zira ml-1 mr-1" (click)="linkGame()">Link to ...</button>
-                    <button type="button" class="btn btn-zira ml-1 mr-1" (click)="addRelease()">Add release</button>
+                    <button type="button" class="btn btn-zira" (click)="addRelease()">Add release</button>
                 </div>
-
             </div>
             <div *ngIf="game.firstReleaseDate">
                 <span>{{game.numberOfReleases}}

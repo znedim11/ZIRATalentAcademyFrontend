@@ -24,10 +24,10 @@ export class ReleaseAddFormComponent implements OnInit {
 
   pageSize: number = 2000;
 
-  filterDev: string;
-  filterPub: string;
-  filterGame: string;
-  filterPlatform: string;
+  filterDev: string = "";
+  filterPub: string = "";
+  filterGame: string = "";
+  filterPlatform: string = "";
 
   settings = new Map<ObjectType, {}>([
     [ObjectType.PLATFORM, {
@@ -106,6 +106,7 @@ export class ReleaseAddFormComponent implements OnInit {
   ngOnInit(): void {
     this.release = new ReleaseCreate();
 
+    console.log(this.data);
     this.release.type = this.data.objectType;
 
     if (this.release.type == ObjectType.PLATFORM.toUpperCase()) {
@@ -118,10 +119,10 @@ export class ReleaseAddFormComponent implements OnInit {
     if (this.release.type == ObjectType.GAME.toUpperCase()) {
       this.showSelect.set(ObjectType.GAME, false);
 
-      this.release.gameId = this.data.objectId;
+      this.release.gameId = +this.data.objectId;
     }
 
-
+console.log(this.release);
     if (this.showSelect.get(ObjectType.PLATFORM)) {
       let nextPage = (this.platform.dropdownList.length / this.pageSize) + 1;
       let params = new HttpParams();
@@ -209,7 +210,7 @@ export class ReleaseAddFormComponent implements OnInit {
       return;
     }
 
-    if(this.release.type == ObjectType.GAME){
+    if(this.release.type == ObjectType.GAME.toUpperCase()){
       this.release.platformId = this.platform.selectedItems.length != 0 ? this.platform.selectedItems[0].item_id : null;
     }
 
@@ -218,6 +219,8 @@ export class ReleaseAddFormComponent implements OnInit {
     this.release.developerId = this.developer.selectedItems.length != 0 ? this.developer.selectedItems[0].item_id : null;
     this.release.publisherId = this.publisher.selectedItems.length != 0 ? this.publisher.selectedItems[0].item_id : null;
 
+    console.log(this.release);
+    console.log(this.release.platformId);
     this.api.post(ReleaseApi.ADD_RELEASE, this.release).subscribe((response) => {
       if (response && response['payload']) {
         this.closeModal();
@@ -289,7 +292,7 @@ export class ReleaseAddFormComponent implements OnInit {
       params = params.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
       var options = { params: params };
 
-      this.api.get(SharedApi.GET_GAMES, options).subscribe((response) => {
+      this.api.get(SharedApi.GET_PLATFORMS, options).subscribe((response) => {
         if (response) {
           var helperList: SelectItem[] = [];
           var payload = response['payload'];
@@ -400,6 +403,24 @@ export class ReleaseAddFormComponent implements OnInit {
     }
     else if (this.filterPlatform.length == 0) {
       this.platform.dropdownList = [];
+
+      let nextPage = (this.platform.dropdownList.length / this.pageSize) + 1;
+      let params = new HttpParams();
+      params = params
+        .set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
+      let options = { params: params };
+
+      this.api.get(SharedApi.GET_PLATFORMS, options).subscribe((response) => {
+        if (response) {
+          let helperList: SelectItem[] = [];
+          let payload = response['payload'];
+          if (payload != null && payload.length > 0) {
+            helperList = payload.map(function (item) { return { item_id: item.id, item_text: item.name }; });
+          }
+          this.platform.dropdownList = this.platform.dropdownList.concat(helperList);
+        }
+      });
+      this.platform.selectedItems = [];
     }
   }
  

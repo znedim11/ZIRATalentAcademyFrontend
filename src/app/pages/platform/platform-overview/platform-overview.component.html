@@ -3,9 +3,12 @@
         <img *ngIf="!platform.imageUrl" src="https://i.imgur.com/SFaq3O1.png" alt="Can't load cover" />
         <img *ngIf="platform.imageUrl" [src]="platform.imageUrl" alt="Can't load cover" />
         <div class="top-info">
-            <div style="display: flex;flex-direction: row;">
+            <div style="display: flex;">
                 <h1>{{platform.fullName}}</h1>
-                <button type="button" class="btn btn-zira" [routerLink]="['/platform-form',platform.id]">Edit platform</button>
+                <div style="position: absolute; right:2%;" class="btn-group" role="group">
+                    <button type="button" class="btn btn-zira mr-1" [routerLink]="['/platform-form',platform.id]">Edit</button>
+                    <button type="button" class="btn btn-zira" (click)="addRelease()">Add release</button>
+                </div>
             </div>
             <span>{{platform.numberOfReleases}} Releases </span> <span style="color: #1a3469">&#9679; </span>
             <span>{{platform.firstReleaseDate}}</span>
