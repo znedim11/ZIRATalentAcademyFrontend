@@ -1,16 +1,16 @@
 <br>
 <div class="row">
-        <div class="col-sl">
-            <h1 class="home-title col-sm">Vigor</h1>
-        </div>
-        <div class="col-lg">
-            <ng-autocomplete [data]="items" [searchKeyword]="keyword" (selected)='selectEvent($event)'
-                (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
-                [notFoundTemplate]="notFoundTemplate" placeholder="Search term...">
-            </ng-autocomplete>
-        </div>
+    <div class="col-sl">
+        <h1 class="home-title col-sm">Vigor</h1>
     </div>
-    <hr>
+    <div class="col-lg">
+        <ng-autocomplete [data]="items" [searchKeyword]="keyword" (selected)='selectEvent($event)'
+            (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate" placeholder="Search term...">
+        </ng-autocomplete>
+    </div>
+</div>
+<hr>
 <div class="row">
     <div class="col-lg">
         <h1>Latest Game Reviews</h1>
@@ -28,6 +28,14 @@
         <hr>
     </div>
 </div>
+<div class="row" *ngFor="let interval of map | keyvalue">
+    <h4>{{interval.key}}</h4>
+    <hr>
+    <div *ngFor="let item of interval.value">
+        <release-item></release-item>
+    </div>
+</div>
+
 
 
 

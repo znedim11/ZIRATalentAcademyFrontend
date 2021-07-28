@@ -16,7 +16,7 @@ export class Game {
     modifiedBy: string;
     outlineText: string;
     numberOfReleases: number;
-    platformAbbreviations: String[];
+    platformAbbreviations: string[];
     platformName: string;
     developer: string;
     publisher: string;

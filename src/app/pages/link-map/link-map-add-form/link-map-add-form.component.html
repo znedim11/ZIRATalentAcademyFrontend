@@ -2,7 +2,7 @@
     <mat-icon (click)="closeModal()">close</mat-icon>
     <h3>Link {{objectAName}} to...
     </h3>
-    <form #conceptform="ngForm" (ngSubmit)="save()" novalidate>
+    <form #linkmapform="ngForm" (ngSubmit)="save()" novalidate>
         <div class="select-box-list">
             <div class="selectBox" [hidden]="!showSelect.get('character')">
                 <angular2-multiselect name="characters" [settings]="settings.get('character')" [data]="character.dropdownList" [(ngModel)]="character.selectedItems"></angular2-multiselect>

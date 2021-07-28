@@ -15,8 +15,8 @@ export class ConceptListComponent implements OnInit, OnChanges {
 
   conceptList: Concept[] = [];
 
-  constructor(private api: RestApiService, private router:Router) { }
-  
+  constructor(private api: RestApiService, private router: Router) { }
+
   ngOnInit(): void {
     this.api.get(ConceptApi.SEARCH_CONCEPTS)
       .subscribe((concepts) => {
@@ -35,18 +35,16 @@ export class ConceptListComponent implements OnInit, OnChanges {
       params = searchObject.sortBy ? params.set('sortBy', searchObject.sortBy) : params;
 
       if (searchObject.games) {
-        for (let i = 0; i < searchObject.games.length; i++) {
-          params = params.append("gameIds", searchObject.games[i]);
-        }
+        for (let game of searchObject.games)
+          params = params.append("gameIds", game);
       }
 
       if (searchObject.characters) {
-        for (let i = 0; i < searchObject.characters.length; i++) {
-          params = params.append("characterIds", searchObject.characters[i]);
-        }
+        for (let character of searchObject.characters)
+          params = params.append("characterIds", character);
       }
 
-      var options = {params: params};
+      var options = { params: params };
       this.api.get(ConceptApi.SEARCH_CONCEPTS, options)
         .subscribe((concepts) => {
           this.conceptList = concepts['payload'];
@@ -54,7 +52,7 @@ export class ConceptListComponent implements OnInit, OnChanges {
     }
   }
 
-  handleClick(){
+  handleClick() {
     this.router.navigateByUrl('/add-concept')
   }
 }

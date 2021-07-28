@@ -6,8 +6,9 @@ export class SharedApi {
     public static GET_GAMES = '/vigor/game/lovs';
     public static GET_LOCATIONS = '/vigor/location/lovs';
     public static GET_REGIONS = '/vigor/region/lovs';
-    public static GET_COMAPNIES = '/vigor/company/lovs';
+    public static GET_COMPANIES = '/vigor/company/lovs';
     public static GET_FORMULAS = '/vigor/formula/lovs';
     public static GET_PLATFORMS = '/vigor/platform/lovs';
     public static GET_CONCEPTS = '/vigor/concept/lovs';
+    public static GET_FEATURES = '/vigor/feature/lovs';
 }

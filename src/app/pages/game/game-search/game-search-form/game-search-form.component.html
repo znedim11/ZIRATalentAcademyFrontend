@@ -1,0 +1,63 @@
+<div class="form">
+    <p>Search games:</p>
+    <form #gamesearchform="ngForm" (ngSubmit)="search()">
+        <div class="formRow">
+            <label for="name">Name:</label>
+            <input [(ngModel)]="searchObject.name" name="name" id="name" type="text" placeholder="Game name">
+        </div>
+
+        <div class="formRow">
+            <div class="date">
+                <div class="left">
+                    <label class="col-sm-6 col-form-label left">Released between:</label>
+                </div>
+                <div class="right">
+                    <div class="formRow">
+                        <input [(ngModel)]="searchObject.releasedAfter" name="startDate" type="date" id="startDate" class="form-control col-sm-6 offset-sm-3">
+                    </div>
+                    <div class="formRow">
+                        <input [(ngModel)]="searchObject.releasedBefore" name="endDate" type="date" id="endDate" class="form-control col-sm-6 offset-sm-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="formRow">
+            <angular2-multiselect name="genres" [settings]="settings.get('genre')" [data]="genre.dropdownList" [(ngModel)]="genre.selectedItems"></angular2-multiselect>
+        </div>
+
+        <div class="formRow">
+            <angular2-multiselect name="regions" [settings]="settings.get('region')" [data]="region.dropdownList" [(ngModel)]="region.selectedItems"></angular2-multiselect>
+        </div>
+
+        <div class="formRow">
+            <angular2-multiselect name="features" [settings]="settings.get('feature')" [data]="feature.dropdownList" [(ngModel)]="feature.selectedItems"></angular2-multiselect>
+        </div>
+
+        <div class="formRow ">
+            <angular2-multiselect [data]="developer.dropdownList" [(ngModel)]="developer.selectedItems" [settings]="settings.get('developer')" (onScrollToEnd)="fetchMore($event)" name="developers">
+                <c-search>
+                    <ng-template>
+                        <input type="text" [(ngModel)]="filterDev" (keyup)="onSearchDev($event)" placeholder="Search developers" style="border: none;width: 100%; height: 100%;outline: none;" name="searchDev" />
+                    </ng-template>
+                </c-search>
+            </angular2-multiselect>
+        </div>
+
+
+        <div class="formRow">
+            <angular2-multiselect [data]="publisher.dropdownList" [(ngModel)]="publisher.selectedItems" [settings]="settings.get('publisher')" (onScrollToEnd)="fetchMore($event)" name="games">
+                <c-search>
+                    <ng-template>
+                        <input type="text" [(ngModel)]="filterPub" (keyup)="onSearchPub($event)" placeholder="Search publishers" style="border: none;width: 100%; height: 100%;outline: none;" name="searchPub" />
+                    </ng-template>
+                </c-search>
+            </angular2-multiselect>
+        </div>
+
+        <div class="formRow">
+            <button type="reset" (click)="cancel()" class="btn-zira clear">Clear</button>
+            <button type="submit" class="btn-zira">Search</button>
+        </div>
+    </form>
+</div>
