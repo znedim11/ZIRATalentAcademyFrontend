@@ -1,115 +1,105 @@
 section {
     margin: 10px 10px 10px 74px;
-  
-    h1, h3, h5 {
-      color: #1a3469;
+    h1,
+    h3,
+    h5 {
+        color: #1a3469;
     }
-  
     .top {
-      display: flex;
-      height: 40vh;
-  
-      .top-info {
-        margin-left: 10px;
-        width: 100%;
-  
-        p {
-          margin-top: 10px;
-          padding-top: 5px;
-          border-top: 2px solid #1a3469;
-        }
-
-        .controlButtons{
-          display: flex;
-
-          .cbtn{
-            float: right;
-          }
-          .cbtn:first-of-type{
-            margin-left: auto;
-            margin-right: 10px;
-          }
-          .cbtn:last-of-type{
-            background-color: #691a1a;
-            border: 2px solid #691a1a; 
-            color: #fff
-          }
-        }
-      }
-
-      .image-container{
-        margin-right: 10px;
-        width: 235px;
-        height: 315px;
-        min-width: 235px; 
-        min-height: 315px;
-        border: 2px solid #1a3469;
-        border-radius: 5px;
-        background-image: url('https://i.imgur.com/SFaq3O1.png'); 
-        background-position: center;
-    
-        .character-image {
-          object-fit: contain;
-        }
-      }
-    }
-  
-    .bottom {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      height: 56vh;
-  
-      .info {
-        width: 65%;
-        padding: 10px;
-        margin-right: 10px;
-        border: 2px solid #1a3469;
-        border-radius: 5px;
-        overflow: scroll;
-      }
-  
-      .details {
-        width: 35%;
-        padding: 10px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 2px solid #1a3469;
-        border-radius: 5px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-
-        .heading{
-          font-size: 3vh;
-          text-align: left;
-          font-weight: bold;
-          color: #1a3469;
-          margin-bottom: 4px;
+        height: 40vh;
+        .top-info {
+            margin-left: 10px;
+            width: 100%;
+            p {
+                margin-top: 10px;
+                padding-top: 5px;
+                border-top: 2px solid #1a3469;
+            }
+            .controlButtons {
+                display: flex;
+                .cbtn {
+                    float: right;
+                }
+                .cbtn:first-of-type {
+                    margin-left: auto;
+                    margin-right: 10px;
+                }
+                .cbtn:last-of-type {
+                    background-color: #691a1a;
+                    border: 2px solid #691a1a;
+                    color: #fff
+                }
+            }
+            .btn-zira {
+                min-width: 100px;
+            }
         }
-
-        .item{
-          font-size: 2vh;
-          text-align: left;
-          font-weight: bold;
-          color: #1a3469;
-          border: none;
-          margin: 0;
+        .image-container {
+            margin-right: 10px;
+            width: 239px;
+            height: 319px;
+            min-width: 239px;
+            min-height: 319px;
+            border: 2px solid #1a3469;
+            border-radius: 5px;
+            background-image: url('https://i.imgur.com/SFaq3O1.png');
+            background-position: center;
+            .character-image {
+                object-fit: contain;
+            }
         }
-
-        p {
-          border-bottom: 2px solid #1a3469;
-          width: 100%;
-          padding-left: 5px;
-          text-align: center;
-        }
-      }
     }
-  }
+    .bottom {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        height: 56vh;
+        .info {
+            width: 65%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 2px solid #1a3469;
+            border-radius: 5px;
+            overflow: scroll;
+        }
+        .details {
+            width: 35%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #1a3469;
+            border-radius: 5px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            .heading {
+                font-size: 3vh;
+                text-align: left;
+                font-weight: bold;
+                color: #1a3469;
+                margin-bottom: 4px;
+            }
+            .item {
+                font-size: 2vh;
+                text-align: left;
+                font-weight: bold;
+                color: #1a3469;
+                border: none;
+                margin: 0;
+            }
+            p {
+                border-bottom: 2px solid #1a3469;
+                width: 100%;
+                padding-left: 5px;
+                text-align: center;
+            }
+        }
+    }
+}
 
-  .cover {
+.cover {
     margin-right: 10px;
     border: 2px solid #1a3469;
     border-radius: 5px;
-  }
-  
+}

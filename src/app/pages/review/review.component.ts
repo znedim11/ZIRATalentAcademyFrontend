@@ -1,8 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ValueCache } from 'ag-grid-community';
 import { ConceptApi } from '../concept/shared/concept-api.constant';
 import { PlatformApi } from '../platform/shared/platform-api.constant';
 import { RestApiService } from '../shared/rest-api.service';
+import { SharedApi } from '../shared/shared-api.constat';
 import { ReviewApi } from './shared/review-api.constant';
 import { ReviewFilter } from './shared/review-filter';
 import { ReviewType } from './shared/review-type.enum';
@@ -38,6 +40,7 @@ export class ReviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.params = new Object();
     this.setParameters(this.reviewsFilter);
     const esc = encodeURIComponent;
     const query = Object.keys(this.params).map(k => esc(k) + '=' + esc(this.params[k])).join('&');
@@ -48,12 +51,14 @@ export class ReviewComponent implements OnInit {
     this.api.get(ReviewApi.GET_STATS + "?" +query)
       .subscribe((stats) => {
         this.statsResponse = stats['payload'];
+        this.statsResponse.averageGrade=this.statsResponse.averageGrade.toFixed(2);
       });
-    this.api.get(ConceptApi.GET_GAMES)
+
+    this.api.get(SharedApi.GET_GAMES)
       .subscribe((game) => {
         this.gameResponse = game['payload'];
       });
-    this.api.get(PlatformApi.GET_PLATFORMS)
+    this.api.get(SharedApi.GET_PLATFORMS)
       .subscribe((platform) => {
         this.platformResponse = platform['payload'];
       });
@@ -64,6 +69,15 @@ export class ReviewComponent implements OnInit {
   }
 
   onSubmit(){
+    this.ngOnInit();
+  }
+
+  onReset(){
+    this.reviewsFilter.gameId=null;
+    this.reviewsFilter.platformId=null;
+    this.reviewsFilter.reviewerId=null;
+    this.reviewsFilter.highestRating=null;
+    this.reviewsFilter.lowestRating=null;
     this.ngOnInit();
   }
 
@@ -91,5 +105,11 @@ export class ReviewComponent implements OnInit {
     this.params['type'] = data.type;
   }
 
+  openReview(gameId, id)
+  {
+    if (gameId && id) {
+      this.router.navigateByUrl('/game/'+gameId+'/review/'+id);
+    }
+  }
 }
 

@@ -1,0 +1,9 @@
+<div class="platform-list-header">
+    <h1>Platforms</h1>
+    <button type="button" class="btn btn-zira" [routerLink]="['/platform-create',0]">New Platform</button>
+</div>
+<hr />
+
+<div class="platform-list">
+    <platform-item *ngFor="let platform of platformList" [platform]="platform"></platform-item>
+</div>

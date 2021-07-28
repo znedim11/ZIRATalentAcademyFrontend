@@ -115,6 +115,26 @@
 				]
 			},
 			{
+				"code": "HUB_REPORTS_STATIC",
+				"label": "Reports",
+				"icon": "report",
+				"attributes": {},
+				"children": [
+					{
+						"code": "HUB_DLC_ANALYSIS_STATIC",
+						"label": "DLC Analysis",
+						"url": "reports/dlc-analysis",
+						"attributes": {}
+					},
+					{
+						"code": "HUB_COMPANY_REGION_PLATFORM_STATIC",
+						"label": "Company Region/Platform",
+						"url": "reports/company-region-platform",
+						"attributes": {}
+					}
+				]
+			},
+			{
 				"code": "HUB_CONFIGURATION_STATIC",
 				"label": "Configuration",
 				"icon": "settings",

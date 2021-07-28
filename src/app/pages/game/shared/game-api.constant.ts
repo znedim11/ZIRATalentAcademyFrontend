@@ -7,4 +7,7 @@ export class GameApi {
     public static GET_OBJECTS_BY_GAME = '/vigor/game/#/objects';
     public static GET_CHARACTERS_BY_GAME = '/vigor/game/#/characters';
     public static GET_LOCATIONS_BY_GAME = '/vigor/game/#/locations';
+    public static EDIT_GAME = '/vigor/game/#';
+    public static CREATE_GAME = '/vigor/game/create';
+    public static GET_MAIN_GAMES = '/vigor/game/main'
   }

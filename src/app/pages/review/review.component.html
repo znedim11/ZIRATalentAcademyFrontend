@@ -17,7 +17,7 @@
                     <td *ngIf="item.gameName==null" data-label="Game">No data</td>
                     <td *ngIf="item.platform!=null" data-label="Platform">{{item.platform}}</td>
                     <td *ngIf="item.platform==null" data-label="Platform">No data</td>
-                    <td *ngIf="item.title!=null" data-label="Title">{{item.title}}</td>
+                    <td *ngIf="item.title!=null" data-label="Title"  [ngStyle]="item.gameId ? {'color': '#1a3469', 'cursor':'pointer', 'text-decoration': 'underline'} : {'color': 'black'}" (click)="openReview(item.gameId,item.id)">{{item.title}}</td>
                     <td *ngIf="item.title==null" data-label="Title">No data</td>
                     <td *ngIf="item.reviewerName!=null" data-label="Reviewer">{{item.reviewerName}}</td>
                     <td *ngIf="item.reviewerName==null" data-label="Reviewer">No data</td>
@@ -31,7 +31,7 @@
     <section id="searchSection">
             <mat-form-field class="searchItem">
                 <mat-select placeholder="Select a game" [(value)]="reviewsFilter.gameId">
-                    <mat-option #selectedGame *ngFor="let game of gameResponse" [value]="game.id">
+                    <mat-option #selectedGame *ngFor="let game of gameResponse " [value]="game.id">
                         {{game.name}}
                     </mat-option>
                 </mat-select>
@@ -54,13 +54,14 @@
             </mat-form-field>
     
             <mat-form-field class="searchItem">
-                <input type="number" min="0" max="10" matInput placeholder="Lowest Rating" #input1 [(ngModel)]='reviewsFilter.lowestRating'>
+                <input type="number" min="0" max="10" matInput placeholder="Lowest Rating" #input1 [(ngModel)]='reviewsFilter.lowestRating' >
             </mat-form-field>
     
             <mat-form-field class="searchItem">
-                <input  type="number" min="0" max="10" matInput placeholder="Highest Rating" #input1  [(ngModel)]='reviewsFilter.highestRating'>
+                <input  type="number" min="0" max="10" matInput placeholder="Highest Rating" #input1  [(ngModel)]='reviewsFilter.highestRating' >
             </mat-form-field>
-            <button id="searchButton" type="submit" class="btn-zira" (click)="onSubmit()">Search</button>
+            <button class="buttons btn-zira" type="submit" (click)="onSubmit()" style="color: white; background-color: #1a3469;">Search</button>
+            <button class="buttons btn-zira" type="submit" (click)="onReset()" >Reset</button>
     </section>
     
 

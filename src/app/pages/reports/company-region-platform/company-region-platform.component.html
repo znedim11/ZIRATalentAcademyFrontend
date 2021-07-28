@@ -1,0 +1,49 @@
+<div class="report-page">
+    <div class="report-header">
+        <h1>Company prefered region/platform report</h1>
+    </div>
+    <hr/>
+    
+    <div>
+        <form>
+            <div class="inputRow">
+                <div class="inputGroup">
+                    <label for="companiesList">Companies: </label>
+                    <angular2-multiselect 
+                    name="companiesList"
+                    [data]="companiesList" 
+                    [(ngModel)]="selectedCompanies" 
+                    [settings]="dropdownSettings"
+                    (onDeSelect)="onItemDeSelect($event)" 
+                    (onDeSelectAll)="onDeSelectAll($event)"
+                    (onClose)="onClose($event)"></angular2-multiselect>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="selectedCompanies.length == 0">
+        <div class="reportConatiner">
+            <div style="margin-top: 15vh;"><h2>Select companies</h2></div>
+        </div>
+    </div>
+    <div class="reportConatiner">
+        <div style="display: flex; flex-direction: column;">
+            <div class="report" *ngFor="let company of selectedCompanies">  
+                <div style="display: flex; justify-content: space-between; overflow: hidden;">
+                    <div class="chartsTitle"><h3>{{company.name}}</h3></div>
+                    <button class="closeReport" (click)="closeReport(company)"><h3>X</h3></button>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div class="chart" [id]="'regionChart' + company.id"></div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="chart" [id]="'platformChart' + company.id"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

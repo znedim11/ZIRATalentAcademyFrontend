@@ -1,0 +1,42 @@
+<section>
+    <mat-icon (click)="closeModal()">close</mat-icon>
+    <h3>Link {{objectAName}} to...
+    </h3>
+    <form #conceptform="ngForm" (ngSubmit)="save()" novalidate>
+        <div class="select-box-list">
+            <div class="selectBox" [hidden]="!showSelect.get('character')">
+                <angular2-multiselect name="characters" [settings]="settings.get('character')" [data]="character.dropdownList" [(ngModel)]="character.selectedItems"></angular2-multiselect>
+            </div>
+            <div class="selectBox" [hidden]="!showSelect.get('concept')">
+                <angular2-multiselect name="concepts" [settings]="settings.get('concept')" [data]="concept.dropdownList" [(ngModel)]="concept.selectedItems"></angular2-multiselect>
+            </div>
+
+            <div class="selectBox" [hidden]="!showSelect.get('game')">
+                <angular2-multiselect id="gameSelect" [data]="game.dropdownList" [(ngModel)]="game.selectedItems" [settings]="settings.get('game')" (onScrollToEnd)="fetchMore($event)" name="games">
+                    <c-search>
+                        <ng-template>
+                            <input type="text" [(ngModel)]="filter" (keyup)="onSearch($event)" placeholder="Search games" style="border: none;width: 100%; height: 100%;outline: none;" name="serach" />
+                        </ng-template>
+                    </c-search>
+                </angular2-multiselect>
+            </div>
+
+            <div class="selectBox" [hidden]="!showSelect.get('location')">
+                <angular2-multiselect name="locations" [settings]="settings.get('location')" [data]="location.dropdownList" [(ngModel)]="location.selectedItems"></angular2-multiselect>
+            </div>
+            <div class="selectBox" [hidden]="!showSelect.get('object')">
+                <angular2-multiselect name="objects" [settings]="settings.get('object')" [data]="object.dropdownList" [(ngModel)]="object.selectedItems"></angular2-multiselect>
+            </div>
+            <div class="selectBox" [hidden]="!showSelect.get('person')">
+                <angular2-multiselect name="persons" [settings]="settings.get('person')" [data]="person.dropdownList" [(ngModel)]="person.selectedItems"></angular2-multiselect>
+            </div>
+
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="save">Save</button>
+            <button type="reset" class="cancel" (click)="clear()">Reset values</button>
+        </div>
+    </form>
+
+</section>

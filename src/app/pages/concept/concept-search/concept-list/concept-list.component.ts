@@ -43,7 +43,6 @@ export class ConceptListComponent implements OnInit, OnChanges {
       if (searchObject.characters) {
         for (let i = 0; i < searchObject.characters.length; i++) {
           params = params.append("characterIds", searchObject.characters[i]);
-          
         }
       }
 

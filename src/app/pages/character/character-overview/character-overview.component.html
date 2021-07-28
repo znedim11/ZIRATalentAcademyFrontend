@@ -1,35 +1,62 @@
 <section *ngIf="character">
     <div class="top">
-      <div class="image-container">
-        <img [src]="character.imageUrl" alt="Can't load cover" class="character-image">
-      </div>
-      <div class="top-info">
-        <div class="controlButtons">
-          <h1>{{character.name}}</h1>
-          <button class="btn-zira cbtn" (click)="editcharacter()">Edit character</button>
-          <button class="btn-zira cbtn" (click)="deletecharacter()">Delete character</button>
+        <div class="image-container">
+            <img [src]="character.imageUrl" alt="Can't load cover" class="character-image" width="235" height="315">
         </div>
-        <span>{{numOfGames}} Games </span> <span style="color: #1a3469">&#9679; </span> <span>{{character.dob}}</span>
-        <p>{{character.outlineText}}</p>
-      </div>
+        <div class="top-info">
+            <div class="controlButtons">
+                <h1>{{character.name}}</h1>
+                <div style="position: absolute; right:2%;" class="btn-group" role="group">
+                    <button type="button" class="btn btn-zira" (click)="editcharacter()">Edit</button>
+                    <button type="button" class="btn btn-zira ml-1 mr-1" (click)="linkCharacter()">Link to ...</button>
+                    <button type="button" class="btn btn-zira" (click)="deletecharacter()">Delete</button>
+                </div>
+            </div>
+            <span>{{games.length}}
+                Games
+            </span>
+            <span style="color: #1a3469">&#9679;
+            </span>
+            <span>{{character.dob}}</span>
+            <p>{{character.outlineText}}</p>
+        </div>
     </div>
     <div class="bottom">
-      <div class="info cover" [innerHTML]="character.information"></div>
-      <div class="details">
-        <p class="heading">Character Details</p>
-        <p class="item">Name: </p>
-        <p>{{character.name}}</p>
-        <p class="item">Real Name: </p>
-        <p *ngIf="character.realName; else noRealName">{{character.realName}}</p>
-        <ng-template #noRealName>
-          <p>/</p>
-        </ng-template>
-        <p class="item">Gender: </p>
-        <p>{{character.gender}}</p>
-        <p class="item">DOB: </p>
-        <p>{{character.dob}}</p>
-        <character-game-grid style="width: 100%; height: 250px !important;" [characterGames]="characterGames"></character-game-grid>
-      </div>
+        <div class="info cover" [innerHTML]="character.information"></div>
+        <div class="details">
+            <p class="heading">Character Details</p>
+            <p class="item">Name:
+            </p>
+            <p>{{character.name}}</p>
+            <p class="item">Real Name:
+            </p>
+            <p *ngIf="character.realName; else noRealName">{{character.realName}}</p>
+            <ng-template #noRealName>
+                <p>/</p>
+            </ng-template>
+            <p class="item">Gender:
+            </p>
+            <p>{{character.gender}}</p>
+            <p class="item">DOB:
+            </p>
+            <p>{{character.dob}}</p>
+            <mat-tab-group mat-align-tabs="center" style="width: 100%;">
+                <mat-tab label="Games">
+                    <character-grid [rows]="games" [columns]="columnDefsGames"></character-grid>
+                </mat-tab>
+                <mat-tab label="Concepts">
+                    <character-grid [rows]="concepts" [columns]="columnDefsConcepts"></character-grid>
+                </mat-tab>
+                <mat-tab label="Location">
+                    <character-grid [rows]="locations" [columns]="columnDefsLocations"></character-grid>
+                </mat-tab>
+                <mat-tab label="Objects">
+                    <character-grid [rows]="objects" [columns]="columnDefsObjects"></character-grid>
+                </mat-tab>
+                <mat-tab label="Persons">
+                    <character-grid [rows]="persons" [columns]="columnDefsPersons"></character-grid>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
     </div>
-  
-  </section>  
+</section>

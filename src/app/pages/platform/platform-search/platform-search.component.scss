@@ -1,0 +1,20 @@
+.platform-search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 2%;
+    height: 100%;
+  }
+  .platform-list {
+    width: 55%;
+  }
+  .platform-search-form {
+    width: 35%;
+    border: 2px solid #1a3469;
+    border-radius: 5px;
+  }
+
+  .dropdown {
+     width: 50px; 
+  }

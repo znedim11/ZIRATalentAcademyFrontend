@@ -1,0 +1,30 @@
+.form {
+    padding: 10px 20px;
+    color: #1a3469;
+
+    label {
+        margin-bottom: 0;
+    }
+
+    .formRow {
+        display: inline flex;
+        margin: 15px 0;
+        align-items: right;
+        width: 100%;
+        label {
+            width: 35%;
+        }
+        select[multiple] {
+            height: 100%;
+        }
+    }
+}
+
+select {
+    padding-left: 0;
+    color: #1a3469;
+}
+
+select option {
+    color: #1a3469;
+}

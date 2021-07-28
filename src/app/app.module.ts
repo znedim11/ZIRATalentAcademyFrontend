@@ -1,19 +1,17 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
+import { QuillModule } from 'ngx-quill';
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { CharacterModule } from './pages/character/character.module';
 import { CompanyModule } from './pages/company/company.module';
-import { ConceptModule } from './pages/concept/concept.module';
 import { FormulaModule } from './pages/formula/formula.module';
 import { ReleaseModule } from './pages/release/release.module';
 import { FranchiseFormComponent } from './pages/franchise/franchise-form/franchise-form.component';
@@ -21,53 +19,68 @@ import { FranchiseComponent } from './pages/franchise/franchise.component';
 import { FranchisesListComponent } from './pages/franchise/franchises-list/franchises-list.component';
 import { FranchiseService } from './pages/franchise/shared/franchise.service';
 import { GameModule } from './pages/game/game.module';
-import { HomeComponent } from './pages/home/home.component';
-import { MenuItemComponent } from './pages/menu/menu-item/menu-item.component';
-import { MenuComponent } from './pages/menu/menu.component';
+import { PlatformModule } from './pages/platform/platform.module';
 import { ReviewModule } from './pages/review/review.module';
-import { ReviewComponent } from './pages/review/review.component';
+import { DateFormatterService } from './pages/shared/date-formatter.service';
 import { FormValidatorService } from './pages/shared/form-validator.service';
-import { RestApiService } from './pages/shared/rest-api.service';
 import { appRoutes } from './routes';
+import { RestApiService } from './pages/shared/rest-api.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { FranchiseModule } from './pages/franchise/franchise.module';
+import { ConceptModule } from './pages/concept/concept.module';
+import { MenuModule } from './pages/menu/menu.module';
+import { LinkMapModule } from './pages/link-map/link-map.module';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ReportModule } from './pages/reports/report.module'
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MenuComponent,
-    MenuItemComponent,
-    FranchiseComponent,
-    HomeComponent,
-    FranchisesListComponent,
-    FranchiseFormComponent,
-    ReviewComponent,
+    AppComponent
   ],
   imports: [
-    CharacterModule,
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
-    AgGridModule.withComponents([]),
-    ToastrModule.forRoot(),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+    AgGridModule,
     HttpClientModule,
-    AgGridModule.withComponents([]),
     MatTabsModule,
-    ConceptModule,
+    QuillModule.forRoot(),
+    ToastrModule.forRoot(),
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
     GameModule,
+    CharacterModule,
     FormulaModule,
     ReleaseModule,
     NgMultiSelectDropDownModule.forRoot(),
     CompanyModule,
     ReviewModule,
+    PlatformModule,
+    FormulaModule,
+    FranchiseModule,
+    ConceptModule,
+    MenuModule,
+    LinkMapModule,
+    FranchiseModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    QuillModule.forRoot(),
+    MenuModule, 
+    AngularMultiSelectModule,
+    ReportModule,
+    HomeModule
   ],
   providers: [
-    FranchiseService, 
+    DateFormatterService,
     RestApiService,
     FormValidatorService
   ],

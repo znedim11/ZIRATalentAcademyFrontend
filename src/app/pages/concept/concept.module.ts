@@ -12,8 +12,7 @@ import { ConceptSearchComponent } from './concept-search/concept-search.componen
 
 @NgModule({
     imports: [
-        SharedModule,
-        QuillModule.forRoot()
+        SharedModule
     ],
     exports: [],
     declarations: [

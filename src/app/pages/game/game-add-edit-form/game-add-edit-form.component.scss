@@ -1,0 +1,84 @@
+section{
+    margin-left: 90px;
+    margin-right: 20px;
+}
+
+.title{
+    margin-top: 20px;
+}
+
+input, textarea{
+    width:90%;
+    float:right;
+}
+
+label{
+    width:10%;
+}
+
+textarea{
+    height: 160px;
+}
+
+.franchiseSection{
+    margin-top:10px;
+    display: block ruby;
+}
+
+div{
+    margin-bottom: 10px;
+}
+
+#checkboxes{
+    float:left;
+}
+
+.checkbox{
+    width: 15px;
+    height:25px;
+    margin-left: 5px;
+}
+
+.chkLabels{
+    width:auto;
+}
+
+.buttons{
+    float:right;
+    position: relative;
+top: 175px;
+right: 10px;
+}
+
+#browseButton{
+    position: relative;
+left: 143px;
+top: -166px;
+width: 149px;
+}
+
+#saveBtn{
+    color:white;
+    background-color: #1a3469;
+}
+
+#saveBtn[disabled] {
+    background-color: #95a9d1;
+    color: white;
+    border: none
+  }
+
+quill-editor {
+    color: #1a3469;
+    svg {
+      fill: #1a3469;
+    }
+}
+
+.info{
+    height:100%;
+}
+
+.buttonsInfo{
+    float:right;
+}

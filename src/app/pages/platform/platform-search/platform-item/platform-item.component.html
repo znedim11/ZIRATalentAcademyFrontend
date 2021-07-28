@@ -1,0 +1,10 @@
+<div (dblclick)="onDoubleClick()" class="container">
+    <img *ngIf="platform.url != null" [src]="platform.url" class="platform-cover" alt="Can't load cover" width="150"
+        height="200">
+    <img *ngIf="platform.url == null" src="https://i.imgur.com/SFaq3O1.png" class="platform-cover"
+        alt="Can't load cover" width="150" height="200">
+    <div class="platform-details">
+        <h4>{{platform.fullName}}</h4>
+        <p>{{platform.outlineText}}</p>
+    </div>
+</div>

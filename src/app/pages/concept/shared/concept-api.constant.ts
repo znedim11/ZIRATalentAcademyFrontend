@@ -7,8 +7,6 @@ export class ConceptApi {
     public static GET_OBJECTS_BY_CONCEPT = '/vigor/concept/#/objects';
     public static GET_CHARACTERS_BY_CONCEPT = '/vigor/concept/#/characters';
     public static GET_LOCATIONS_BY_CONCEPT = '/vigor/concept/#/locations';
-    public static GET_CHARACTERS = '/vigor/character/lovs';
-    public static GET_GAMES = '/vigor/game/lovs';
     public static SEARCH_CONCEPTS = '/vigor/concept/search';
     public static EDIT_CONCEPT = '/vigor/concept/#';
     public static DELETE_CONCEPT = '/vigor/concept/#';

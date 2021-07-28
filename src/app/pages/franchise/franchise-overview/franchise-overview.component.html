@@ -1,0 +1,63 @@
+<section>
+    <div class="top">
+        <img [src]="image[0]" width="235" height="315" alt="Franchise image">
+        <div class="mainInfo">
+            <h1>{{franchise.franchiseName}}</h1>
+            <h5>Created: {{franchise.created | date: "dd/MM/yyyy"}}</h5>
+            <h5>{{game.numberOfReleases}} Releases</h5>
+            <hr style="width:500%;text-align:left;margin-left:0;color: #1a3469; border-color: #1a3469;">
+            Platforms:<h6 *ngFor='let abb of distinctPlatforms'>{{abb}}</h6>
+            <h6>OutlineText: {{franchise.outineText}}</h6>
+        </div>
+    </div>
+    <div class="buttom">
+        <div class="table">
+            <table id="table" class="table table-bordered table-striped">
+                <th>Game</th>
+                <th>First Release</th>
+                <th>Platform</th>
+                <tbody>
+                    <tr *ngFor='let item of franchise.games'>
+                        <td *ngIf="item.gameName!=null" data-label="Game">
+                            <a routerLink="/game/{{item.gameId}}/information"
+                                routerLinkActive="active">{{item.gameName}}</a>
+                        </td>
+                        <td *ngIf="item.gameName==null" data-label="Game">No data</td>
+                        <td *ngIf="item.gameName!=null" data-label="Game">{{item.firstReleaseDate|date: "dd/MM/yyyy"}}
+                        </td>
+                        <td *ngIf="item.gameName==null" data-label="Game">No data</td>
+                        <td *ngIf="item.gameName!=null" data-label="Game">{{item.platforms}}</td>
+                        <td *ngIf="item.gameName==null" data-label="Game">No data</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="info">
+            <p style="padding-top: 10px; font-weight: bold;">Franchise Details</p>
+            <p> </p>
+            <p class="item">Number of Games: </p>
+            <p *ngIf="franchise.numberOfGames!=null" data-label="numberOfGames">{{franchise.numberOfGames}}</p>
+            <p *ngIf="franchise.numberOfGames==null" data-label="numberOfGames">No data</p>
+
+            <p class="item">Number of Platforms: </p>
+            <p *ngIf="franchise.numberOfPlatforms!=null" data-label="numberOfPlatforms">{{franchise.numberOfPlatforms}}
+            </p>
+            <p *ngIf="franchise.numberOfPlatforms==null" data-label="numberOfPlatforms">No data</p>
+
+            <p class="item">Last Release Date: </p>
+            <p *ngIf="franchise.lastReleaseDate!=null" data-label="lastReleaseDate">{{franchise.lastReleaseDate}}</p>
+            <p *ngIf="franchise.lastReleaseDate==null" data-label="lastReleaseDate">No data</p>
+
+            <p class="item">Number of Developers: </p>
+            <p *ngIf="franchise.numberOfDevelopers!=null" data-label="numberOfDevelopers">
+                {{franchise.numberOfDevelopers}}</p>
+            <p *ngIf="franchise.numberOfDevelopers==null" data-label="numberOfDevelopers">No data</p>
+
+            <p class="item">Number of publishers: </p>
+            <p *ngIf="franchise.numberOfPublishers!=null" data-label="numberOfPublishers">
+                {{franchise.numberOfPublishers}}</p>
+            <p *ngIf="franchise.numberOfPublishers==null" data-label="numberOfPublishers">No data</p>
+        </div>
+    </div>
+
+</section>

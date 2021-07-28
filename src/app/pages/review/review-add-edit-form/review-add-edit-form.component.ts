@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormulaApi } from '../../formula/shared/formula-api.constant';
 import { Grade } from '../../formula/shared/grade.model';
 import { RestApiService } from '../../shared/rest-api.service';
+import { SharedApi } from '../../shared/shared-api.constat';
 import { ReviewApi } from '../shared/review-api.constant';
 import { ReviewCreate } from '../shared/review-create.model';
 import { ReviewUpdate } from '../shared/review-update.model';
@@ -28,7 +29,7 @@ export class ReviewAddEditFormComponent implements OnInit {
   constructor(private route: ActivatedRoute, private api: RestApiService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.api.get(FormulaApi.GET_FORMULA_LOV)
+    this.api.get(SharedApi.GET_FORMULAS)
       .subscribe((response) => {
         this.formulaSelect = response['payload'];
       });

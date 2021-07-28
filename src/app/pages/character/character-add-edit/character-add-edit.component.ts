@@ -6,6 +6,8 @@ import { CharacterApi } from '../shared/character-api.constant';
 import { CharacterCreate } from '../shared/character-create.model';
 import { Character } from '../shared/character.model';
 import * as moment from 'moment';
+import { ToastrService } from 'ngx-toastr';
+import { SharedApi } from '../../shared/shared-api.constat';
 
 @Component({
   selector: 'app-character-add-edit',
@@ -24,14 +26,16 @@ export class CharacterAddEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
               private api: RestApiService, 
-              private router: Router) { }
+              private router: Router, 
+              private toastr: ToastrService) 
+  { }
 
   ngOnInit(): void {
     this.character = new CharacterCreate();
 
     this.id = +this.route.snapshot.paramMap.get('id');
 
-    this.api.get(CharacterApi.GET_GAMES)
+    this.api.get(SharedApi.GET_GAMES)
     .subscribe((games) => {
       this.gamesList = games['payload'];
     });
@@ -62,16 +66,16 @@ export class CharacterAddEditComponent implements OnInit {
           this.character.imageCreateRequest = new ImageRequest();
 
           if (helper.imageUrl){
-            this.character.imageCreateRequest.imageName = helper.imageUrl;
+            this.character.imageCreateRequest.imageData = helper.imageUrl;
           }
 
-          this.api.get(CharacterApi.GET_GAMES_FOR_CHARACTER + this.id).subscribe(games => {
+          this.api.get(CharacterApi.GET_GAMES_FOR_CHARACTER.replace('#', this.id.toString())).subscribe(games => {
             if(games) {
               this.characterGames = games["payload"];
               var temp: ListSelectItem[] = new Array(this.characterGames.length);
 
               for(var i  = 0; i < this.characterGames.length; i++){
-                temp[i] = new ListSelectItem(this.characterGames[i].gameId, this.characterGames[i].gameName);
+                temp[i] = new ListSelectItem(this.characterGames[i].id, this.characterGames[i].name);
               }
               this.characterGames = temp;
             }
@@ -105,6 +109,7 @@ export class CharacterAddEditComponent implements OnInit {
     if (this.isEdit) {
       console.log(this.character);
       this.api.put(CharacterApi.EDIT_CHARACTER + this.id.toString(), this.character).subscribe(() => {
+        this.toastr.success("Character edited!");
         this.router.navigate(['/character/'+ this.id + '/overview']);
       })
     }
@@ -112,6 +117,7 @@ export class CharacterAddEditComponent implements OnInit {
       console.log(this.character);
       this.api.post(CharacterApi.CREATE_CHARACTER, this.character).subscribe((response) => {
         if (response && response['payload']) {
+          this.toastr.success("Character created!");
           this.router.navigate(['/character/search']);
         }
       })
