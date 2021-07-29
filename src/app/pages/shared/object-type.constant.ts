@@ -11,4 +11,5 @@ export class ObjectType {
     public static PUBLISHER = "publisher";
     public static COMPANY = "company";
     public static GENRE = "genre";
+    public static PLATFORM = "platform";
 }

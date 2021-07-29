@@ -13,6 +13,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from '../../material.module';
 import { LinkMapAddFormComponent } from '../link-map/link-map-add-form/link-map-add-form.component';
+import { ReleaseAddFormComponent } from '../release/release-add-form/release-add-form.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LinkMapAddFormComponent } from '../link-map/link-map-add-form/link-map-
     MatListModule
   ],
   entryComponents:[
-    LinkMapAddFormComponent
+    LinkMapAddFormComponent,
+    ReleaseAddFormComponent
   ]
 
 })

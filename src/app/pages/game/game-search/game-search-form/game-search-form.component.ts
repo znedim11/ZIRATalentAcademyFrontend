@@ -190,7 +190,7 @@ export class GameSearchFormComponent implements OnInit {
       companyParams = companyParams.set('pagination', JSON.stringify({ entitiesPerPage: this.pageSize, page: nextPage }));
       var companyOptions = { params: companyParams };
 
-      this.api.get(SharedApi.GET_GAMES, companyOptions).subscribe((response) => {
+      this.api.get(SharedApi.GET_COMPANIES, companyOptions).subscribe((response) => {
         if (response) {
           var helperList: SelectItem[] = [];
           var payload = response['payload'];

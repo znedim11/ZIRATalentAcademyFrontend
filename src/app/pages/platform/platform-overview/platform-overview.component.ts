@@ -6,6 +6,9 @@ import { RestApiService } from '../../shared/rest-api.service';
 import { PlatformApi } from '../shared/platform-api.constant';
 import { Platform } from '../shared/platform.model';
 import { ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ReleaseAddFormComponent } from '../../release/release-add-form/release-add-form.component';
+import { ObjectType } from '../../shared/object-type.constant';
 
 @Component({
   selector: 'platform-overview',
@@ -19,7 +22,8 @@ export class PlatformOverviewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private api: RestApiService
+    private api: RestApiService, 
+    private matDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -35,4 +39,13 @@ export class PlatformOverviewComponent implements OnInit {
       }
     });
   }
+
+  addRelease(){
+    const dialogConfigReview = new MatDialogConfig();
+    dialogConfigReview.disableClose = true;
+    dialogConfigReview.id = "release-add-form-component";
+    dialogConfigReview.width = "900px";
+    dialogConfigReview.data = { objectId: this.platform.id, objectType: ObjectType.PLATFORM.toUpperCase()}
+    this.matDialog.open(ReleaseAddFormComponent, dialogConfigReview);
+}
 }

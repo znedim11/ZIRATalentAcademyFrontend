@@ -1,0 +1,65 @@
+<section>
+    <mat-icon (click)="closeModal()">close</mat-icon>
+    <h3>Create release
+    </h3>
+    <form #releaseform="ngForm" (ngSubmit)="save()" novalidate>
+        <div class="select-box-list">
+            <div class="formRow" [hidden]="!showSelect.get('platform')">
+                <angular2-multiselect id="platformSelect" [data]="platform.dropdownList" [(ngModel)]="platform.selectedItems" [settings]="settings.get('platform')" (onScrollToEnd)="fetchMorePlatforms($event)" name="platforms">
+                    <c-search>
+                        <ng-template>
+                            <input type="text" [(ngModel)]="filterPlatform" (keyup)="onSearchPlatform($event)" placeholder="Search platforms" style="border: none;width: 100%; height: 100%;outline: none;" name="search" />
+                        </ng-template>
+                    </c-search>
+                </angular2-multiselect>
+            </div>
+
+            <div [hidden]="!showSelect.get('game')">
+                <angular2-multiselect id="gameSelect" [data]="game.dropdownList" [(ngModel)]="game.selectedItems" [settings]="settings.get('game')" (onScrollToEnd)="fetchMoreGames($event)" name="games">
+                    <c-search>
+                        <ng-template>
+                            <input type="text" [(ngModel)]="filterGame" (keyup)="onSearchGame($event)" placeholder="Search games" style="border: none;width: 100%; height: 100%;outline: none;" name="search" />
+                        </ng-template>
+                    </c-search>
+                </angular2-multiselect>
+            </div>
+
+            <div>
+                <angular2-multiselect name="regions" [settings]="settings.get('region')" [data]="region.dropdownList" [(ngModel)]="region.selectedItems"></angular2-multiselect>
+            </div>
+
+            <div>
+                <label for="releaseDate">
+                    Release date:
+                </label>
+                <input type="datetime-local" [(ngModel)]="release.releaseDate" name="releaseDate">
+            </div>
+
+            <div>
+                <angular2-multiselect [data]="developer.dropdownList" [(ngModel)]="developer.selectedItems" [settings]="settings.get('developer')" (onScrollToEnd)="fetchMoreCompanies($event)" name="developers">
+                    <c-search>
+                        <ng-template>
+                            <input type="text" [(ngModel)]="filterDev" (keyup)="onSearchDev($event)" placeholder="Search developers" style="border: none;width: 100%; height: 100%;outline: none;" name="searchDev" />
+                        </ng-template>
+                    </c-search>
+                </angular2-multiselect>
+            </div>
+
+            <div>
+                <angular2-multiselect [data]="publisher.dropdownList" [(ngModel)]="publisher.selectedItems" [settings]="settings.get('publisher')" (onScrollToEnd)="fetchMoreCompanies($event)" name="games">
+                    <c-search>
+                        <ng-template>
+                            <input type="text" [(ngModel)]="filterPub" (keyup)="onSearchPub($event)" placeholder="Search publishers" style="border: none;width: 100%; height: 100%;outline: none;" name="searchPub" />
+                        </ng-template>
+                    </c-search>
+                </angular2-multiselect>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="save">Save</button>
+            <button type="reset" class="cancel" (click)="clear()">Reset values</button>
+        </div>
+    </form>
+
+</section>
