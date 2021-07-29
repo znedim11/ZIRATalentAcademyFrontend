@@ -31,8 +31,8 @@
 <div class="row" *ngFor="let interval of map | keyvalue">
     <h4>{{interval.key}}</h4>
     <hr>
-    <div *ngFor="let item of interval.value">
-        <release-item></release-item>
+    <div>
+        <release-item *ngFor="let item of interval.value" [release]="release"></release-item>
     </div>
 </div>
 

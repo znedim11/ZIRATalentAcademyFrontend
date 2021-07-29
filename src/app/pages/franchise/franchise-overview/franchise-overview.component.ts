@@ -1,7 +1,5 @@
-import { not } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { from } from 'rxjs';
 import { GameApi } from '../../game/shared/game-api.constant';
 import { RestApiService } from '../../shared/rest-api.service';
 import { FranchiseApi } from '../shared/franchise-api.constant';

@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DateFormatterService } from '../../shared/date-formatter.service';
 import { RestApiService } from '../../shared/rest-api.service';
 import { PlatformApi } from '../shared/platform-api.constant';
 import { Platform } from '../shared/platform.model';

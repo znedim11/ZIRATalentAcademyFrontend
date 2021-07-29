@@ -1,14 +1,16 @@
 <div>
-  <h4>{{ title }}</h4>
-
+  <h4>New Releases</h4>
   <div>
-    <ul *ngFor="let interval of map | keyvalue">
-      {{
-        interval.key
-      }}
-      <li *ngFor="let item of interval.value">
-        <release-item></release-item>
-      </li>
-    </ul>
+    <div *ngFor="let interval of map | keyvalue">
+      <div class="row">
+        <i>{{interval.key}}</i>
+        <hr>
+      </div>
+      <div class="row">
+        <div *ngFor="let item of interval.value" class="col-3 container">
+          <release-item [release]="item" class="release-list-element"></release-item>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
